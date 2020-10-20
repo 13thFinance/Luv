@@ -1,5 +1,4 @@
 # LuvWebsite
-
-this is test
-this is another test
-this is another test test  
+  
+plan folder contains the plan pdf  
+resources contains images and other media  
