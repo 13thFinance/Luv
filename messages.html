@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--
+landing page for luv dating site
+-->
+    
+<html lang="en">
+    
+<head>
+    <meta charset="utf-8">
+    <title>LUV</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+    
+<body class="landing-page">
+    
+    <div class="top-bar">
+        <div class="navbar">
+            <div id="nav-placeholder"></div>
+
+            <!-- fix this up later, move to main.js -->
+            <script>
+                $(function(){
+                  $("#nav-placeholder").load("modules/nav.html");
+                });
+            </script>
+        </div>
+    </div>
+    
+    <div class="messages-div">
+        <div class="users">
+            <h1 class="users-label">Users</h1>
+            
+            <hr />
+            
+            <div class="users-placeholder"><p>x</p></div>
+        </div>
+        
+        <div class="users-messages-divider"></div>
+        
+        <div class="message-history">
+            <h1 class="message-history-label">Message History</h1>
+            <hr />
+            <button class="match-button">Match</button>
+            
+            <div class="message-history-placeholder">x</div>
+        </div>
+    </div>
+    
+</body>
