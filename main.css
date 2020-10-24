@@ -62,11 +62,6 @@ nav a:nth-child(4):hover~.animation {
     
 }
 
-.create-account{
-    display: fled;
-    flex-direction: row;
-}
-
 
 .top-bar{
     display: flex; 
@@ -78,13 +73,32 @@ nav a:nth-child(4):hover~.animation {
 .create-login {}
 
 
+.form-div{
+    display: flex;
+    justify-content: space-evenly;
+}
 
+.account-field{
+    border-color: rgb(220,220,220)
+    border-radius: 10px;
+    margin: 4px 0;
+    padding: 5px 10px;
+}
 
+.create-account-submit{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin: 2px 0;
+    padding: 10px 20px;
+    width: 14em;
+}
 
-
-
-
-
+.form-header{
+    font-size: 2em;
+}
 
 body {
 	font-size: 12px;
