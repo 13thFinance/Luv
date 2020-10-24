@@ -9,63 +9,59 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-
-    <div>
-        <p>
-            Create Account
-        </p>
-        
-        <form id="create-acount-form">
-            <div>
-                <input type="text" id ="first-name" class ="account-field" placeholder="First Name"/>
-            </div>
-            <div>
-                <input type="text" id ="last-name" class ="account-field" placeholder="Last Name"/>
-            </div>
-            <div>
-                <input type="text" id ="create-email" class ="account-field" placeholder="Email"/>
-            </div>
-            <div>
-                <input type="text" id ="create-password" class ="account-field" placeholder="Password"/>
-            </div>
-            <div>
-                <input type="text" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
-            </div>
-            <br />
-            <div>
-                <input type="submit" id="submitProfile" class="create-account-submit">
-            </div>
-        </form>
-        
-    </div>
     
-    <div>
-        <p>
-            Login
-        </p>
-        
-        <form id="login-form">
-            <div>
-                <input type="text" id ="first-name" class ="account-field" placeholder="First Name"/>
-            </div>
-            <div>
-                <input type="text" id ="last-name" class ="account-field" placeholder="Last Name"/>
-            </div>
-            <div>
-                <input type="text" id ="create-email" class ="account-field" placeholder="Email"/>
-            </div>
-            <div>
-                <input type="text" id ="create-password" class ="account-field" placeholder="Password"/>
-            </div>
-            <div>
-                <input type="text" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
-            </div>
-            <br />
-            <div>
-                <input type="submit" id="submitProfile" class="create-account-submit">
-            </div>
-        </form>
-        
+    <div class="form-div">
+        <div class="sub-form-div">
+            
+            <form id="create-account-form">
+                <div class="form-header">
+                    Create Account
+                </div>
+                <div class="create-account-form-class">
+                    <div>
+                        <input type="text" id ="first-name" class ="account-field" placeholder="First Name"/>
+                    </div>
+                    <div>
+                        <input type="text" id ="last-name" class ="account-field" placeholder="Last Name"/>
+                    </div>
+                    <div>
+                        <input type="text" id ="create-email" class ="account-field" placeholder="Email"/>
+                    </div>
+                    <div>
+                        <input type="text" id ="create-password" class ="account-field" placeholder="Password"/>
+                    </div>
+                    <div>
+                        <input type="text" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
+                    </div>
+                    <hr/>
+                    <div class="button-div">
+                        <input type="submit" id="submitProfile" class="create-account-submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="vertical-line-div"></div>
+        <div class="sub-form-div">
+            <form id="login-form" >
+                <div class="form-header">
+                    Login
+                </div>
+
+                <div class="login-form-class">
+                    <div>
+                        <input type="text" id ="login-email" class ="account-field" placeholder="Email"/>
+                    </div>
+                    <div>
+                        <input type="text" id ="login-password" class ="account-field" placeholder="Password"/>
+                    </div>
+                    <hr/>
+                    <div class="button-div">
+                        <input type="submit" id="submitProfile" class="create-account-submit">
+                    </div>
+                </div>
+            </form>
+
+        </div>
     </div>
 </body>
     
