@@ -1,10 +1,16 @@
+body {
+	font-size: 12px;
+	font-family: sans-serif;
+    background-color: #fff;
+}
+
 .nav-bar {
 	margin: 10px;
 
 	position: relative;
 	width: 480px;
 	height: 50px;
-	background-color: darkgrey;
+	background-color: #c83349;
 	border-radius: 8px;
 	font-size: 0;
 }
@@ -57,19 +63,19 @@
 .navSearch:hover~.animation {
 	width: 110px;
 	left: 100px;
-	background-color: #e74c3c;
+	background-color: #1abc9c;
 }
 
 .navRecommended:hover~.animation {
 	width: 150px;
 	left: 210px;
-	background-color: #3498db;
+	background-color: #1abc9c;
 }
 
 .navMessages:hover~.animation {
 	width: 120px;
 	left: 360px;
-	background-color: darkcyan;
+	background-color: #1abc9c;
 }
 
 .createLoginNav {
@@ -78,7 +84,7 @@
 	position: relative;
 	width: 300px;
 	height: 50px;
-	background-color: darkgrey;
+	background-color: #c83349;
 	border-radius: 8px;
 	font-size: 0;
 }
@@ -124,26 +130,55 @@
 .login:hover~.animation {
 	width: 100px;
 	left: 200px;
-	background-color: #e74c3c;
+	background-color: #1abc9c;
 }
-
-
-
-
-
-
 
 .top-bar{
     display: flex;
     justify-content: space-between;
 }
 
-
-body {
-	font-size: 12px;
-	font-family: sans-serif;
-    background-color: #ffa;
+.landing-banner-image {
+    width:100%;
+    min-width: 500px;
+    height: 200px;
+    min-height: 100px;   
 }
+
+.splash-text {
+    background: rgba(0, 0, 0, 60%);
+    color: white;
+    
+    text-align: center;
+    font-size: 6vw;
+    
+    font-family: 'Dancing Script', cursive;
+    
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+.title-card{
+    padding: 0px;
+    margin: 0px;
+}
+
+.splash-bottom{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 0.9vw;
+}
+
+.landing-page{
+    background: url(resources/splash.jpg) no-repeat center center fixed;
+    background: ;
+    background-size: cover;
+}
+
+
 
 #icon {
     height: 50px;
