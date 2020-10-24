@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <title> Account Management </title>
+        <meta charset = "utf-8"/>
+        <link rel = "stylesheet" href = "main.css">
+    </head>
+    <body>
+            <div id = "mainDivAccountManagement">
+                <div id="profileBodyDiv-Left">
+                    <form id = "accountManagementForm">
+                        <div id = "profilePicDiv">    
+                            <img src="profilepic.png" id = "profilePic">
+                        </div>
+                        <div id="aboutMeDiv">
+                            <div id = "aboutMeBody">
+                                <div id = "aboutMeTitle"> About Me</div>
+                                <textarea id = "aboutMeInput" name = "aboutMeInfo" rows = "6" cols = "60">
+
+                                </textarea>
+                            </div>
+                        </div>
+                        <div id = "sexGenderDiv">
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Sex </div>
+                                <input type = "text" name = "sexPreferenceInput" id = "sexBoxInput" placeholder="Input Sex Preference">
+                            </div>
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Gender </div>
+                                <select name = "Gender" id = "genderSelectionMenu">
+                                <option> Select Gender </option>
+                                <option> Male </option>
+                                <option> Female </option>
+                                <option> Other </option>
+                            </select>
+                            </div>
+                        </div>
+                        <div id = "ageLookingForDiv">
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Age </div>
+                                <input type = "text" name = "ageInput" id = "ageBoxInput" placeholder="Input Age">
+                            </div>
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Looking For </div>
+                                <input type = "text" name = "lookingForInput" id = "lookingForBoxInput" placeholder="Looking for...">
+                            </div>
+                        </div>
+                        <div id="jobTitleDiv">
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Job Title </div>
+                                <input type = "text" name = "jobTitleInput" id = "jobTitleBoxInput" placeholder="Input Job Title">
+                            </div>
+                        </div>
+                        <div id="locationDiv">
+                            <div class = "frameBodyAccountManagement">  
+                                <div class = "frameTitleAccountManagement"> Location </div>
+                                <input type = "text" name = "locationInput" id = "locationBoxInput" placeholder="Where are you from?">
+                            </div>
+                        </div>
+                        <div id="saveChangesDiv">
+                            <input id = "saveChangesButton" type="button" value="Save Changes">
+                        </div>
+                    </form>
+                </div> <!--Left Profile Div -->
+                <div id = "reviewsAccountManagement-Right">
+                    <div id = "reviewsLabelDiv">
+                        <label id = "reviewsLabel">
+                            Reviews
+                        </label>
+                    </div>
+                </div> <!--Reviews Account Management Right -->
+            </div> <!--Main Div -->
+    </body>
+</html>
