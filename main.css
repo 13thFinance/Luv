@@ -83,8 +83,7 @@
 	font-size: 0;
 }
 
-<<<<<<< HEAD
-=======
+
 .createLoginNav a {
 	line-height: 50px;
 	height: 100%;
@@ -107,7 +106,6 @@
 	transition: all .5s ease 0s;
 	border-radius: 8px;
 }
->>>>>>> 5a9c9a7c5afddf67789dedd7e924a511146ab16a
 
 .createAccount {
     width: 200px;
@@ -130,18 +128,12 @@
 	background-color: #e74c3c;
 }
 
-<<<<<<< HEAD
-
-=======
-
-
 
 .top-bar{
     display: flex;
     justify-content: space-between;
 }
 
->>>>>>> 5a9c9a7c5afddf67789dedd7e924a511146ab16a
 
 body {
 	font-size: 12px;
