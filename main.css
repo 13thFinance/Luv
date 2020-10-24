@@ -1,14 +1,15 @@
-nav {
+.nav-bar {
 	margin: 10px;
 
 	position: relative;
-	width: 460px;
+	width: 480px;
 	height: 50px;
 	background-color: darkgrey;
 	border-radius: 8px;
 	font-size: 0;
 }
-nav a {
+
+.nav-bar a {
 	line-height: 50px;
 	height: 100%;
 	font-size: 16px;
@@ -21,7 +22,8 @@ nav a {
 	color: white;
 	cursor: pointer;
 }
-nav .animation {
+
+.nav-bar .animation {
 	position: absolute;
 	height: 100%;
 	top: 0;
@@ -29,58 +31,115 @@ nav .animation {
 	transition: all .5s ease 0s;
 	border-radius: 8px;
 }
- 
 
-nav a:nth-child(1):hover~.animation {
+.navHome {
+    width: 100px;
+}
+
+.navSearch {
+    width: 110px;
+}
+
+.navRecommended {
+    width: 150px;
+}
+
+.navMessages {
+    width: 120px;
+}
+
+.navHome:hover~.animation {
 	width: 100px;
 	left: 0;
 	background-color: #1abc9c;
 }
 
-nav a:nth-child(2):hover~.animation {
+.navSearch:hover~.animation {
 	width: 110px;
 	left: 100px;
 	background-color: #e74c3c;
 }
 
-nav :nth-child(3):hover~.animation {
+.navRecommended:hover~.animation {
 	width: 150px;
 	left: 210px;
 	background-color: #3498db;
 }
 
-nav a:nth-child(4):hover~.animation {
-	width: 100px;
+.navMessages:hover~.animation {
+	width: 120px;
 	left: 360px;
 	background-color: darkcyan;
 }
 
 
-.createLoginNav{
-    
-    
-    
+
+
+.createLoginNav {
+    margin: 10px;
+
+	position: relative;
+	width: 300px;
+	height: 50px;
+	background-color: darkgrey;
+	border-radius: 8px;
+	font-size: 0;
 }
+
+.createLoginNav a {
+	line-height: 50px;
+	height: 100%;
+	font-size: 16px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+.createLoginNav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+
+.createAccount {
+    width: 200px;
+}
+
+.login {
+    width: 100px;
+}
+
+
+.createAccount:hover~.animation {
+	width: 200px;
+	left: 0;
+	background-color: #1abc9c;
+}
+
+.login:hover~.animation {
+	width: 100px;
+	left: 200px;
+	background-color: #e74c3c;
+}
+
+
+
 
 
 
 
 .top-bar{
-    display: flex; 
+    display: flex;
     justify-content: space-between;
 }
-
-.navbar {}
-
-.create-login {}
-
-
-
-
-
-
-
-
 
 
 body {
