@@ -6,8 +6,10 @@
         <title> Account Management </title>
         <meta charset = "utf-8"/>
         <link rel = "stylesheet" href = "main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     </head>
-    <body>
+    <body class="landing-page">
             <div id = "mainDivAccountManagement">
                 <div id="profileBodyDiv-Left">
                     <form id = "accountManagementForm">
@@ -17,7 +19,7 @@
                         <div id="aboutMeDiv">
                             <div id = "aboutMeBody">
                                 <div id = "aboutMeTitle"> About Me</div>
-                                <textarea id = "aboutMeInput" name = "aboutMeInfo" rows = "6" cols = "60">
+                                <textarea id = "aboutMeInput" name = "aboutMeInfo" rows = "12" cols = "60" style="resize: none">
 
                                 </textarea>
                             </div>
@@ -64,11 +66,114 @@
                         </div>
                     </form>
                 </div> <!--Left Profile Div -->
+                <div class="vertical-line-div2"></div>
                 <div id = "reviewsAccountManagement-Right">
+                    <div class="reviews-space-div"> </div>
                     <div id = "reviewsLabelDiv">
                         <label id = "reviewsLabel">
                             Reviews
-                        </label>
+                        </label>    
+                    </div>
+                    
+                    <div class="review-parent-div">
+                        <div class="review-image-div">
+                            <img src="profilepic.png" class = "reviewProfilePic">
+                        </div>
+
+                        <div class="review-feedback-div">
+
+                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
+
+                            <hr/>
+
+                            <div class="review-stars-div">
+                                <form action="" class="review-rating-form">
+                                    <input type="radio" name="review-rating" id="review-rating-id1" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id1" class="rating-start-label">1 Star</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id2" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id2" class="rating-start-label">2 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id3" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id3" class="rating-start-label">3 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id4" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id4" class="rating-start-label">4 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id5" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id5" class="rating-start-label">5 Stars</label>
+                                    
+                                </form>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="review-parent-div">
+                        <div class="review-image-div">
+                            <img src="profilepic.png" class = "reviewProfilePic">
+                        </div>
+
+                        <div class="review-feedback-div">
+
+                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
+
+                            <hr/>
+
+                            <div class="review-stars-div">
+                                <form action="" class="review-rating-form">
+                                    <input type="radio" name="review-rating" id="review-rating-id1" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id1" class="rating-start-label">1 Star</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id2" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id2" class="rating-start-label">2 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id3" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id3" class="rating-start-label">3 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id4" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id4" class="rating-start-label">4 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id5" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id5" class="rating-start-label">5 Stars</label>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="review-parent-div">
+                        <div class="review-image-div">
+                            <img src="profilepic.png" class = "reviewProfilePic">
+                        </div>
+
+                        <div class="review-feedback-div">
+
+                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
+
+                            <hr/>
+
+                            <div class="review-stars-div">
+                                <form action="" class="review-rating-form">
+                                    <input type="radio" name="review-rating" id="review-rating-id1" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id1" class="rating-start-label">1 Star</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id2" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id2" class="rating-start-label">2 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id3" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id3" class="rating-start-label">3 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id4" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id4" class="rating-start-label">4 Stars</label>
+                                    
+                                    <input type="radio" name="review-rating" id="review-rating-id5" class="review-rating-id" value="rating">
+                                    <label for="review-rating-id5" class="rating-start-label">5 Stars</label>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                 </div> <!--Reviews Account Management Right -->
             </div> <!--Main Div -->
