@@ -29,42 +29,41 @@ nav .animation {
 	transition: all .5s ease 0s;
 	border-radius: 8px;
 }
-a:nth-child(1) {
-	width: 100px;
-}
-a:nth-child(2) {
-	width: 110px;
-}
-a:nth-child(3) {
-	width: 150px;
-}
-a:nth-child(4) {
-	width: 100px;
-}
+ 
 
-nav .start-home, a:nth-child(1):hover~.animation {
+nav a:nth-child(1):hover~.animation {
 	width: 100px;
 	left: 0;
 	background-color: #1abc9c;
 }
 
-nav .start-about, a:nth-child(2):hover~.animation {
+nav a:nth-child(2):hover~.animation {
 	width: 110px;
 	left: 100px;
 	background-color: #e74c3c;
 }
 
-nav .start-blog, a:nth-child(3):hover~.animation {
+nav :nth-child(3):hover~.animation {
 	width: 150px;
 	left: 210px;
 	background-color: #3498db;
 }
 
-nav .start-portefolio, a:nth-child(4):hover~.animation {
+nav a:nth-child(4):hover~.animation {
 	width: 100px;
 	left: 360px;
 	background-color: darkcyan;
 }
+
+
+.createLoginNav{
+    
+    
+    
+}
+
+
+
 
 .top-bar{
     display: flex; 
