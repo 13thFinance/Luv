@@ -465,9 +465,27 @@ body {
     word-break: break-all;
 }
 
+.match-button{
+    width: auto;
+    height: 50px;
+    
+    text-align: center;
+    margin: auto;
+    
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 10%;
+    
+    background-color: #c83349;
+    color: white;
+    
+}
+
 hr {
     border: 0px;
     border-bottom: 1px;
     border-style: solid;
     border-color: black;
+    
+    width: 100%;
 }
