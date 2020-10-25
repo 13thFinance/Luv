@@ -255,13 +255,21 @@ body {
     width: 50px;
 }
 
+/*************************************************************/
+/* Account Management*****************************************/
+
 #mainDivAccountManagement{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    background: rgba(255,255,255,50%)
 }
 
 #profileBodyDiv-Left{
-    margin: auto;
+    padding: 6vw;
+}
+#reviewsAccountManagement-Right{
+    padding: 2vw;
+    width: 50vw;
 }
 
 #profilePic{
@@ -275,6 +283,8 @@ body {
 #aboutMeDiv{
     display: flex;
     padding: 1%;
+    border: none;
+    height: 220px;
 }
 
 #aboutMeBody{
@@ -293,6 +303,7 @@ body {
     width: 100px;
     background-color: white;
     text-align: center;
+    border-radius: 8px;
 }
 
 #aboutMeInput{
@@ -306,10 +317,10 @@ body {
     border: 1px solid black;
     position: relative;
     flex-grow: 1;
+    margin: 6px;
 }
 
 .frameTitleAccountManagement {
-    margin: auto;
     position: absolute;
     top: -10px;
     left: 5px;
@@ -317,6 +328,8 @@ body {
     width: 80px;
     background-color: white;
     text-align: center;
+    border-radius: 8px;
+    
 }
 
 
@@ -392,18 +405,70 @@ body {
 #saveChangesDiv{
     display: flex;
     justify-content: center;
+    margin-top: 1vw;
 }
 
 #saveChangesButton{
-    display: flex;
-    margin: 4%;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 225px;
+    text-align: center;
 }
 
+/*************************************************************/
+/* Account Management - Reivews*******************************/
+
 #reviewsLabelDiv{
-    margin: auto;
+    text-align: center;
+    background-color: rgb(220,220,220);
+    font-size: 40px;
+    height: 50px;
+    padding: 3px;
+    width: 1040px;
+    
+}
+
+.reviews-space-div{
+    height: 3vw;
+}
+
+.vertical-line-div2{
+    border: 0px;
+    border-left: 6px; 
+    border-style: solid;
+    border-color: grey;
+    margin-right: 5vw;
+}
+
+
+.review-parent-div{
     display: flex;
+    border: 1px;
+    border-style: solid;
+    height: 150px;
+    padding: 1vw;
+    margin-top: 2vw;
+    width: 970px;
+}
+
+.reviewProfilePic{
+    border-radius: 50%;
+    width: 118px;
+    height: 118px;
+    border: none;
     justify-content: center;
-    padding: 100%;
+    align-items: center;
+    padding: 1vw;
+}
+
+
+
+.reveiw-text-area{
+    border: 1px solid black;
 }
 
 .messages-div{
