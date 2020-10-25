@@ -258,21 +258,21 @@ body {
 /*************************************************************/
 /* Account Management*****************************************/
 
-#mainDivAccountManagement{
+#mainDivAccountManagement, #main-div-view-other{
     display: flex;
     justify-content: center;
     background: rgba(255,255,255,50%)
 }
 
-#profileBodyDiv-Left{
+#profileBodyDiv-Left, #profile-body-div-left-readonly{
     padding: 6vw;
 }
-#reviewsAccountManagement-Right{
+#reviewsAccountManagement-Right, #reviews-account-management-right-readonly{
     padding: 2vw;
     width: 50vw;
 }
 
-#profilePic{
+#profilePic, #profile-pic-div-readonly{
     border-radius: 50%;
     width: 185px;
     height: 185px;
@@ -280,21 +280,20 @@ body {
     object-position: 20% 10%;
 }
 
-#aboutMeDiv{
+#aboutMeDiv, #about-me-div-readonly{
     display: flex;
     padding: 1%;
     border: none;
     height: 220px;
 }
 
-#aboutMeBody{
+#aboutMeBody, #about-me-body-readonly{
     height: 100px;
     width: 450px;
-    border: 1px solid black;
     position: relative;
 }
 
-#aboutMeTitle{
+#aboutMeTitle, #about-me-title-readonly{
     margin: auto;
     position: absolute;
     top: -10px;
@@ -306,7 +305,7 @@ body {
     border-radius: 8px;
 }
 
-#aboutMeInput{
+#aboutMeInput, #about-me-input-readonly{
     padding-top: 2%;
 }
 
@@ -333,7 +332,7 @@ body {
 }
 
 
-#picCircle{
+#picCircle, {
     border-radius: 50%;
     width: 148px;
     height: 100px;
@@ -342,62 +341,62 @@ body {
     align-items: center;
 }
 
-#profilePicDiv{
+#profilePicDiv, #profile-pic-div-readonly{
     margin: auto;
     display: flex;
     justify-content: center;
     padding: 3%;
 }
 
-#sexGenderDiv{
+#sexGenderDiv, #sex-gender-div-readonly{
     display: flex;
     padding-top: 3%;
     justify-content: space-between;
 }
 
-#sexBoxInput{
+#sexBoxInput, #sex-box-input-readonly{
     width: 96%;
     padding-top: 5%;
 }
 
-#ageBoxInput{
+#ageBoxInput, #age-box-input-readonly{
     width: 96%;
     padding-top: 5%;
 }
 
-#lookingForBoxInput{
+#lookingForBoxInput, #looking-for-box-input-readonly{
     width: 96%;
     padding-top: 5%;
 }
 
-#jobTitleBoxInput{
+#jobTitleBoxInput, #job-title-box-input-readonly{
     width: 98%;
     padding-top: 2%;
 }
 
-#locationBoxInput{
+#locationBoxInput, #location-box-input-readonly{
     width: 98%;
     padding-top: 2%;
 }
 
-#genderSelectionMenu{
+#genderSelectionMenu, #gender-selection-menu-readonly{
     padding-top: 5%;
     width: 100%;
 }
 
 
-#ageLookingForDiv{
+#ageLookingForDiv, #age-looking-for-div-readonly{
     display: flex;
     margin: auto;
     padding-top: 3%;
 }
 
-#jobTitleDiv{
+#jobTitleDiv, #job-title-div-readonly{
     display: flex;
     padding-top: 4%;
 }
 
-#locationDiv{
+#locationDiv, #location-div-readonly{
     display: flex;
     padding-top: 4%;
 }
@@ -422,7 +421,7 @@ body {
 /*************************************************************/
 /* Account Management - Reivews*******************************/
 
-#reviewsLabelDiv{
+#reviewsLabelDiv, #reviews-label-div-readonly{
     text-align: center;
     background-color: rgb(220,220,220);
     font-size: 40px;
@@ -535,4 +534,27 @@ hr {
     border-bottom: 1px;
     border-style: solid;
     border-color: black;
+}
+
+/**************************************************************
+    View Others Profile***************************************/
+
+.reviews-label-div-readonly{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    padding-top: 1vw;
+    width: 1040px;
+}
+
+.add-review-button-class{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 20px;
+    width: 225px;
+    text-align: center;
 }
