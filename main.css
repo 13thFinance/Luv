@@ -499,7 +499,6 @@ body {
     display: flex;
     text-align: center;
     flex-wrap: wrap;
-    
     background: rgba(255,255,255,50%)
 }
 
@@ -600,3 +599,92 @@ hr {
     width: 225px;
     text-align: center;
 }
+
+/**************************************************************
+    Search Recommneded ***************************************/
+
+.search-recommended-main-div{
+    display: flex;
+    justify-content: space-between; 
+}
+.search-sub-div{
+    margin-left: 41vw;
+    margin-top: 5em;
+}
+
+#search-text{
+    width: 300px;
+    height: 2.2em;
+    border-radius: 8px;
+    border-width: thin;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+#search-button{
+    height: 2.6em;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#recommended-button{
+    height: 2.6em;
+    margin-right: 8vw;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 4.3em;
+}
+
+.search-result-recommended-parent-div{
+    display: flex;
+    margin: 2em;
+    padding: 2em;
+    justify-content: center;
+    background: rgba(255,255,255, 50%);
+}
+
+.review-rating-id{
+    margin: 1em;
+}
+
+.seach-profile-button-div{
+    padding-left: 4em;
+}
+
+#search-profile-view-button, #search-profile-message-button{
+    margin: 0.5em;
+    height: 2.6em;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.profile-username{
+    text-align: center;
+    font-size: 17px;
+    padding: 0;
+}
+
+.search-profile-aboutme-text-area{
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+}
+
+
