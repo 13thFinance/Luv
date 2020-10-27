@@ -7,9 +7,21 @@
         <meta charset = "utf-8"/>
         <link rel = "stylesheet" href = "main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         
     </head>
     <body class="landing-page">
+        <div class="navbar">
+            <div id="nav-placeholder"></div>
+
+            <!-- fix this up later, move to main.js -->
+            <script>
+                $(function(){
+                  $("#nav-placeholder").load("modules/nav.html");
+                });
+            </script>
+        </div>
+        
             <div id = "main-div-view-other">
                 <div id="profile-body-div-left-readonly">
                     <form id = "view-other-form">

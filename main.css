@@ -194,6 +194,8 @@ body {
 }
 
 .sub-form-div{
+    background-color: rgb(255,255,255, 50%);
+    
     border: 1px;
     border-color: grey;
     border-radius: 4px;
@@ -259,17 +261,21 @@ body {
 /* Account Management*****************************************/
 
 #mainDivAccountManagement, #main-div-view-other{
+    position: absolute;
     display: flex;
     justify-content: center;
-    background: rgba(255,255,255,50%)
 }
 
 #profileBodyDiv-Left, #profile-body-div-left-readonly{
+    background: rgba(255,255,255,50%);
+    border-radius: 10px;
+    
     padding: 6vw;
 }
 #reviewsAccountManagement-Right, #reviews-account-management-right-readonly{
+    background: rgba(255,255,255,50%);
+    border-radius: 10px;
     padding: 2vw;
-    width: 50vw;
 }
 
 #profilePic, #profile-pic-div-readonly{
@@ -407,7 +413,24 @@ body {
     margin-top: 1vw;
 }
 
+#sign-out-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 1vw;
+}
+
 #saveChangesButton{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 225px;
+    text-align: center;
+}
+
+#sign-out-button{
     background-color: #4CAF50;
     border: none;
     border-radius: 8px;
@@ -437,10 +460,11 @@ body {
 
 .vertical-line-div2{
     border: 0px;
-    border-left: 6px; 
     border-style: solid;
     border-color: grey;
     margin-right: 5vw;
+    
+    background: rgba(255,255,255,50%);
 }
 
 

@@ -8,11 +8,20 @@
     <script type="text/javascript" src="main.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
+<body class="landing-page">
+    <div class="navbar">
+            <div id="nav-placeholder"></div>
+
+            <!-- fix this up later, move to main.js -->
+            <script>
+                $(function(){
+                  $("#nav-placeholder").load("modules/nav.html");
+                });
+            </script>
+        </div>
     
     <div class="form-div">
         <div class="sub-form-div">
-            
             <form id="create-account-form">
                 <div class="form-header">
                     Create Account
@@ -40,7 +49,9 @@
                 </div>
             </form>
         </div>
-        <div class="vertical-line-div"></div>
+        
+        <!-- <div class="vertical-line-div"></div> -->
+        
         <div class="sub-form-div">
             <form id="login-form" >
                 <div class="form-header">
