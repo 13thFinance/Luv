@@ -278,7 +278,7 @@ body {
     padding: 2vw;
 }
 
-#profilePic, #profile-pic-div-readonly{
+#profilePic, #profile-pic-div-readonly, #admin-profile-pic{
     border-radius: 50%;
     width: 185px;
     height: 185px;
@@ -659,7 +659,7 @@ hr {
     margin: 1em;
 }
 
-.seach-profile-button-div{
+.seach-profile-button-div {
     padding-left: 4em;
 }
 
@@ -687,4 +687,53 @@ hr {
     margin-bottom: 0.8em;
 }
 
+/**************************************************************
+    Admin page ***************************************/
 
+.admin-reported-header{
+    align-content: center;
+    text-align: center;
+    font-size: 60px;
+    background-color: rgba(255,255,255,50%);
+    padding: 0.3em;
+}
+
+.admin-reported-account-main-div{
+    display: flex;
+    justify-content:space-around;
+    flex-direction: row;
+    background-color: rgba(255,255,255,50%);
+    font-size: 20px;
+    border: 2px;
+    border-style: solid;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#admin-date-reported-text{
+    padding-right: 108px;
+}
+
+#admin-profile-pic-div{
+    padding-left: 20px;   
+}
+
+.admin-buttons-div{
+    display: flex;
+    justify-content: space-around;
+}
+
+#admin-delete-button, #admin-ignore-button{
+    height: 3.5em;
+    width: 10em;
+    background-color: rgb(15,25,25);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 1.5em;
+
+}
