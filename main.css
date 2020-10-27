@@ -79,10 +79,10 @@ body {
 }
 
 .createLoginNav {
-  margin: 10px;
+    margin: 10px;
 
 	position: relative;
-	width: 300px;
+	width: 100px;
 	height: 50px;
 	background-color: #c83349;
 	border-radius: 8px;
@@ -112,6 +112,7 @@ body {
 	border-radius: 8px;
 }
 
+/*unused*/
 .createAccount {
     width: 200px;
 }
@@ -120,7 +121,7 @@ body {
     width: 100px;
 }
 
-
+/*unused*/
 .createAccount:hover~.animation {
 	width: 200px;
 	left: 0;
@@ -129,7 +130,7 @@ body {
 
 .login:hover~.animation {
 	width: 100px;
-	left: 200px;
+	left: 0;
 	background-color: #1abc9c;
 }
 
