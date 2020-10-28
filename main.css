@@ -82,7 +82,7 @@ body {
     margin: 10px;
 
 	position: relative;
-	width: 100px;
+	width: 250px;
 	height: 50px;
 	background-color: #c83349;
 	border-radius: 8px;
@@ -118,7 +118,7 @@ body {
 }
 
 .login {
-    width: 100px;
+    width: 250px;
 }
 
 /*unused*/
@@ -129,7 +129,7 @@ body {
 }
 
 .login:hover~.animation {
-	width: 100px;
+	width: 250px;
 	left: 0;
 	background-color: #1abc9c;
 }
