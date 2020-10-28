@@ -22,7 +22,7 @@
     
     <div class="form-div">
         <div class="sub-form-div">
-            <form id="create-account-form">
+            <form id="create-account-form" action="">
                 <div class="form-header">
                     Create Account
                 </div>
@@ -40,11 +40,11 @@
                         <input type="password" id ="create-password" class ="account-field" placeholder="Password"/>
                     </div>
                     <div>
-                        <input type="text" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
+                        <input type="password" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
                     </div>
                     <hr/>
                     <div class="button-div">
-                        <input type="submit" id="submitProfile" class="create-account-submit">
+                        <input type="button" id="submitProfile" class="create-account-submit" onclick="goto('accountManagement.html');" value="Create Account">
                     </div>
                 </div>
             </form>
@@ -53,7 +53,7 @@
         <!-- <div class="vertical-line-div"></div> -->
         
         <div class="sub-form-div">
-            <form id="login-form" >
+            <form id="login-form" action="">
                 <div class="form-header">
                     Login
                 </div>
@@ -63,11 +63,13 @@
                         <input type="text" id ="login-email" class ="account-field" placeholder="Email"/>
                     </div>
                     <div>
-                        <input type="text" id ="login-password" class ="account-field" placeholder="Password"/>
+                        <input type="password" id ="login-password" class ="account-field" placeholder="Password" />
                     </div>
+                    
                     <hr/>
+                    
                     <div class="button-div">
-                        <input type="submit" id="submitProfile" class="create-account-submit">
+                        <input type="button" id="submitProfile" class="create-account-submit" onclick="gotoLoginOrAdmin()" value="Login">
                     </div>
                 </div>
             </form>

@@ -23,18 +23,11 @@
     
     
     <div class="search-recommended-main-div">
-        <div class="search-recommended-sub-div">
             <div class="search-sub-div">
                 <input type="text" id="search-text" placeholder="Search Users"/>
                 <input type="submit" id="search-button" value="Search"/>
-            </div>
-        </div>
-        
-        <div class="search-recommended-sub-div">
-            <div class="recommended-sub-div">
                 <input type="submit" id="recommended-button" value="Recommended"/>
             </div>
-        </div>
     </div>
     
     <div class="search-result-recommended-parent-div">
@@ -65,17 +58,16 @@
 
                                 <input type="radio" name="review-rating" id="search-profile-rating-id5" class="review-rating-id" value="rating">
                                 <label for="search-profile-rating-id5" class="rating-start-label">5 Stars</label>
-                                
                             </form>
-                            
                         </div>
-
                     </div>
-                    <div class="seach-profile-button-div">
+        
+                    <!-- buttons -->
+                    <div class="seach-profile-button-div" action="">
                         <form class="search-profile-form">
-                            <input type="submit" id="search-profile-view-button" class="search-profile-button" value="View"/>
+                            <input type="button" id="search-profile-view-button" class="search-profile-button" value="View" onclick="goto('ViewOthersProfile.html');"/>
 
-                            <input type="submit" id="search-profile-message-button" class="search-profile-button" value="Message"/>
+                            <input type="button" id="search-profile-message-button" class="search-profile-button" value="Message" onclick="goto('messages.html');"/>
                         </form>
                     </div>
                 </div>

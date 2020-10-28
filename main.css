@@ -500,14 +500,13 @@ body {
     display: flex;
     text-align: center;
     flex-wrap: wrap;
-    background: rgba(255,255,255,50%)
+    background: rgba(255,255,255,50%);
+    border-radius: 10px;
 }
 
 .users {
     width: 300px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .message-history{
@@ -550,6 +549,8 @@ body {
 }
 
 .users-placeholder{
+    display: flex;
+    flex-direction: column;
     word-break: break-all;
 }
 
@@ -566,7 +567,6 @@ body {
     
     background-color: #c83349;
     color: white;
-    
 }
 
 hr {
@@ -615,10 +615,9 @@ hr {
 
 .search-recommended-main-div{
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
 }
 .search-sub-div{
-    margin-left: 41vw;
     margin-top: 5em;
 }
 
@@ -663,6 +662,7 @@ hr {
     padding: 2em;
     justify-content: center;
     background: rgba(255,255,255, 50%);
+    border-radius: 10px;
 }
 
 .review-rating-id{
@@ -734,7 +734,7 @@ hr {
     justify-content: space-around;
 }
 
-#admin-delete-button, #admin-ignore-button{
+#admin-delete-button, #admin-ignore-button, #admin-sign-out-button{
     height: 3.5em;
     width: 10em;
     background-color: rgb(15,25,25);
@@ -745,10 +745,12 @@ hr {
     padding: 10px 20px;
     text-align: center;
     margin-top: 1.5em;
-
 }
 
-
+.admin-sign-out-div{
+    display: flex;
+    flex-direction: row-reverse;
+}
 
 /************************************************************
     Messages page ******************************************/
