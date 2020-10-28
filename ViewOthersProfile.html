@@ -8,6 +8,7 @@
         <link rel = "stylesheet" href = "main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="form-functions.js"></script>
         
     </head>
     <body class="landing-page">
@@ -24,7 +25,7 @@
         
             <div id = "main-div-view-other">
                 <div id="profile-body-div-left-readonly">
-                    <form id = "view-other-form">
+                    <form id = "view-other-form" action="">
                         <div id = "profile-pic-div-readonly">    
                             <img src="profilepic.png" id = "profile-pic-readonly">
                         </div>
@@ -74,6 +75,12 @@
                             </div>
                         </div>
                         
+                        
+                        <div class="report-account-button-div">
+                            <input type="button" id="report-account-button" value="Report Account"/>
+                        </div>
+                        
+                        
                     </form>
                 </div> <!--Left Profile Div -->
                 <div class="vertical-line-div2"></div>
@@ -86,7 +93,7 @@
                     </div>
                     
                     <div class = "reviews-label-div-readonly">
-                        <input type="submit" id="add-review-button" class="add-review-button-class" value="Add Review"/>   
+                        <input type="button" id="add-review-button" class="add-review-button-class" value="Add Review"/>   
                     </div>
                     
                     <div class="review-parent-div">
@@ -96,7 +103,7 @@
 
                         <div class="review-feedback-div">
 
-                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
+                            <textarea id="review-textarea-id1" readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
 
                             <hr/>
 
@@ -191,5 +198,6 @@
                     </div>
                 </div> <!--Reviews Account Management Right -->
             </div> <!--Main Div -->
+        <script type="text/javascript" src="form-event-handler.js"></script>
     </body>
 </html>

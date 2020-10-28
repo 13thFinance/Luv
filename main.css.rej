@@ -1,0 +1,17 @@
+diff a/main.css b/main.css	(rejected hunks)
+@@ -1,10 +1,15 @@
+ 
+ 
+ 
++<<<<<<< HEAD
+ 
++=======
++.createLoginNav {
++    margin: 10px;
++>>>>>>> parent of b0868b4... pls
+ 
+ 
+ 
+ body {
+ 	font-size: 12px;
+ 	font-family: sans-serif;
