@@ -290,6 +290,7 @@ body {
 #aboutMeDiv, #about-me-div-readonly{
     display: flex;
     padding: 1%;
+    padding-top: 8%;
     border: none;
     height: 220px;
 }
@@ -355,13 +356,13 @@ body {
     padding: 3%;
 }
 
-#sexGenderDiv, #sex-gender-div-readonly{
+#sexGenderDiv, #sex-gender-div-readonly, #name-personality-pair, #name-personality-pair-read-only{
     display: flex;
     padding-top: 3%;
     justify-content: space-between;
 }
 
-#sexBoxInput, #sex-box-input-readonly{
+#sexBoxInput, #sex-box-input-readonly, #nameBoxInput, #personalityBoxInput{
     width: 96%;
     padding-top: 5%;
 }
@@ -374,6 +375,23 @@ body {
 #lookingForBoxInput, #looking-for-box-input-readonly{
     width: 96%;
     padding-top: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+#nameBoxInput-read-only, #personalityBoxInput-read-only{
+    background: rgba(255,255,255,50%);
+    width: 96%;
+    padding-top: 5%;
+    pointer-events: none;
 }
 
 #jobTitleBoxInput, #job-title-box-input-readonly{
