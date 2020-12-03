@@ -4,7 +4,7 @@ $about_me_text = "";
 if( is_logged_in() )
     $about_me_text = "YOU'RE SUPER LOGGED IN";
 else
-    header( "location: /luv" );
+    header( "location: /luv/createAccountBody.html" );
 ?>
 
 <!DOCTYPE html>
