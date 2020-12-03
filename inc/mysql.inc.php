@@ -30,8 +30,10 @@ function db_close( $cnx ) {
 
 //==========================================================================
 // db_query
-//   Run a fully prepared mysqli query from start to finish. 
-//   Returns false if no query results. Returns results otherwise.
+//   Run a fully prepared mysqli query from start to finish.
+//     Returns result set (even empty set) if query was SELECT type.
+//     Returns TRUE if INSERT/UPDATE/DELETE query succeeded.
+//     Returns FALSE if query operation failed for any reason.
 //   result_type is optional and returns associative array if not assigned.
 //   Other result_type options are MYSQLI_NUM and MYSQLI_BOTH.
 //==========================================================================
