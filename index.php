@@ -1,3 +1,9 @@
+<?php
+require_once( "inc/is_logged_in.inc.php" );
+    if( is_logged_in() )
+        header( "location: accountManagement.php" );
+?>
+
 <!DOCTYPE html>
 
 <!--
