@@ -101,12 +101,13 @@ else
                         </div>
                     </div>
                     <div id="saveChangesDiv">
-                        <input id = "saveChangesButton" type="button" value="Save Changes">
+                        <button id = "saveChangesButton" type="submit" name="submit-save">Save Changes</button>
                     </div>
-                    
+                </form>
+                <form id = "accountSignOutForm" action="inc/logout.inc.php" method="post">
                     <!-- sign out -->
                     <div id="sign-out-div">
-                        <input id = "sign-out-button" type="button" onclick="location.href='index.html';" value="Sign Out">
+                        <button id = "sign-out-button" type="submit" name="submit-signout">Sign Out</button>
                     </div>
                 </form>
             </div> <!--Left Profile Div -->
