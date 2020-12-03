@@ -1,6 +1,10 @@
 <?php
-require_once( "mysql.inc.php" );
+require_once( "mysq.inc.php" );
 require_once( "logging.inc.php" );
+
+if( isset($_POST["login-email"]) and isset($_POST["login-password"]) ) {
+    login( $_POST["login-email"], $_POST["login-password"] );
+}
 
 //==========================================================================
 // login

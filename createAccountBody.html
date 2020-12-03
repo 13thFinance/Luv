@@ -53,27 +53,23 @@
         <!-- <div class="vertical-line-div"></div> -->
         
         <div class="sub-form-div">
-            <form id="login-form" action="URL">
+            <form id="login-form" action="inc/login.inc.php" method="post">
                 <div class="form-header">
                     Login
                 </div>
-
                 <div class="login-form-class">
                     <div>
-                        <input type="text" id ="login-email" class ="account-field" placeholder="Email"/>
+                        <input type="email" id="login-email" class="account-field" name="login-email" placeholder="Email"/>
                     </div>
                     <div>
-                        <input type="password" id ="login-password" class ="account-field" placeholder="Password" />
+                        <input type="password" id="login-password" class="account-field" name="login-password" placeholder="Password" />
                     </div>
-                    
                     <hr/>
-                    
                     <div class="button-div">
-                        <input type="button" id="submitProfile" class="create-account-submit" onclick="gotoLoginOrAdmin()" value="Login">
+                        <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Login</button>
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </body>
