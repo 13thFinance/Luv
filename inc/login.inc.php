@@ -1,5 +1,5 @@
 <?php
-require_once( "mysq.inc.php" );
+require_once( "mysql.inc.php" );
 require_once( "logging.inc.php" );
 
 if( isset($_POST["login-email"]) and isset($_POST["login-password"]) ) {
@@ -59,5 +59,5 @@ function login( $email, $pwd ) {
     setcookie( "member_id", $member_id, $expiry_time, "/luv");
 
     // redirect to user's profile
-    header( "location: ../accountManagement.html" );
+    header( "location: ../accountManagement.php" );
 }

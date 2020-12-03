@@ -1,3 +1,12 @@
+<?php
+require_once( "inc/is_logged_in.inc.php" );
+$about_me_text = "";
+if( is_logged_in() )
+    $about_me_text = "YOU'RE SUPER LOGGED IN";
+else
+    header( "location: /luv" );
+?>
+
 <!DOCTYPE html>
 
 <html lang = "en">
@@ -49,9 +58,7 @@
                     <div id="aboutMeDiv">
                         <div id = "aboutMeBody">
                             <div id = "aboutMeTitle"> About Me</div>
-                            <textarea id = "aboutMeInput" rows = "12" cols = "60" style="resize: none">
-
-                            </textarea>
+                            <textarea id = "aboutMeInput" rows = "12" cols = "60" style="resize: none"><?php echo "$about_me_text"; ?></textarea>
                         </div>
                     </div>
                     
