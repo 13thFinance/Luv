@@ -72,10 +72,16 @@ function db_query( $query_string, $param_array, $result_type = MYSQLI_ASSOC ) {
     else if( $result ) {
         $return_value = mysqli_fetch_all( $result, $result_type );
     }
+    
+    // Let errors fall through. The caller is capable of
+    // logging more detailed information about the error
+    // and can respond to it in ways other than "die".
+    /*
     else {
         LOG_ERROR( "mysqli query failed with errorcode: " . mysqli_errno($cnx) );
         die( "An error occurred. Please contact the site administrator if this problem persists." );
     }
+    */
 
     // close connection to db
     db_close( $cnx );
