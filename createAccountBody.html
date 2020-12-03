@@ -22,29 +22,29 @@
     
     <div class="form-div">
         <div class="sub-form-div">
-            <form id="create-account-form" action="URL">
+            <form id="create-account-form" action="inc/create_account.inc.php" method="post">
                 <div class="form-header">
                     Create Account
                 </div>
                 <div class="create-account-form-class">
                     <div>
-                        <input type="text" id ="full-name" class ="account-field" placeholder="Full Name"/>
+                        <input type="text" id ="full-name" class ="account-field" name="name" placeholder="Full Name"/>
                     </div>
                     <!--<div>
                         <input type="text" id ="last-name" class ="account-field" placeholder="Last Name"/>
                     </div>-->
                     <div>
-                        <input type="text" id ="create-email" class ="account-field" placeholder="Email"/>
+                        <input type="email" id ="create-email" class ="account-field" name="email" placeholder="Email"/>
                     </div>
                     <div>
-                        <input type="password" id ="create-password" class ="account-field" placeholder="Password"/>
+                        <input type="password" id ="create-password" class ="account-field" name="password" placeholder="Password"/>
                     </div>
                     <div>
                         <input type="password" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>
                     </div>
                     <hr/>
                     <div class="button-div">
-                        <input type="button" id="submitProfile" class="create-account-submit" onclick="goto('accountManagement.html');" value="Create Account">
+                        <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Create Account</button>
                     </div>
                 </div>
             </form>
