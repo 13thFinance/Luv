@@ -117,7 +117,6 @@ landing page for luv dating site
 
                         outer_div.appendChild( p );
                         outer_div.appendChild( inner_div ); 
-                        console.log( outer_div );
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                     }
                     var send_message = function() {
@@ -146,9 +145,18 @@ landing page for luv dating site
                 </div>
 
                 <script>
+                    // add event to send-message-text to push the send-message-button
+                    // when enter key is pressed
+                    document.getElementById( "send-message-text").addEventListener("keyup", event => {
+                        if(event.key !== "Enter")
+                            return; 
+                        document.getElementById( "send-message-button" ).click();
+                        event.preventDefault(); // just in case
+                    });
+
                     if( typeof(EventSource) !== "undefined" ) {
                         var event_source = new EventSource( "inc/inform_messaging.inc.php" );
-                        event_source.onmessage = function(event) {
+                        event_source.onmessage = event => {
                             var msg = JSON.parse( event.data );
                             var member_id = "<?php echo $member_id; ?>";
 
