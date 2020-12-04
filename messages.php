@@ -78,14 +78,16 @@ landing page for luv dating site
             <hr />
             
             <div class="message-history-placeholder">
-                <div class="message-container-div">
+                <div id="message-container-div" class="message-container-div">
                     <?php
                     foreach( $messages as $msg ) {
                         $msg_color_class = "message-orange-div";
                         $msg_timestamp_class = "message-timestamp-right";
+
                         if( $msg["member_id"] == $target_id ) {
                             $msg_color_class = "message-blue-div";
                         }
+
                         $content = $msg["content"];
                         $timestamp = $msg["timestamp"];
     
@@ -100,6 +102,24 @@ landing page for luv dating site
                 </div>
 
                 <script>
+                    var show_sent_message = function( div_color, message_data ) {
+                        var outer_div = document.createElement( "DIV" );
+                        var p = document.createElement( "P" );
+                        var inner_div = document.createElement( "DIV" );
+
+                        outer_div.classList.add( div_color );
+                        p.classList.add( "message-content" );
+                        inner_div.classList.add( "message-timestamp-left" );
+
+                        
+                        p.innerHTML = message_data.content;
+                        inner_div.innerHTML = message_data.timestamp;
+
+                        outer_div.appendChild( p );
+                        outer_div.appendChild( inner_div ); 
+                        console.log( outer_div );
+                        document.getElementById( "message-container-div" ).appendChild( outer_div );
+                    }
                     var send_message = function() {
                         let message_div = document.getElementById( "send-message-text" )
                         if( message_div.value != "" ) {
@@ -111,8 +131,7 @@ landing page for luv dating site
                                     target_id: '<?php echo $target_id; ?>',
                                     message: message_div.value
                                 },
-                                success: function(data) {
-                                    console.log( data );
+                                success: function( data ) {
                                     let message_div = document.getElementById( "send-message-text" );
                                     message_div.value = "";
                                 }                          
@@ -125,6 +144,21 @@ landing page for luv dating site
                     <input type="text" id="send-message-text" placeholder="Send Message"/>
                     <button type="send-message" id="send-message-button" onclick="send_message()">Send</button>
                 </div>
+
+                <script>
+                    if( typeof(EventSource) !== "undefined" ) {
+                        var event_source = new EventSource( "inc/inform_messaging.inc.php" );
+                        event_source.onmessage = function(event) {
+                            var msg = JSON.parse( event.data );
+                            var member_id = "<?php echo $member_id; ?>";
+
+                            var div_color = "message-orange-div";
+                            if( member_id == msg.target_id )
+                                div_color = "message-blue-div";
+                            show_sent_message( div_color, msg );
+                        };
+                    }
+                </script>
             
             </div>
         </div>

@@ -37,7 +37,7 @@ function db_close( $cnx ) {
 //   result_type is optional and returns associative array if not assigned.
 //   Other result_type options are MYSQLI_NUM and MYSQLI_BOTH.
 //==========================================================================
-function db_query( $query_string, $param_array, $result_type = MYSQLI_ASSOC ) {
+function db_query( $query_string, $param_array=NULL, $result_type = MYSQLI_ASSOC ) {
     // validate input
     if( strlen($query_string) == 0 ) {
         LOG_ERROR( "mysqli query attempted with empty query string" );
@@ -46,19 +46,25 @@ function db_query( $query_string, $param_array, $result_type = MYSQLI_ASSOC ) {
 
     // open connection to db
     $cnx = db_open();
+    $result;
 
-    // prepare query statment
-    $types = str_repeat( "s", count($param_array) );
-    $stmt = mysqli_prepare( $cnx, $query_string );
-    if( !$stmt ) {
-        LOG_ERROR( "Failed to build prepared statment while running mysqli query. Check for syntax errors in query string." );
-        die( "An error occurred. Please contact the site administrator if this problem persists." );
+    if( !$param_array ) {
+        $result = mysqli_query( $cnx, $query_string );
     }
-    mysqli_stmt_bind_param( $stmt, $types, ...$param_array );
+    else {
+        // prepare query statment
+        $types = str_repeat( "s", count($param_array) );
+        $stmt = mysqli_prepare( $cnx, $query_string );
+        if( !$stmt ) {
+            LOG_ERROR( "Failed to build prepared statment while running mysqli query. Check for syntax errors in query string." );
+            die( "An error occurred. Please contact the site administrator if this problem persists." );
+        }
+        mysqli_stmt_bind_param( $stmt, $types, ...$param_array );
 
-    // execute query
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result( $stmt );
+        // execute query
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result( $stmt );
+    }
 
     // validate query results
     $return_value = false;
