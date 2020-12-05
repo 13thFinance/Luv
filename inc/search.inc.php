@@ -9,7 +9,11 @@ require_once( "mysql.inc.php" );
 //==========================================================================
 function search_users( $search_val ) {
 
-    $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating from members left join reviews on members.member_id=reviews.target_id where (name like ? or sex like ? or gender like ? or age like ? or location like ? or job_title like ? or personality like ? or looking_for like ? or about_me like ?) group by members.member_id;";
+    $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
+        from members left join reviews on members.member_id=reviews.target_id 
+        where (name like ? or sex like ? or gender like ? or age like ? or location like ?
+        or job_title like ? or personality like ? or looking_for like ? or about_me like ?) 
+        group by members.member_id limit 10;";
     $query_params = [];
     for( $i = 0; $i < 9; $i++)
         array_push( $query_params, "%$search_val%" );
@@ -49,21 +53,25 @@ function search_recommended_users( $member_id ) {
             // die?
         }
 
-        // query users with compatible personality types?
-        $query_params = explode( ",", $results_pmatches[0]["match_string"] );
-        $query_filter = implode(",", array_fill(0, count($query_params), "?"));
-        array_push( $query_params, $member_id );
+        if( $results_pmatches ) {
+            // query users with compatible personality types?
+            $query_params = explode( ",", $results_pmatches[0]["match_string"] );
+            $query_filter = implode(",", array_fill(0, count($query_params), "?"));
+            array_push( $query_params, $member_id );
 
-        $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
-            from members left join reviews on members.member_id=reviews.target_id 
-            where personality in ($query_filter) and members.member_id<>? group by members.member_id;";
+            $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
+                from members left join reviews on members.member_id=reviews.target_id 
+                where personality in ($query_filter) and members.member_id<>? group by members.member_id limit 10;";
 
-        $result_recommendations = db_query( $query_string, $query_params );
+            $result_recommendations = db_query( $query_string, $query_params );
 
-        if( $result_recommendations === false )
-            echo "Something went wrong";
+            if( $result_recommendations === false )
+                echo "Something went wrong";
+            else
+                return $result_recommendations;
+        }
         else
-            return $result_recommendations;
+            return [];
     }
 }
 ?>
