@@ -264,6 +264,7 @@ body {
 #mainDivAccountManagement, #main-div-view-other{
     position: absolute;
     display: flex;
+    
     justify-content: center;
 }
 
@@ -272,6 +273,7 @@ body {
     border-radius: 10px;
     
     padding: 6vw;
+    
 }
 #reviewsAccountManagement-Right, #reviews-account-management-right-readonly{
     background: rgba(255,255,255,50%);
@@ -1054,10 +1056,6 @@ hr {
     }
 }
 
-.scrollable
-{
-    overflow: scroll;
-}
 
 /*
 .report-submit-button-div{
@@ -1084,6 +1082,12 @@ hr {
     margin: 10px;
 }
 */
+
+.scrollable
+{
+    max-height: 100em;
+    overflow-y: scroll;
+}
 
 
 
