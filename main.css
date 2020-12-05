@@ -1054,6 +1054,11 @@ hr {
     }
 }
 
+.scrollable
+{
+    overflow: scroll;
+}
+
 /*
 .report-submit-button-div{
     display: flex;
