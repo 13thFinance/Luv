@@ -62,7 +62,7 @@ function db_query( $query_string, $param_array=NULL, $result_type = MYSQLI_ASSOC
         mysqli_stmt_bind_param( $stmt, $types, ...$param_array );
 
         // execute query
-        mysqli_stmt_execute($stmt);
+        mysqli_stmt_execute( $stmt );
         $result = mysqli_stmt_get_result( $stmt );
     }
 
