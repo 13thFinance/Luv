@@ -39,10 +39,17 @@ else
                 
                 <form id = "accountManagementForm" action="URL">
                     
-                    <input type='file' id='profile-pic' name="profile-pic" accept="image/jpeg, image/png">
-                    <div id = "profilePicDiv">    
-                        <img src="profilepic.png" id = "profilePic" alt="ppic">
+                    <div class="image-upload">
+                      <label for="file-input">
+                          <div id = "profilePicDiv">  
+                            <img src="profilepic.png" id = "profilePic" alt="ppic"/>
+                          </div>
+                      </label>
+
+                      <input id="file-input" type="file" />
                     </div>
+                    
+                      
                     
                     <div id="name-personality-pair">
                          <div id="userName">

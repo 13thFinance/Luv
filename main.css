@@ -462,6 +462,9 @@ body {
 
 /*************************************************************/
 /* Account Management - Reivews*******************************/
+.image-upload>input {
+  display: none;
+}
 
 #reviewsLabelDiv, #reviews-label-div-readonly{
     text-align: center;
@@ -629,7 +632,7 @@ hr {
 }
 
 /**************************************************************
-    Search Recommneded ***************************************/
+    Search Recommended ***************************************/
 
 .search-recommended-main-div{
     display: flex;
