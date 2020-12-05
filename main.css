@@ -917,7 +917,7 @@ hr {
 }
 
 .send-message-div{
-    padding: 10px;
+    padding: 2px;
 }
 
 #send-message-text{
@@ -939,7 +939,7 @@ hr {
     cursor: pointer;
     padding: 10px 20px;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 
@@ -1108,6 +1108,21 @@ hr {
     overflow-y: scroll;
 }
 
+.scrollable-message
+{
+    display: flex;
+    flex-direction: column;
+    max-height: 70em;
+    overflow-y: scroll;
+}
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollable::-webkit-scrollbar,.scrollable-message::-webkit-scrollbar {
+    display: none;
+}
 
-
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollable,.scrollable-message {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
