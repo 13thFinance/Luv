@@ -102,10 +102,10 @@ landing page for luv dating site
                             ?>
                     </div>
                 
-                    <script>
-                        var lastDiv = document.getElementById("message-container-div").lastChild();
-                        lastDiv.scrollIntoView();
-                    </script>
+                <script>
+                    document.getElementById("message-container-div").lastChild.scrollIntoView();
+                </script>
+                    
                 <script>
                     var show_sent_message = function( div_color, message_data ) {
                         var outer_div = document.createElement( "DIV" );
