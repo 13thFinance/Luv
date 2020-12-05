@@ -68,20 +68,29 @@ else
         <div id = "mainDivAccountManagement">
             <div id="profileBodyDiv-Left">
                 <script>
+                    let name_div = document.getElementById( "nameBoxInput" );
+                    let personality_div = document.getElementById( "personalityBoxInput" );
+                    let about_me_div = document.getElementById( "aboutMeInput" );
+                    let sex_div = document.getElementById( "sexBoxInput" );
+                    let gender_div = document.getElementById( "genderSelectionMenu" );
+                    let age_div = document.getElementById( "ageBoxInput" );
+                    let looking_for_div = document.getElementById( "lookingForBoxInput" );
+                    let job_title_div = document.getElementById( "jobTitleBoxInput" );
+                    let location_div = document.getElementById( "locationBoxInput" );
                     var upload_user_data = function() {
                         $.ajax({
                             url: 'inc/upload_user_data.inc.php',
                             type: 'POST',
                             data: {
-                                users_name = '<?php echo $users_name; ?>',
-                                personality = '<?php echo $personality; ?>',
-                                about_me_text = '<?php echo $about_me_text; ?>',
-                                sex = '<?php echo $sex; ?>',
-                                gender = '<?php echo $gender; ?>',
-                                age = '<?php echo $age; ?>',
-                                looking_for = '<?php echo $looking_for; ?>',
-                                job_title = '<?php echo $job_title; ?>',
-                                location = '<?php echo $location; ?>',
+                                users_name: name_div.value,
+                                personality: personality_div.value,
+                                about_me_text: about_me_div.value,
+                                sex: sex_div.value,
+                                gender: gender_div.value,
+                                age: age_div.value,
+                                looking_for: looking_for_div.value,
+                                job_title: job_title_div.value,
+                                location: location_div.value,
                                 member_id: '<?php echo $member_id; ?>'
                             }                     
                         });
@@ -123,10 +132,10 @@ else
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
                             <select id = "genderSelectionMenu">
-                            <option> Select Gender </option>
-                            <option> Male </option>
-                            <option> Female </option>
-                            <option> Other </option>
+                            <option value=0> Select Gender </option>
+                            <option value=1> Male </option>
+                            <option value=2> Female </option>
+                            <option value=3> Other </option>
                         </select>
                         </div>
                     </div>
