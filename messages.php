@@ -79,7 +79,7 @@ landing page for luv dating site
             
             
                 <div class="message-history-placeholder">
-                    <div id="message-container-div" class="message-container-div scrollable scrollable-message">
+                    <div id="message-container-div" class="message-container-div scrollable">
                             <?php
                             foreach( $messages as $msg ) {
                                 $msg_color_class = "message-orange-div";
