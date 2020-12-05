@@ -98,7 +98,7 @@ else
                     };
                 </script>
                 -->
-                <form id = "accountManagementForm" action="URL">
+                <form id = "accountManagementForm" action="inc/upload_user_data.inc.php" method="post">
                     <div id = "profilePicDiv">    
                         <img src="profilepic.png" id = "profilePic" alt="ppic">
                     </div>
@@ -164,7 +164,7 @@ else
                             <input type = "text" id = "locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
                         </div>
                     </div>
-                    <div id="saveChangesDiv" action="inc/upload_user_data.inc.php" method="post">
+                    <div id="saveChangesDiv">
                         <button id = "saveChangesButton" type="submit" name="submit-save">Save Changes</button>
                     </div>
                 </form>
