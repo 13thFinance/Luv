@@ -42,7 +42,7 @@ function login( $email, $pwd ) {
     $query_params = [$auth_token, $member_id];
     $result = db_query( $query_string, $query_params );
 
-    if( !$result ) {
+    if( $result === false ) {
         // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
         LOG_ERROR( "Login error -- failed to update auth_token, member_id='$member_id'" );
         die( "PLACEHOLDER: Something went wrong while logging in." );

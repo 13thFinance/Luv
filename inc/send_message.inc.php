@@ -20,7 +20,7 @@ function send_message( $sender_id, $target_id, $message ) {
     $query_params = [$sender_id, $target_id, $now, $message];
     $result = db_query( $query_string, $query_params );
 
-    if( !$result ) {
+    if( $result === false ) {
         // JOSH TODO: Just refreshing for now when send fails. Not sure how else we want to handle this.
         LOG_ERROR( "Send message error -- failed to insert sent message into db." .
             " sender_id=$sender_id, target_id=$target_id, message='$message'" );

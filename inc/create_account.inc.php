@@ -29,7 +29,7 @@ function create_account( $name, $email, $pwd ) {
     $query_params = [$email, $pwd_hash, $name];
     $result_insert = db_query( $query_string, $query_params );
 
-    if( !$result_insert ) {
+    if( $result_insert === false ) {
         // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
         die( "PLACEHOLDER: An error occurred while creating your account." );
     }

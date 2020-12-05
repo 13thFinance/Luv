@@ -24,7 +24,7 @@ function is_logged_in() {
         $query_params = [$member_id];
         $result = db_query( $query_string, $query_params );
 
-        if( $result and count($result) > 0 ) {
+        if( $result ) {
             $member_data = $result[0];
             if( $member_data["auth_token"] == $_COOKIE["auth_token"] ) {
                 $logged_in = true;
