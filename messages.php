@@ -103,9 +103,8 @@ landing page for luv dating site
                     </div>
                 
                 <script>
-                    var element = document.getElementById("message-container-div").lastChild();
+                    var element = document.getElementById("message-container-div");
                     element.scrollTop = element.scrollHeight;
-                    window.scrollTo(0,document.body.scrollHeight);
                 </script>
                     
                 <script>
