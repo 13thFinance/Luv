@@ -264,6 +264,7 @@ body {
 #mainDivAccountManagement, #main-div-view-other{
     position: absolute;
     display: flex;
+    
     justify-content: center;
 }
 
@@ -272,6 +273,7 @@ body {
     border-radius: 10px;
     
     padding: 6vw;
+    
 }
 #reviewsAccountManagement-Right, #reviews-account-management-right-readonly{
     background: rgba(255,255,255,50%);
@@ -404,7 +406,8 @@ body {
     padding-top: 2%;
 }
 
-#genderSelectionMenu, #gender-selection-menu-readonly{
+#genderSelectionMenu, #gender-selection-menu-readonly, #personality-selection
+{
     padding-top: 5%;
     width: 100%;
 }
@@ -462,6 +465,9 @@ body {
 
 /*************************************************************/
 /* Account Management - Reivews*******************************/
+.image-upload>input {
+  display: none;
+}
 
 #reviewsLabelDiv, #reviews-label-div-readonly{
     text-align: center;
@@ -497,6 +503,13 @@ body {
     width: 970px;
 }
 
+.review-image-div
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .reviewProfilePic{
     border-radius: 50%;
     width: 118px;
@@ -505,6 +518,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1vw;
+    padding-bottom: 0px;
+}
+
+.review-profile-pic-name
+{
+    position: relative;
+    text-align: center;
 }
 
 
@@ -628,12 +648,31 @@ hr {
     margin-top: 1em;
 }
 
+.profile-review-name-label-class{
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0.3em;
+    text-align: center;
+}
+
+.review-image-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /**************************************************************
-    Search Recommneded ***************************************/
+    Search Recommended ***************************************/
+
+.serach-div{
+    max-height: 100%;
+}
 
 .search-recommended-main-div{
     display: flex;
     justify-content: center; 
+    
+    max-height: 100%;
 }
 .search-sub-div{
     margin-top: 5em;
@@ -1036,6 +1075,7 @@ hr {
     }
 }
 
+
 /*
 .report-submit-button-div{
     display: flex;
@@ -1061,6 +1101,12 @@ hr {
     margin: 10px;
 }
 */
+
+.scrollable
+{
+    max-height: 100em;
+    overflow-y: scroll;
+}
 
 
 
