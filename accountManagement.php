@@ -3,21 +3,21 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/mysql.inc.php" );
 
 $users_name = "";
-//$personality = "";
+$personality = "";
 $about_me_text = "";
 $sex = "";
-$gender = "";
+$gender = 0;
 $age = 0;
 $looking_for = "";
 $job_title = "";
 $location = "";
 $picture = "";
 if( is_logged_in() ) {
-    $about_me_text = "YOU'RE SUPER LOGGED IN";
+    //$about_me_text = "YOU'RE SUPER LOGGED IN";
     $session_start;
     $member_id = $_SESSION["member_id"];
 
-    $query_string = "SELECT name, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
+    $query_string = "SELECT name, personality, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
     $query_params = [$member_id];
     $query_result = db_query($query_string, $query_params);
 
@@ -26,7 +26,7 @@ if( is_logged_in() ) {
     }
     else{
         $users_name = $query_result[0]["name"];
-        //$personality = $query_result[0][""];
+        $personality = $query_result[0]["personality"];
         $about_me_text = $query_result[0]["about_me"];
         $sex = $query_result[0]["sex"];
         $gender = $query_result[0]["gender"];
@@ -67,7 +67,26 @@ else
         
         <div id = "mainDivAccountManagement">
             <div id="profileBodyDiv-Left">
-                
+                <script>
+                    var upload_user_data = function() {
+                        $.ajax({
+                            url: 'inc/upload_user_data.inc.php',
+                            type: 'POST',
+                            data: {
+                                users_name = '<?php echo $users_name; ?>',
+                                personality = '<?php echo $personality; ?>',
+                                about_me_text = '<?php echo $about_me_text; ?>',
+                                sex = '<?php echo $sex; ?>',
+                                gender = '<?php echo $gender; ?>',
+                                age = '<?php echo $age; ?>',
+                                looking_for = '<?php echo $looking_for; ?>',
+                                job_title = '<?php echo $job_title; ?>',
+                                location = '<?php echo $location; ?>',
+                                member_id: '<?php echo $member_id; ?>'
+                            }                     
+                        });
+                    };
+                </script>
                 <form id = "accountManagementForm" action="URL">
                     <div id = "profilePicDiv">    
                         <img src="profilepic.png" id = "profilePic" alt="ppic">
@@ -77,7 +96,7 @@ else
                          <div id="userName">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Name </div>
-                                <input type = "text" id = "nameBoxInput" value="<?php echo $users_name ?>">
+                                <input type = "text" id = "nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>">
                             </div>
                         </div>
 
@@ -99,7 +118,7 @@ else
                     <div id = "sexGenderDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Sex </div>
-                            <input type = "text" id = "sexBoxInput" value="<?php echo $sex ?>">
+                            <input type = "text" id = "sexBoxInput" placeholder="Input Sex Preference"  value="<?php echo $sex ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
@@ -115,27 +134,27 @@ else
                     <div id = "ageLookingForDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Age </div>
-                            <input type = "text" id = "ageBoxInput" value="<?php echo $age ?>">
+                            <input type = "text" id = "ageBoxInput" placeholder="Input Age"  value="<?php echo $age ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Looking For </div>
-                            <input type = "text" id = "lookingForBoxInput" value="<?php echo $looking_for ?>">
+                            <input type = "text" id = "lookingForBoxInput" placeholder="Looking for..."  value="<?php echo $looking_for ?>">
                         </div>
                     </div>
                     <div id="jobTitleDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Job Title </div>
-                            <input type = "text" id = "jobTitleBoxInput" value="<?php echo $job_title ?>">
+                            <input type = "text" id = "jobTitleBoxInput" placeholder="Input Job Title"  value="<?php echo $job_title ?>">
                         </div>
                     </div>
                     <div id="locationDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Location </div>
-                            <input type = "text" id = "locationBoxInput" value="<?php echo $location ?>">
+                            <input type = "text" id = "locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
                         </div>
                     </div>
-                    <div id="saveChangesDiv">
-                        <button id = "saveChangesButton" type="submit" name="submit-save">Save Changes</button>
+                    <div id="saveChangesDiv" action="inc/upload_user_data.inc.php" method="post">
+                        <button id = "saveChangesButton" type="submit" name="submit-save" onClick="upload_user_data()">Save Changes</button>
                     </div>
                 </form>
                 <form id = "accountSignOutForm" action="inc/logout.inc.php" method="post">
