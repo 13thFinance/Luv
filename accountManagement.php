@@ -92,8 +92,8 @@ else
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Personality </div>
                                 <select id = "personality-selection" name="personalityBoxInput" value="<?php echo $personality ?>">
-                                    <option value=NULL> Select Personality</option>
-                                    <option value="INFP"> INFP </option>
+                                    <option value=NULL selected disabled hidden> Select Personality</option>
+                                    <option> INFP </option>
                                     <option> ENFP </option>
                                     <option> INFJ </option>
                                     <option> ENFJ </option>
