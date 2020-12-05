@@ -1,10 +1,38 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
+require_once( "inc/mysql.inc.php" );
+
+$users_name = "";
+//$personality = "";
 $about_me_text = "";
+$sex = "";
+$gender = "";
+$age = 0;
+$looking_for = "";
+$job_title = "";
+$location = "";
+$picture = "";
 if( is_logged_in() ) {
     $about_me_text = "YOU'RE SUPER LOGGED IN";
     $session_start;
     $member_id = $_SESSION["member_id"];
+
+    $query_string = "SELECT name, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
+    $query_params = [$member_id];
+    $query_result = db_query($query_string, $query_params);
+
+    if( $query_result === false ){
+        $users_name = [0]["name"];
+        //$personality = [0][""];
+        $about_me_text = [0]["about_me"];
+        $sex = [0]["sex"];
+        $gender = [0]["gender"];
+        $age = [0]["age"];
+        $looking_for = [0]["looking_for"];
+        $job_title = [0]["job_title"];
+        $location = [0]["location"];
+        $picture = [0]["picture"];
+    }
 }
 else
     header( "location: /luv/createAccountBody.html" );
@@ -46,7 +74,7 @@ else
                          <div id="userName">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Name </div>
-                                <input type = "text" id = "nameBoxInput" placeholder="Input Name">
+                                <input type = "text" id = "nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>">
                             </div>
                         </div>
 
@@ -68,7 +96,7 @@ else
                     <div id = "sexGenderDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Sex </div>
-                            <input type = "text" id = "sexBoxInput" placeholder="Input Sex Preference">
+                            <input type = "text" id = "sexBoxInput" placeholder="Input Sex Preference"  value="<?php echo $sex ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
@@ -84,23 +112,23 @@ else
                     <div id = "ageLookingForDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Age </div>
-                            <input type = "text" id = "ageBoxInput" placeholder="Input Age">
+                            <input type = "text" id = "ageBoxInput" placeholder="Input Age"  value="<?php echo $age ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Looking For </div>
-                            <input type = "text" id = "lookingForBoxInput" placeholder="Looking for...">
+                            <input type = "text" id = "lookingForBoxInput" placeholder="Looking for..."  value="<?php echo $looking_for ?>">
                         </div>
                     </div>
                     <div id="jobTitleDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Job Title </div>
-                            <input type = "text" id = "jobTitleBoxInput" placeholder="Input Job Title">
+                            <input type = "text" id = "jobTitleBoxInput" placeholder="Input Job Title"  value="<?php echo $job_title ?>">
                         </div>
                     </div>
                     <div id="locationDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Location </div>
-                            <input type = "text" id = "locationBoxInput" placeholder="Where are you from?">
+                            <input type = "text" id = "locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
                         </div>
                     </div>
                     <div id="saveChangesDiv">
