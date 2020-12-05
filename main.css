@@ -1102,6 +1102,10 @@ hr {
     overflow-y: scroll;
 }
 
-
+.scrollable-message
+{
+    max-height: 70em;
+    overflow-y: scroll;
+}
 
 
