@@ -139,37 +139,37 @@ landing page for luv dating site
                             }
                         };
                     </script>
-                </div>
                 
-                <div class="send-message-div">
-                    <input type="text" id="send-message-text" placeholder="Send Message"/>
-                    <button type="send-message" id="send-message-button" onclick="send_message()">Send</button>
-                </div>
+                
+                    <div class="send-message-div">
+                        <input type="text" id="send-message-text" placeholder="Send Message"/>
+                        <button type="send-message" id="send-message-button" onclick="send_message()">Send</button>
+                    </div>
 
-                <script>
-                    // add event to send-message-text to push the send-message-button
-                    // when enter key is pressed
-                    document.getElementById( "send-message-text").addEventListener("keyup", event => {
-                        if(event.key !== "Enter")
-                            return; 
-                        document.getElementById( "send-message-button" ).click();
-                        event.preventDefault(); // just in case
-                    });
+                    <script>
+                        // add event to send-message-text to push the send-message-button
+                        // when enter key is pressed
+                        document.getElementById( "send-message-text").addEventListener("keyup", event => {
+                            if(event.key !== "Enter")
+                                return; 
+                            document.getElementById( "send-message-button" ).click();
+                            event.preventDefault(); // just in case
+                        });
 
-                    if( typeof(EventSource) !== "undefined" ) {
-                        var event_source = new EventSource( "inc/inform_messaging.inc.php" );
-                        event_source.onmessage = event => {
-                            var msg = JSON.parse( event.data );
-                            var member_id = "<?php echo $member_id; ?>";
+                        if( typeof(EventSource) !== "undefined" ) {
+                            var event_source = new EventSource( "inc/inform_messaging.inc.php" );
+                            event_source.onmessage = event => {
+                                var msg = JSON.parse( event.data );
+                                var member_id = "<?php echo $member_id; ?>";
 
-                            var div_color = "message-orange-div";
-                            if( member_id == msg.target_id )
-                                div_color = "message-blue-div";
-                            show_sent_message( div_color, msg );
-                        };
-                    }
-                </script>
-            
+                                var div_color = "message-orange-div";
+                                if( member_id == msg.target_id )
+                                    div_color = "message-blue-div";
+                                show_sent_message( div_color, msg );
+                            };
+                        }
+                    </script>
+            </div>
             </div>
         </div>
     </div>
