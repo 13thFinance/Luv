@@ -404,7 +404,8 @@ body {
     padding-top: 2%;
 }
 
-#genderSelectionMenu, #gender-selection-menu-readonly{
+#genderSelectionMenu, #gender-selection-menu-readonly, #personality-selection
+{
     padding-top: 5%;
     width: 100%;
 }
@@ -500,6 +501,13 @@ body {
     width: 970px;
 }
 
+.review-image-div
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .reviewProfilePic{
     border-radius: 50%;
     width: 118px;
@@ -508,6 +516,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1vw;
+    padding-bottom: 0px;
+}
+
+.review-profile-pic-name
+{
+    position: relative;
+    text-align: center;
 }
 
 
