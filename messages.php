@@ -100,6 +100,7 @@ landing page for luv dating site
                                     </div>";
                                 echo $message_html;
                             }
+                            echo <div>test</div>
                             ?>
                         </div>
                     </div>
