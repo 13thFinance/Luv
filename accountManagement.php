@@ -67,37 +67,6 @@ else
         
         <div id = "mainDivAccountManagement">
             <div id="profileBodyDiv-Left">
-                <!--
-                <script>
-                    let name_div = document.getElementById( "nameBoxInput" );
-                    let personality_div = document.getElementById( "personalityBoxInput" );
-                    let about_me_div = document.getElementById( "aboutMeInput" );
-                    let sex_div = document.getElementById( "sexBoxInput" );
-                    let gender_div = document.getElementById( "genderSelectionMenu" );
-                    let age_div = document.getElementById( "ageBoxInput" );
-                    let looking_for_div = document.getElementById( "lookingForBoxInput" );
-                    let job_title_div = document.getElementById( "jobTitleBoxInput" );
-                    let location_div = document.getElementById( "locationBoxInput" );
-                    var upload_user_data = function() {
-                        $.ajax({
-                            url: 'inc/upload_user_data.inc.php',
-                            type: 'POST',
-                            data: {
-                                users_name: name_div.value,
-                                personality: personality_div.value,
-                                about_me_text: about_me_div.value,
-                                sex: sex_div.value,
-                                gender: gender_div.value,
-                                age: age_div.value,
-                                looking_for: looking_for_div.value,
-                                job_title: job_title_div.value,
-                                location: location_div.value,
-                                member_id: '<?php echo $member_id; ?>'
-                            }                     
-                        });
-                    };
-                </script>
-                -->
                 <form id = "accountManagementForm" action="inc/upload_user_data.inc.php" method="post">
                     <div id = "profilePicDiv">    
                         <img src="profilepic.png" id = "profilePic" alt="ppic">
@@ -107,14 +76,14 @@ else
                          <div id="userName">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Name </div>
-                                <input type = "text" id = "nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>">
+                                <input type = "text" id = "nameBoxInput" name="nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>">
                             </div>
                         </div>
 
                         <div id="userPersonality">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Personality </div>
-                                <input type = "text" id = "personalityBoxInput" placeholder="Input Personality">
+                                <input type = "text" id = "personalityBoxInput" name="personalityBoxInput" placeholder="Input Personality">
                             </div>
                         </div>
                     </div>
@@ -122,18 +91,18 @@ else
                     <div id="aboutMeDiv">
                         <div id = "aboutMeBody">
                             <div id = "aboutMeTitle"> About Me</div>
-                            <textarea id = "aboutMeInput" rows = "12" cols = "60" style="resize: none"><?php echo "$about_me_text"; ?></textarea>
+                            <textarea id = "aboutMeInput" name="aboutMeInput" rows = "12" cols = "60" style="resize: none"><?php echo "$about_me_text"; ?></textarea>
                         </div>
                     </div>
                     
                     <div id = "sexGenderDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Sex </div>
-                            <input type = "text" id = "sexBoxInput" placeholder="Input Sex Preference"  value="<?php echo $sex ?>">
+                            <input type = "text" id = "sexBoxInput" name="sexBoxInput" placeholder="Input Sex Preference"  value="<?php echo $sex ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
-                            <select id = "genderSelectionMenu">
+                            <select id = "genderSelectionMenu" name="genderSelectionMenu">
                             <option value=0> Select Gender </option>
                             <option value=1> Male </option>
                             <option value=2> Female </option>
@@ -145,23 +114,23 @@ else
                     <div id = "ageLookingForDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Age </div>
-                            <input type = "text" id = "ageBoxInput" placeholder="Input Age"  value="<?php echo $age ?>">
+                            <input type = "text" id = "ageBoxInput" name="ageBoxInput" placeholder="Input Age"  value="<?php echo $age ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Looking For </div>
-                            <input type = "text" id = "lookingForBoxInput" placeholder="Looking for..."  value="<?php echo $looking_for ?>">
+                            <input type = "text" id = "lookingForBoxInput" name="lookingForBoxInput" placeholder="Looking for..."  value="<?php echo $looking_for ?>">
                         </div>
                     </div>
                     <div id="jobTitleDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Job Title </div>
-                            <input type = "text" id = "jobTitleBoxInput" placeholder="Input Job Title"  value="<?php echo $job_title ?>">
+                            <input type = "text" id = "jobTitleBoxInput" name="jobTitleBoxInput" placeholder="Input Job Title"  value="<?php echo $job_title ?>">
                         </div>
                     </div>
                     <div id="locationDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Location </div>
-                            <input type = "text" id = "locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
+                            <input type = "text" id = "locationBoxInput" name="locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
                         </div>
                     </div>
                     <div id="saveChangesDiv">

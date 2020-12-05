@@ -2,9 +2,11 @@
 require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
 
-//if( isset($_POST["member_id"]) ) {
-    upload_user_data( $_POST["nameBoxInput"], $_POST["personalityBoxInput"], $_POST["aboutMeInput"], $_POST["sexBoxInput"], $_POST["genderSelectionMenu"], $_POST["ageBoxInput"], $_POST["lookingForBoxInput"], $_POST["jobTitleBoxInput"], $_POST["locationBoxInput"], $_SESSION["member_id"]);
-//}
+if( is_logged_in() ) {
+    $session_start;
+    $member_id = $_SESSION["member_id"];
+    upload_user_data( $_POST["nameBoxInput"], $_POST["personalityBoxInput"], $_POST["aboutMeInput"], $_POST["sexBoxInput"], $_POST["genderSelectionMenu"], $_POST["ageBoxInput"], $_POST["lookingForBoxInput"], $_POST["jobTitleBoxInput"], $_POST["locationBoxInput"], $member_id);
+}
 
 function upload_user_data( $users_name, $personality, $about_me_text, $sex, $gender, $age, $looking_for, $job_title, $location, $member_id ) {
 
