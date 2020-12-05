@@ -1,10 +1,11 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
 $about_me_text = "";
-if( is_logged_in() )
+if( is_logged_in() ) {
     $about_me_text = "YOU'RE SUPER LOGGED IN";
     $session_start;
     $member_id = $_SESSION["member_id"];
+}
 else
     header( "location: /luv/createAccountBody.html" );
 ?>
