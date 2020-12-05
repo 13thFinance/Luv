@@ -78,7 +78,7 @@ landing page for luv dating site
             <hr />
             
             
-                <div class="message-history-placeholder scrollable">
+                <div class="message-history-placeholder">
                     <div id="message-container-div" class="message-container-div scrollable-message">
                             <?php
                             foreach( $messages as $msg ) {
@@ -125,6 +125,7 @@ landing page for luv dating site
                         outer_div.appendChild( p );
                         outer_div.appendChild( inner_div ); 
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
+                        outer_div.scrollIntoView();
                     }
                     var send_message = function() {
                         let message_div = document.getElementById( "send-message-text" )
