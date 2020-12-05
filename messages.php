@@ -77,70 +77,70 @@ landing page for luv dating site
             
             <hr />
             
-            <div class="scrollable-message">
+            
                 <div class="message-history-placeholder">
                     <div id="message-container-div" class="message-container-div">
-                        <?php
-                        foreach( $messages as $msg ) {
-                            $msg_color_class = "message-orange-div";
-                            $msg_timestamp_class = "message-timestamp-right";
+                        <div class="scrollable-message">
+                            <?php
+                            foreach( $messages as $msg ) {
+                                $msg_color_class = "message-orange-div";
+                                $msg_timestamp_class = "message-timestamp-right";
 
-                            if( $msg["member_id"] == $target_id ) {
-                                $msg_color_class = "message-blue-div";
+                                if( $msg["member_id"] == $target_id ) {
+                                    $msg_color_class = "message-blue-div";
+                                }
+
+                                $content = $msg["content"];
+                                $timestamp = $msg["timestamp"];
+
+                                $message_html = 
+                                    "<div class='$msg_color_class'>
+                                        <p class='message-content'>$content</p>
+                                        <div class='$msg_timestamp_class'>$timestamp</div>
+                                    </div>";
+                                echo $message_html;
                             }
-
-                            $content = $msg["content"];
-                            $timestamp = $msg["timestamp"];
-
-                            $message_html = 
-                                "<div class='$msg_color_class'>
-                                    <p class='message-content'>$content</p>
-                                    <div class='$msg_timestamp_class'>$timestamp</div>
-                                </div>";
-                            echo $message_html;
-                        }
-                        ?>
+                            ?>
+                        </div>
                     </div>
 
-                    <script>
-                        var show_sent_message = function( div_color, message_data ) {
-                            var outer_div = document.createElement( "DIV" );
-                            var p = document.createElement( "P" );
-                            var inner_div = document.createElement( "DIV" );
+                <script>
+                    var show_sent_message = function( div_color, message_data ) {
+                        var outer_div = document.createElement( "DIV" );
+                        var p = document.createElement( "P" );
+                        var inner_div = document.createElement( "DIV" );
 
-                            outer_div.classList.add( div_color );
-                            p.classList.add( "message-content" );
-                            inner_div.classList.add( "message-timestamp-left" );
+                        outer_div.classList.add( div_color );
+                        p.classList.add( "message-content" );
+                        inner_div.classList.add( "message-timestamp-left" );
 
 
-                            p.innerHTML = message_data.content;
-                            inner_div.innerHTML = message_data.timestamp;
+                        p.innerHTML = message_data.content;
+                        inner_div.innerHTML = message_data.timestamp;
 
-                            outer_div.appendChild( p );
-                            outer_div.appendChild( inner_div ); 
-                            document.getElementById( "message-container-div" ).appendChild( outer_div );
+                        outer_div.appendChild( p );
+                        outer_div.appendChild( inner_div ); 
+                        document.getElementById( "message-container-div" ).appendChild( outer_div );
+                    }
+                    var send_message = function() {
+                        let message_div = document.getElementById( "send-message-text" )
+                        if( message_div.value != "" ) {
+                            $.ajax({
+                                url: 'inc/send_message.inc.php',
+                                type: 'POST',
+                                data: {
+                                    sender_id: '<?php echo $member_id; ?>',
+                                    target_id: '<?php echo $target_id; ?>',
+                                    message: message_div.value
+                                },
+                                success: function( data ) {
+                                    let message_div = document.getElementById( "send-message-text" );
+                                    message_div.value = "";
+                                }                          
+                            });
                         }
-                        var send_message = function() {
-                            let message_div = document.getElementById( "send-message-text" )
-                            if( message_div.value != "" ) {
-                                $.ajax({
-                                    url: 'inc/send_message.inc.php',
-                                    type: 'POST',
-                                    data: {
-                                        sender_id: '<?php echo $member_id; ?>',
-                                        target_id: '<?php echo $target_id; ?>',
-                                        message: message_div.value
-                                    },
-                                    success: function( data ) {
-                                        let message_div = document.getElementById( "send-message-text" );
-                                        message_div.value = "";
-                                    }                          
-                                });
-                            }
-                        };
-                    </script>
-                
-                </div>
+                    };
+                </script>
                 
                 <div class="send-message-div">
                     <input type="text" id="send-message-text" placeholder="Send Message"/>
