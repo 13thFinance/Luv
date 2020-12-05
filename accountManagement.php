@@ -25,16 +25,16 @@ if( is_logged_in() ) {
         // Error handling
     }
     else{
-        $users_name = [0]["name"];
-        //$personality = [0][""];
-        $about_me_text = [0]["about_me"];
-        $sex = [0]["sex"];
-        $gender = [0]["gender"];
-        $age = [0]["age"];
-        $looking_for = [0]["looking_for"];
-        $job_title = [0]["job_title"];
-        $location = [0]["location"];
-        $picture = [0]["picture"];
+        $users_name = $query_result[0]["name"];
+        //$personality = $query_result[0][""];
+        $about_me_text = $query_result[0]["about_me"];
+        $sex = $query_result[0]["sex"];
+        $gender = $query_result[0]["gender"];
+        $age = $query_result[0]["age"];
+        $looking_for = $query_result[0]["looking_for"];
+        $job_title = $query_result[0]["job_title"];
+        $location = $query_result[0]["location"];
+        $picture = $query_result[0]["picture"];
     }
 }
 else
