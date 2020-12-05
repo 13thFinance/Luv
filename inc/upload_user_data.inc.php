@@ -1,4 +1,5 @@
 <?php
+require_once( "is_logged_in.inc.php" );
 require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
 
