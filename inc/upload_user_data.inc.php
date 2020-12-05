@@ -17,13 +17,13 @@ function upload_user_data( $users_name, $personality, $about_me_text, $sex, $gen
         // failed to update user information
         LOG_ERROR( "Send message error -- failed to update member data into db." .
             " member_id=$member_id" );
-        header( "location: accountManagement.php" );
+        header( "location: ../accountManagement.php" );
     }
     else{
         echo '<script>alert("Successfully updated user information")</script>'; 
     }
 
-    header( "location: accountManagement.php" );
+    header( "location: ../accountManagement.php" );
 }
 
 
