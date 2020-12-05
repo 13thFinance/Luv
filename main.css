@@ -664,9 +664,15 @@ hr {
 /**************************************************************
     Search Recommended ***************************************/
 
+.serach-div{
+    max-height: 100%;
+}
+
 .search-recommended-main-div{
     display: flex;
     justify-content: center; 
+    
+    max-height: 100%;
 }
 .search-sub-div{
     margin-top: 5em;
