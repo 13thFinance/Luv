@@ -22,6 +22,9 @@ if( is_logged_in() ) {
     $query_result = db_query($query_string, $query_params);
 
     if( $query_result === false ){
+        // Error handling
+    }
+    else{
         $users_name = [0]["name"];
         //$personality = [0][""];
         $about_me_text = [0]["about_me"];
