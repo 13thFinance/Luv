@@ -3,7 +3,7 @@ require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
 
 if( isset($_POST["member_id"]) ) {
-    upload_user_data( $_POST["users_name"], $_POST["personality"], $_POST["about_me_text"], $_POST["sex"], $_POST["gender"], $_POST["age"], $_POST["looking_for"], $_POST["job_title"], $_POST["location"], $_POST["member_id"]);
+    upload_user_data( $_POST["nameBoxInput"], $_POST["personalityBoxInput"], $_POST["aboutMeInput"], $_POST["sexBoxInput"], $_POST["genderSelectionMenu"], $_POST["ageBoxInput"], $_POST["lookingForBoxInput"], $_POST["jobTitleBoxInput"], $_POST["locationBoxInput"], $_POST["member_id"]);
 }
 
 function upload_user_data( $users_name, $personality, $about_me_text, $sex, $gender, $age, $looking_for, $job_title, $location, $member_id ) {

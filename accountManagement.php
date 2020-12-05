@@ -67,6 +67,7 @@ else
         
         <div id = "mainDivAccountManagement">
             <div id="profileBodyDiv-Left">
+                <!--
                 <script>
                     let name_div = document.getElementById( "nameBoxInput" );
                     let personality_div = document.getElementById( "personalityBoxInput" );
@@ -96,6 +97,7 @@ else
                         });
                     };
                 </script>
+                -->
                 <form id = "accountManagementForm" action="URL">
                     <div id = "profilePicDiv">    
                         <img src="profilepic.png" id = "profilePic" alt="ppic">
@@ -163,7 +165,7 @@ else
                         </div>
                     </div>
                     <div id="saveChangesDiv" action="inc/upload_user_data.inc.php" method="post">
-                        <button id = "saveChangesButton" type="submit" name="submit-save" onClick="upload_user_data()">Save Changes</button>
+                        <button id = "saveChangesButton" type="submit" name="submit-save">Save Changes</button>
                     </div>
                 </form>
                 <form id = "accountSignOutForm" action="inc/logout.inc.php" method="post">
