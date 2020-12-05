@@ -1052,6 +1052,13 @@ hr {
     }
 }
 
+
+.scrollable
+{
+    overflow-y: scroll;
+    max-height: 100em;
+}
+
 /*
 .report-submit-button-div{
     display: flex;
