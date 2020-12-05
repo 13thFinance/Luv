@@ -35,8 +35,6 @@ if( is_logged_in() ) {
         $job_title = $query_result[0]["job_title"];
         $location = $query_result[0]["location"];
         $picture = $query_result[0]["picture"];
-
-        //echo '<script> selectDropDownOption("personality-selection", "$personality"); selectDropDownOption("genderSelectionMenu", $gender); </script>';
     }
 }
 else
@@ -65,7 +63,6 @@ else
                   $("#nav-placeholder").load("modules/nav.html");
                 });
             </script>
-            <script> selectDropDownOption("personality-selection", "$personality"); selectDropDownOption("genderSelectionMenu", $gender); </script>
         </div>
         
         <div id = "mainDivAccountManagement">
@@ -116,19 +113,6 @@ else
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        funtion selectDropDownOption(id, option_value){
-                            var drop_down = document.getElementById(id);
-                            var num_options = drop_down.options.length;
-                            for (var i = 0; i < num_options; i++){
-                                if (drop_down.options[i].value == option_value){
-                                    drop_down.options[i].selected = true;
-                                    break;
-                                }
-                            }
-                        }
-                    </script>
 
                     <div id="aboutMeDiv">
                         <div id = "aboutMeBody">
@@ -185,6 +169,20 @@ else
                         <button id = "sign-out-button" type="submit" name="submit-signout">Sign Out</button>
                     </div>
                 </form>
+                <script>
+                    funtion selectDropDownOption(id, option_value){
+                        var drop_down = document.getElementById(id);
+                        var num_options = drop_down.options.length;
+                        for (var i = 0; i < num_options; i++){
+                            if (drop_down.options[i].value == option_value){
+                                drop_down.options[i].selected = true;
+                                break;
+                            }
+                        }
+                    }
+                    selectDropDownOption("personality-selection", "<?php echo $personality ?>");
+                    selectDropDownOption("genderSelectionMenu", <?php echo $gender ?>);
+                </script>
             </div> 
             
             <!--Left Profile Div -->
