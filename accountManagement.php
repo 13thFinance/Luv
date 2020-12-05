@@ -36,7 +36,7 @@ if( is_logged_in() ) {
         $location = $query_result[0]["location"];
         $picture = $query_result[0]["picture"];
 
-        echo '<script> selectDropDownOption("personality-selection", "$personality"); selectDropDownOption("genderSelectionMenu", $gender); </script>';
+        //echo '<script> selectDropDownOption("personality-selection", "$personality"); selectDropDownOption("genderSelectionMenu", $gender); </script>';
     }
 }
 else
@@ -65,6 +65,7 @@ else
                   $("#nav-placeholder").load("modules/nav.html");
                 });
             </script>
+            <script> selectDropDownOption("personality-selection", "$personality"); selectDropDownOption("genderSelectionMenu", $gender); </script>
         </div>
         
         <div id = "mainDivAccountManagement">
