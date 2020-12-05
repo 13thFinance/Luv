@@ -1106,8 +1106,6 @@ hr {
 
 .scrollable-message
 {
-    display: flex;
-    flex-direction: column-reverse;
     max-height: 70em;
     overflow-y: scroll;
 }
