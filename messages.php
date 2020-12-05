@@ -110,7 +110,13 @@ landing page for luv dating site
 
                         outer_div.classList.add( div_color );
                         p.classList.add( "message-content" );
-                        inner_div.classList.add( "message-timestamp-left" );
+                        if(div_color == "message-blue-div"){
+                            inner_div.classList.add( "message-timestamp-left" );    
+                        }
+                        else{
+                            inner_div.classList.add( "message-timestamp-right" );    
+                        }
+                        
 
 
                         p.innerHTML = message_data.content;
