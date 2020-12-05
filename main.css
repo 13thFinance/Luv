@@ -631,6 +631,19 @@ hr {
     margin-top: 1em;
 }
 
+.profile-review-name-label-class{
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0.3em;
+    text-align: center;
+}
+
+.review-image-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /**************************************************************
     Search Recommended ***************************************/
 
