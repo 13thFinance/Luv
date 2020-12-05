@@ -170,7 +170,7 @@ else
                     </div>
                 </form>
                 <script>
-                    funtion selectDropDownOption(id, option_value){
+                    function selectDropDownOption(id, option_value){
                         var drop_down = document.getElementById(id);
                         var num_options = drop_down.options.length;
                         for (var i = 0; i < num_options; i++){
