@@ -91,29 +91,29 @@ else
                         <div id="userPersonality">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Personality </div>
-                                <select id = "personality-selection" name="personalityBoxInput">
-                                    <option> Select Personality</option>
-                                    <option> INFP </option>
-                                    <option> ENFP </option>
-                                    <option> INFJ </option>
-                                    <option> ENFJ </option>
-                                    <option> INTJ </option>
-                                    <option> ENTJ </option>
-                                    <option> INTP </option>
-                                    <option> ENTP </option>
-                                    <option> ISFP </option>
-                                    <option> ESFP </option>
-                                    <option> ISTP </option>
-                                    <option> ESTP </option>
-                                    <option> ISFJ </option>
-                                    <option> ESFJ </option>
-                                    <option> ISTJ </option>
-                                    <option> ESTJ </option>
+                                <select id = "personality-selection" name="personalityBoxInput" value="<?php echo $personality ?>">
+                                    <option value=NULL selected disabled hidden> Select Personality</option>
+                                    <option value="INFP"> INFP </option>
+                                    <option value="ENFP"> ENFP </option>
+                                    <option value="INFJ"> INFJ </option>
+                                    <option value="ENFJ"> ENFJ </option>
+                                    <option value="INTJ"> INTJ </option>
+                                    <option value="ENTJ"> ENTJ </option>
+                                    <option value="INTP"> INTP </option>
+                                    <option value="ENTP"> ENTP </option>
+                                    <option value="ISFP"> ISFP </option>
+                                    <option value="ESFP"> ESFP </option>
+                                    <option value="ISTP"> ISTP </option>
+                                    <option value="ESTP"> ESTP </option>
+                                    <option value="ISFJ"> ISFJ </option>
+                                    <option value="ESFJ"> ESFJ </option>
+                                    <option value="ISTJ"> ISTJ </option>
+                                    <option value="ESTJ"> ESTJ </option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="aboutMeDiv">
                         <div id = "aboutMeBody">
                             <div id = "aboutMeTitle"> About Me</div>
@@ -128,8 +128,8 @@ else
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
-                            <select id = "genderSelectionMenu" name="genderSelectionMenu">
-                            <option value=0> Select Gender </option>
+                            <select id = "genderSelectionMenu" name="genderSelectionMenu" value="<?php echo $gender ?>">
+                            <option value=NULL selected disabled hidden> Select Gender </option>
                             <option value=1> Male </option>
                             <option value=2> Female </option>
                             <option value=3> Other </option>
@@ -169,6 +169,20 @@ else
                         <button id = "sign-out-button" type="submit" name="submit-signout">Sign Out</button>
                     </div>
                 </form>
+                <script>
+                    function selectDropDownOption(id, option_value){
+                        var drop_down = document.getElementById(id);
+                        var num_options = drop_down.options.length;
+                        for (var i = 0; i < num_options; i++){
+                            if (drop_down.options[i].value == option_value){
+                                drop_down.options[i].selected = true;
+                                break;
+                            }
+                        }
+                    }
+                    selectDropDownOption("personality-selection", "<?php echo $personality ?>");
+                    selectDropDownOption("genderSelectionMenu", <?php echo $gender ?>);
+                </script>
             </div> 
             
             <!--Left Profile Div -->
