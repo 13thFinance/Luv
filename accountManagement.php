@@ -35,6 +35,8 @@ else
             <div id="profileBodyDiv-Left">
                 
                 <form id = "accountManagementForm" action="URL">
+                    
+                    <input type='file' id='profile-pic' name="profile-pic" accept="image/jpeg, image/png">
                     <div id = "profilePicDiv">    
                         <img src="profilepic.png" id = "profilePic" alt="ppic">
                     </div>
