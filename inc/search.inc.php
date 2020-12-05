@@ -9,9 +9,7 @@ require_once( "mysql.inc.php" );
 //==========================================================================
 function search_users( $search_val ) {
 
-    $query_string = "select member_id,name,about_me,picture from members where name like ? or sex like ? 
-        or gender like ? or age like ? or location like ? or job_title like ? or personality like ? 
-        or looking_for like ? or about_me like ? limit 10";
+    $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating from members left join reviews on members.member_id=reviews.target_id where (name like ? or sex like ? or gender like ? or age like ? or location like ? or job_title like ? or personality like ? or looking_for like ? or about_me like ?) group by members.member_id;";
     $query_params = [];
     for( $i = 0; $i < 9; $i++)
         array_push( $query_params, "%$search_val%" );
@@ -52,10 +50,14 @@ function search_recommended_users( $member_id ) {
         }
 
         // query users with compatible personality types?
-        $query_params = explode( ",", $result[0]["personality"] );
+        $query_params = explode( ",", $results_pmatches[0]["match_string"] );
         $query_filter = implode(",", array_fill(0, count($query_params), "?"));
+        array_push( $query_params, $member_id );
 
-        $query_string = "select member_id,name,about_me,picture from members where personality in ($query_filter)";
+        $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
+            from members left join reviews on members.member_id=reviews.target_id 
+            where personality in ($query_filter) and members.member_id<>? group by members.member_id;";
+
         $result_recommendations = db_query( $query_string, $query_params );
 
         if( $result_recommendations === false )

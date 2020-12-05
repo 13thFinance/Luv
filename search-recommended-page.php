@@ -66,6 +66,8 @@ else
             console.log( member.name );
             console.log( member.about_me );
             console.log( member.picture );
+            console.log( member.rating );
+            console.log( member );
 
             // CREATE DIVS HERE AND APPEND THEM TO THE BODY ELEMENT
         });
