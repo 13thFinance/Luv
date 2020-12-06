@@ -44,10 +44,12 @@ else
 
             // PLACEHOLDER CONSOLE OUTPUT
 
-            var name = review.name;
-            var picture = review.picture;
-            var rating = review.rating;
-            var content = review.content;
+            var name = report.name;
+            var picture = report.picture;
+            var reporter = report.member_id;
+            var target = report.target_id;
+            var timestamp = report.timestamp;
+            var content = report.content;
             console.log(report);
             
         });
