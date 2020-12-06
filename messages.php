@@ -202,7 +202,8 @@ landing page for luv dating site
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
 
-			            console.log( "confirming message receipt, is_recipient = " + is_recipient );
+                        console.log( "confirming message receipt, is_recipient = " + is_recipient );
+                        console.log( message_data.member_id+", "+messages_data.target_id+", "+message_data.timestamp );
                         $.ajax({
                             url: 'inc/confirm_message_receipt.inc.php',
                             type: 'POST',
