@@ -35,11 +35,11 @@ function load_reports() {
 //   information, reviews, matches and conversations.
 //==========================================================================
 function deleteAccount( $member_id ) {
-    
+
     $query_string = "DELETE FROM reports INNER JOIN members ON reports.target_id = members.member_id
         INNER JOIN reviews ON reports.target_id = reviews.member_id AND reports.target_id = reviews.targer_id
         INNER JOIN matches ON reports.target_id = matches.member_id AND reports.target_id = matches.target_id
-        WHERE reports.target_id=?";
+        WHERE reports.target_id=?;";
     $query_params = [$member_id];
     $result = db_query( $query_string, $query_params );
 
@@ -55,7 +55,7 @@ function deleteAccount( $member_id ) {
 //==========================================================================
 function ignoreAccount( $member_id, $target_id, $timestamp ) {
 
-    $query_string = "DELETE FROM reports WHERE member_id=? and target_id=? and timestamp=?";
+    $query_string = "DELETE FROM reports WHERE member_id=? and target_id=? and timestamp=?;";
     $query_params = [$member_id, $target_id, $timestamp];
     $result = db_query( $query_string, $query_params );
 
