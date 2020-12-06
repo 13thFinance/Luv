@@ -93,8 +93,8 @@ else
                             "<input type='hidden' name='target_id' value='" + member_id + "'/> "
                     "</form> " + 
                     "<form class='search-profile-form' action=''> " +
-                    "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " +
-                    "    </form> " +
+                    "        <input type='submit' id='search-profile-message-button' class='search-profile-button' value='Message'/> " +
+                    "</form> " +
                     "</div>  ";
 
             var parent_div = document.createElement("DIV");
