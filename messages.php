@@ -1,19 +1,27 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
-require_once( "inc/load_messages.inc.php" );
+require_once( "inc/messaging.inc.php" );
+
 $member_id = "";
-if( is_logged_in() )
+
+if( is_logged_in() ) {
+    $member_id = $_SESSION["member_id"];
+    
+    
     if( isset($_POST["target_id"]) ) {
-        $member_id = $_SESSION["member_id"];
         $target_id = $_POST["target_id"];
+
+        // attempt to add conversation
+        create_conversation( $member_id, $target_id );
+
+        // load history from current conversation
+        $member_id = $_SESSION["member_id"];
         $messages = load_messages( $member_id, $target_id );
     }
-    else {
-        // PLACEHOLDER: Remove this 'else' block once selecting conversations is implemented.
-        $member_id = "38";
-        $target_id = "39";
-        $messages = load_messages( $member_id, $target_id );
-    }
+
+    // load conversations
+    $conversations = load_conversations( $member_id );
+}
 else
     header( "location: /luv/createAccountBody.html" );
 ?>
@@ -54,15 +62,27 @@ landing page for luv dating site
             <hr />
             
             <div class="users-placeholder">
-                <div id = "admin-profile-pic-div">    
-                    <img src="profilepic.png" id = "admin-profile-pic">
-                    <p id="admin-reported-user-name" class="profile-username">User name1</p>
-                </div>
+            <script>
+                var conversations = <?php echo json_encode($conversations); ?>;
+                conversations.forEach( conv=> {
+                    console.log( conv.name );
+                    console.log( conv.picture );
+                    console.log( conv.target_id );
+                });
+            </script>
+
+            <!--
+            <div id = "admin-profile-pic-div">    
+                <img src="profilepic.png" id = "admin-profile-pic">
+                <p id="admin-reported-user-name" class="profile-username">User name1</p>
+            </div>
+            
+            <div id = "admin-profile-pic-div">    
+                <img src="profilepic.png" id = "admin-profile-pic">
+                <p id="admin-reported-user-name" class="profile-username">User name2</p>
+            </div>
+            -->
                 
-                <div id = "admin-profile-pic-div">    
-                    <img src="profilepic.png" id = "admin-profile-pic">
-                    <p id="admin-reported-user-name" class="profile-username">User name2</p>
-                </div>
           
             </div>
             
