@@ -267,7 +267,7 @@ landing page for luv dating site
                                     else if( member_id == msg.target_id && msg.read == "0" ) {
                                         // This is the recipient, not actively in a conversation with the sender.
                                         is_recipient = true;
-					                    console.log( "receiving sent message, not watching conversation" );
+                                        console.log( "receiving sent message, not watching conversation" );
                                         $.ajax({
                                             url: 'inc/conversations.inc.php',
                                             type: 'POST',
@@ -276,6 +276,7 @@ landing page for luv dating site
                                                 target_id: msg.member_id
                                             },
                                             success: function( response ) {
+                                                console.log( response );
                                                 var data = JSON.parse( response );
                                                 console.log( "got a response from conversations.inc.php" )
                                                 console.log( data );
