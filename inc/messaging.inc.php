@@ -54,35 +54,4 @@ function load_messages( $member_id, $target_id ) {
 
     return $result;
 }
-
-//==========================================================================
-// create_conversation
-//==========================================================================
-function create_conversation( $member_id, $target_id ) {
-    $query_string = "insert into conversations values (?,?) on duplicate key update member_id=member_id";
-    $query_params = [$member_id, $target_id];
-    $result = db_query( $query_string, $query_params );
-
-    if( $result === false ) {
-        // PLACEHOLDER
-        die( "Something went wrong" );
-    }
-}
-
-//==========================================================================
-// load_conversations
-//==========================================================================
-function load_conversations( $member_id ) {
-    $query_string = "select members.name,members.picture,conversations.target_id from members
-        left join conversations on members.member_id=conversations.target_id where conversations.member_id=?";
-    $query_params = [$member_id];
-    $result = db_query( $query_string, $query_params );
-
-    if( $result === false ) {
-        // PLACEHOLDER
-        die( "Something went wrong" );
-    }
-
-    return $result;
-}
 ?>

@@ -1,6 +1,7 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
+require_once( "inc/conversations.inc.php" );
 require_once( "inc/confirm_message_receipt.inc.php" );
 
 $member_id = "";
@@ -87,8 +88,7 @@ landing page for luv dating site
             <div class="users-placeholder" id="conversation-head-wrapper">
             </div>
             <script>
-                var conversations = <?php echo json_encode($conversations); ?>;
-                conversations.forEach( conv=> {
+                var add_conversation_head = conv => {
                     outer_div = document.createElement( "DIV" );
                     outer_div.classList.add( "admin-profile-pic-div" );
 
@@ -119,6 +119,10 @@ landing page for luv dating site
                     outer_div.appendChild( p_div );
 
                     document.getElementById( "conversation-head-wrapper" ).appendChild( outer_div );
+                }
+                var conversations = <?php echo json_encode($conversations); ?>;
+                conversations.forEach( conv => {
+                    add_conversation_head( conv );
                 });
             </script>
                 
@@ -242,11 +246,27 @@ landing page for luv dating site
 
                             var is_recipient = false;
                             if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
+                                // This is the sender. Show them their own message.
                                 show_sent_message( is_recipient, msg );
                             }
                             else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
+                                // This is the recipient. Show them the sender's message.
                                 is_recipient = true;
                                 show_sent_message( is_recipient, msg );
+                            }
+                            else if( member_id == msg.target_id && msg.read == "0" ) {
+                                // This is the recipient, not actively in a conversation with the sender.
+                                $.ajax({
+                                    url: 'inc/conversations.inc.php',
+                                    type: 'POST',
+                                    data: {
+                                        member_id: message_data.member_id,
+                                        target_id: message_data.target_id
+                                    },
+                                    success: function( data ) {
+                                        add_conversation_head( data );
+                                    }
+                                });
                             }
                         };
                     }
