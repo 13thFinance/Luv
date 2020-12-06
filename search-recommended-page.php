@@ -65,12 +65,40 @@ else
             
             // PLACEHOLDER CONSOLE OUTPUT
             
-            $name = member.name;
-            $aboutMe = member.about_me;
-            $picture = member.picture;
-            $rating = member.rating;
+            var name = member.name;
+            var aboutMe = member.about_me;
+            var picture = member.picture;
+            var rating = member.rating;
+            var memberID = member.member_id;
             
+            var profile_html = 
+                    "<div class='search-profile-image-div'> " +
+                        "<img src='img/profile/default.png' class ='reviewProfilePic'> " +
+                        "<p id='search-profile-user-name' class='profile-username'>" . name > "</p> " +
+                    "</div> " +
 
+                    "<div class='search-profile-feedback-div'> " +
+
+                    "<textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none' value= '" + aboutMe + "'</textarea> " +
+
+                    "<div class='review-stars-div'> " +
+                    "    <input type='text' id='search-profile-rating-text' value ='" + rating +" >  " +
+                    "</div> " +
+                    "</div> " +
+
+                     " <!-- buttons -->  " +
+                    "<div class='seach-profile-button-div' action=''>  " +
+                    "    <form class='search-profile-form'> " +
+                    "        <input type='button' id='search-profile-view-button' class='search-profile-button' value='View' onclick='goto(\'ViewOthersProfile.html\');\''/> " +
+
+                    "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " .
+                    "    </form> " +
+                    "</div>  ";
+            
+            var parent_div = document.createElement("DIV");
+            parent_div.classList.add("search-result-recommended-parent-div");
+            parent_div.innerHTML = profile_html;
+            document.body.appendChild(parent_div);
         });
     </script>
     
