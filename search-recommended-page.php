@@ -88,10 +88,7 @@ else
 
                      " <!-- buttons -->  " +
                     "<div class='seach-profile-button-div'>  " +
-                    "    <form class='search-profile-form' action='ViewOthersProfile.php'> " +
-                    "        <input type='submit' id='search-profile-view-button' class='search-profile-button' value='View'/>" + 
-                            "<input type='hidden' name='target_id' value='" + member_id + "'/> "
-                        "</form> " + 
+                   
                     "   <form class='search-profile-form' action='message.php'> " +
                     "        <input type='submit' id='search-profile-message-button' class='search-profile-button' value='Message'/> " +
                     "        <input type='hidden' name='target_id' value='" + member_id + "'/> " +
