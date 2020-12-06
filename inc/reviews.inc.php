@@ -9,7 +9,7 @@ require_once( "mysql.inc.php" );
 function load_reviews( $member_id ) {
 
     $query_string = "select members.name, members.picture, reviews.rating, reviews.content
-        FROM members, reviews WHERE reviews.target_id=? limit 10;";
+        FROM members, reviews WHERE reviews.target_id=? and reviews.target_id=members.member_id limit 10;";
 
     $query_params = [$member_id];
     $result = db_query( $query_string, $query_params );
