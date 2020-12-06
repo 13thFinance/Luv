@@ -1,8 +1,16 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
-require_once( "inc/load_messages.inc.php" );
+require_once( "inc/messaging.inc.php" );
+
 $member_id = "";
-if( is_logged_in() )
+
+if( is_logged_in() ) {
+    $member_id = $_SESSION["member_id"];
+
+    // load conversations
+    $conversations = load_conversations( $member_id );
+
+    // load history from current conversation
     if( isset($_POST["target_id"]) ) {
         $member_id = $_SESSION["member_id"];
         $target_id = $_POST["target_id"];
@@ -14,6 +22,7 @@ if( is_logged_in() )
         $target_id = "39";
         $messages = load_messages( $member_id, $target_id );
     }
+}
 else
     header( "location: /luv/createAccountBody.html" );
 ?>
@@ -54,6 +63,7 @@ landing page for luv dating site
             <hr />
             
             <div class="users-placeholder">
+                <!--
                 <div id = "admin-profile-pic-div">    
                     <img src="profilepic.png" id = "admin-profile-pic">
                     <p id="admin-reported-user-name" class="profile-username">User name1</p>
@@ -63,6 +73,7 @@ landing page for luv dating site
                     <img src="profilepic.png" id = "admin-profile-pic">
                     <p id="admin-reported-user-name" class="profile-username">User name2</p>
                 </div>
+            -->
           
             </div>
             
