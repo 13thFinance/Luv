@@ -8,7 +8,6 @@ require_once("inc/new_match.inc.php");
 $member_id = "";
 $target_id = "";
 $messages = [];
-$match[];
 
 if( is_logged_in() ) {
     $member_id = $_SESSION["member_id"];
@@ -146,6 +145,7 @@ landing page for luv dating site
             //{}
             
             //display corresponding button based on state
+            /*
             if(get_match($member_id, $target_id) == 0)
             {
                 print "<button class='match-button''>MATCH</button>";
@@ -157,9 +157,9 @@ landing page for luv dating site
             elseif (if_matched($member_id, $target_id) == true)
             {
                 print "<button class='matched-button''>MATCHED</button>";
-            }
+            }*/
             
-
+                
             
             ?>
             
