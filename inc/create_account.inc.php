@@ -25,8 +25,9 @@ function create_account( $name, $email, $pwd ) {
     }
 
     // insert new member info into db
-    $query_string = "insert into members (is_admin, email, password, name) values ('0',?,?,?)";
-    $query_params = [$email, $pwd_hash, $name];
+    $img = "img/profile/default.png";
+    $query_string = "insert into members (is_admin, email, password, name, picture) values ('0',?,?,?,?)";
+    $query_params = [$email, $pwd_hash, $name, $img];
     $result_insert = db_query( $query_string, $query_params );
 
     if( $result_insert === false ) {

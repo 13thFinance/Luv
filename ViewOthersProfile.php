@@ -79,7 +79,7 @@ else
                 <div id="profile-body-div-left-readonly">
                     <form id = "view-other-form" action="URL">
                         <div id = "profile-pic-div-readonly">    
-                            <img src="profilepic.png" id = "profile-pic-readonly" alt="None">
+                            <img src="<?php echo $picture ?>" id = "profile-pic-readonly" alt="None">
                         </div>
                         
                         <div id="name-personality-pair-read-only">
