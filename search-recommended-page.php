@@ -74,7 +74,7 @@ else
             var profile_html = 
                     "<div class='search-profile-image-div'> " +
                         "<img src='img/profile/default.png' class ='reviewProfilePic'> " +
-                        "<p id='search-profile-user-name' class='profile-username'>" . name > "</p> " +
+                        "<p id='search-profile-user-name' class='profile-username'>" + name + "</p> " +
                     "</div> " +
 
                     "<div class='search-profile-feedback-div'> " +
@@ -82,7 +82,7 @@ else
                     "<textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none' value= '" + aboutMe + "'</textarea> " +
 
                     "<div class='review-stars-div'> " +
-                    "    <input type='text' id='search-profile-rating-text' value ='" + rating +" >  " +
+                    "    <input type='text' id='search-profile-rating-text' value ='" + rating + " >  " +
                     "</div> " +
                     "</div> " +
 
@@ -91,7 +91,7 @@ else
                     "    <form class='search-profile-form'> " +
                     "        <input type='button' id='search-profile-view-button' class='search-profile-button' value='View' onclick='goto(\'ViewOthersProfile.html\');\''/> " +
 
-                    "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " .
+                    "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " +
                     "    </form> " +
                     "</div>  ";
             
