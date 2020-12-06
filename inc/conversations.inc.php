@@ -10,6 +10,7 @@ if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
 // create_conversation
 //==========================================================================
 function create_conversation( $member_id, $target_id ) {
+    $response = array();
     $query_string = "select count(1) as count from conversations where member_id=? and target_id=?;";
     $query_params = [$member_id, $target_id];
     $result = db_query( $query_string, $query_params );
@@ -21,8 +22,7 @@ function create_conversation( $member_id, $target_id ) {
 
     if( $result[0]["count"] == "1" ) {
         if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
-            $response = array("existed" => "true");
-            echo json_encode( $response );
+            $response += array("existed" => "true");
         }
     }
     else {
@@ -45,9 +45,12 @@ function create_conversation( $member_id, $target_id ) {
                 die( "Something went wrong" );
             }
 
-            $result_response[0] += array( "existed" => "false" );
-            echo json_encode( $result_response[0] );
+	    foreach( $result_response[0] as $key => $value ) {
+		$response += array($key => $value);	
+	    }
+	    $response += array("existed" => "false");
         }
+        echo json_encode( $response );
     }
 }
 
