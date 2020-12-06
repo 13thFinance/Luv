@@ -80,15 +80,14 @@ else
                     "<div class='search-profile-feedback-div'> " +
 
                         "<textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none' value= '" + aboutMe + "'></textarea> " +
-
                         "<div class='review-stars-div'> " +
-                        "    <input type='text' id='search-profile-rating-text' value ='" + rating + " >  " +
+                        "    <input type='text' id='search-profile-rating-text' value ='" + rating + "'>  " +
                         "</div> " +
                     "</div> " +
 
                      " <!-- buttons -->  " +
-                    "<div class='seach-profile-button-div' action=''>  " +
-                    "    <form class='search-profile-form'> " +
+                    "<div class='seach-profile-button-div'>  " +
+                    "    <form class='search-profile-form' action=''> " +
                     "        <input type='button' id='search-profile-view-button' class='search-profile-button' value='View' onclick='goto(\'ViewOthersProfile.html\');\''/> " +
 
                     "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " +
