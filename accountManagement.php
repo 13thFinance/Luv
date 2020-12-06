@@ -229,7 +229,7 @@ else
                             <hr/>
 
                             <div class="review-stars-div">
-                               <img href="img/heart.png" alt="<3">
+                               <img href="img/profile/heart.png" alt="<3">
                             </div>
                         </div>
                     </div>
