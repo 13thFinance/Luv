@@ -240,33 +240,35 @@ landing page for luv dating site
                     if( typeof(EventSource) !== "undefined" ) {
                         var event_source = new EventSource( "inc/inform_messaging.inc.php" );
                         event_source.onmessage = event => {
-                            var msg = JSON.parse( event.data );
-                            var member_id = "<?php echo $member_id; ?>";
-                            var target_id = "<?php echo $target_id; ?>";
+                            if( event && event.data ) {
+                                var msg = JSON.parse( event.data );
+                                var member_id = "<?php echo $member_id; ?>";
+                                var target_id = "<?php echo $target_id; ?>";
 
-                            var is_recipient = false;
-                            if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
-                                // This is the sender. Show them their own message.
-                                show_sent_message( is_recipient, msg );
-                            }
-                            else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
-                                // This is the recipient. Show them the sender's message.
-                                is_recipient = true;
-                                show_sent_message( is_recipient, msg );
-                            }
-                            else if( member_id == msg.target_id && msg.read == "0" ) {
-                                // This is the recipient, not actively in a conversation with the sender.
-                                $.ajax({
-                                    url: 'inc/conversations.inc.php',
-                                    type: 'POST',
-                                    data: {
-                                        member_id: message_data.member_id,
-                                        target_id: message_data.target_id
-                                    },
-                                    success: function( data ) {
-                                        add_conversation_head( data );
-                                    }
-                                });
+                                var is_recipient = false;
+                                if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
+                                    // This is the sender. Show them their own message.
+                                    show_sent_message( is_recipient, msg );
+                                }
+                                else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
+                                    // This is the recipient. Show them the sender's message.
+                                    is_recipient = true;
+                                    show_sent_message( is_recipient, msg );
+                                }
+                                else if( member_id == msg.target_id && msg.read == "0" ) {
+                                    // This is the recipient, not actively in a conversation with the sender.
+                                    $.ajax({
+                                        url: 'inc/conversations.inc.php',
+                                        type: 'POST',
+                                        data: {
+                                            member_id: message_data.member_id,
+                                            target_id: message_data.target_id
+                                        },
+                                        success: function( data ) {
+                                            add_conversation_head( data );
+                                        }
+                                    });
+                                }
                             }
                         };
                     }
