@@ -67,7 +67,7 @@ else
             
             $name = member.name;
             $aboutMe = member.about_me;
-            //$picture = member.picture;
+            $picture = member.picture;
             $rating = member.rating;
             
             
