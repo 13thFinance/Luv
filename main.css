@@ -616,6 +616,36 @@ body {
     color: white;
 }
 
+.matched-button{
+    width: auto;
+    height: 50px;
+    
+    text-align: center;
+    margin: auto;
+    
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 10%;
+    
+    background-color: limegreen;
+    color: white;
+}
+
+.matching-button{
+    width: auto;
+    height: 50px;
+    
+    text-align: center;
+    margin: auto;
+    
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 10%;
+    
+    background-color: darkslategrey;
+    color: white;
+}
+
 hr {
     border: 0px;
     border-bottom: 1px;
