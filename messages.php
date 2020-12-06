@@ -278,12 +278,6 @@ landing page for luv dating site
                                                         target_id: msg.member_id,
                                                         timestamp: msg.timestamp,
                                                         is_recipient: is_recipient
-                                                    },
-                                                    success: function() {
-                                                        console.log( "success" );
-                                                    },
-                                                    error: function() {
-                                                        console.log( "error" );
                                                     }
                                                 });
                                             }
