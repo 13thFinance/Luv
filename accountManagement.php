@@ -2,6 +2,7 @@
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/mysql.inc.php" );
 require_once( "inc/logging.inc.php" );
+require_once( "inc/reviews.inc.php" );
 
 $users_name = "";
 $personality = "";
@@ -13,6 +14,8 @@ $looking_for = "";
 $job_title = "";
 $location = "";
 $picture = "";
+
+$reviews = [];
 if( is_logged_in() ) {
     $session_start;
     $member_id = $_SESSION["member_id"];
@@ -37,6 +40,8 @@ if( is_logged_in() ) {
         $location = $query_result[0]["location"];
         $picture = $query_result[0]["picture"];
     }
+
+    $reviews = load_reviews($member_id);
 }
 else
     header( "location: /luv/createAccountBody.html" );
@@ -179,6 +184,19 @@ else
                     }
                     selectDropDownOption("personality-selection", "<?php echo $personality ?>");
                     selectDropDownOption("genderSelectionMenu", "<?php echo $gender ?>");
+                </script>
+                <script>
+                    var reviews_results = <?php echo json_encode($reviews); ?>;
+                    reviews_results.forEach( review => {
+
+                        // PLACEHOLDER CONSOLE OUTPUT
+
+                        var name = review.name;
+                        var picture = review.picture;
+                        var rating = review.rating;
+                        var content = review.content;
+                        console.log(review);
+                    });
                 </script>
             </div> 
             
