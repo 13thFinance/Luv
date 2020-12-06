@@ -3,9 +3,9 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/logging.inc.php" );
 require_once( "inc/reports.inc.php" );
 
-$reviews = [];
+$reports = [];
 if( is_logged_in() ) {
-    $reviews = load_reviews();
+    $reports = load_reports();
 }
 else
     header( "location: /luv/createAccountBody.html" );
