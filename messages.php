@@ -140,7 +140,7 @@ landing page for luv dating site
             //match button php stuff
 
             //fetch match button state
-            if(db.query())
+            if(db.query()){}
 
 
             //display corresponding button based on state
