@@ -1,3 +1,16 @@
+<?php
+require_once( "inc/is_logged_in.inc.php" );
+require_once( "inc/logging.inc.php" );
+require_once( "inc/reports.inc.php" );
+
+$reports = [];
+if( is_logged_in() ) {
+    $reports = load_reports();
+}
+else
+    header( "location: /luv/createAccountBody.html" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +21,12 @@
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body class="landing-page">
-    <div class="admin-sign-out-div">
-        <input type="button" id="admin-sign-out-button" value="Sign Out" onclick="goto('index.html');"/>
-    </div>
+    <form id = "adminSignOutForm" action="inc/logout.inc.php" method="post">
+        <!-- Sign out -->
+        <div class="admin-sign-out-div">
+            <button type="submit" id="admin-sign-out-button" name="submit-signout">Sign Out</button>
+        </div>
+    </form>
     <h1 class="admin-reported-header">Reported Accounts</h1>
     
     <div class="admin-reported-account-main-div">
@@ -25,6 +41,23 @@
         </div>
     </div>
     
+    <script>
+        var report_results = <?php echo json_encode($reports); ?>;
+        report_results.forEach( report => {
+
+            // PLACEHOLDER CONSOLE OUTPUT
+
+            var name = report.name;
+            var picture = report.picture;
+            var reporter = report.member_id;
+            var target = report.target_id;
+            var timestamp = report.timestamp;
+            var content = report.content;
+            console.log(report);
+            
+        });
+    </script>
+
     <div class="scrollable">
         <div class="admin-reported-account-main-div">
             <div class="admin-reported-account-label-div">
