@@ -267,8 +267,6 @@ else
                         var review_textarea = document.createElement( "TEXTAREA" );
                         var hline_hr = document.createElement("HR");
                         var review_stars_div = document.createElement( "DIV" );
-                        var stars_div = document.createElement( "DIV" );
-                        var stars_image = document.createElement( "IMG" );
                         
                         review_parent_div.classList.add("review-parent-div");
                         review_image_div.classList.add("review-image-div");
@@ -288,7 +286,6 @@ else
                         
                         
                         // add more hearts per rating
-                        stars_div.appendChild(stars_image);
                         var i;
                         for (i = 1; i <= rating; i++) {
                             
@@ -298,6 +295,7 @@ else
                             stars_div.classList.add("review-stars-div");
                             stars_image.src = "img/profile/heart.png";
                             stars_image.alt = "<3";
+                            stars_div.appendChild(stars_image);
                             
                             review_stars_div.appendChild(stars_div);
                         }
