@@ -247,19 +247,19 @@ else
                             <hr/>
                             <div class="review-stars-flex-div">
                                 <div class="review-stars-div">
-                                   <img src="img/heart.png" alt="<3">
+                                   <img src="img/profile/heart.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/heart.png" alt="<3">
+                                   <img src="img/profile/heart.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/heart.png" alt="<3">
+                                   <img src="img/profile/heart.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/heart.png" alt="<3">
+                                   <img src="img/profile/heart.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/heart.png" alt="<3">
+                                   <img src="img/profile/heart.png" alt="<3">
                                 </div>
                             </div>
                         </div>
