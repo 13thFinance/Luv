@@ -91,10 +91,11 @@ else
                     "    <form class='search-profile-form' action='ViewOthersProfile.php'> " +
                     "        <input type='submit' id='search-profile-view-button' class='search-profile-button' value='View'/>" + 
                             "<input type='hidden' name='target_id' value='" + member_id + "'/> "
-                    "</form> " + 
-                    "<form class='search-profile-form' action=''> " +
+                        "</form> " + 
+                    "   <form class='search-profile-form' action='message.php'> " +
                     "        <input type='submit' id='search-profile-message-button' class='search-profile-button' value='Message'/> " +
-                    "</form> " +
+                    "        <input type='hidden' name='target_id' value='" + member_id + "'/> " +
+                        "</form> " +
                     "</div>  ";
 
             var parent_div = document.createElement("DIV");
@@ -104,52 +105,5 @@ else
         });
     </script>
     
-    
-    
-    <!--
-    <div class="search-result-recommended-parent-div">
-        <div class="search-profile-image-div">
-            <img src="profilepic.png" class = "reviewProfilePic">
-            <p id="search-profile-user-name" class="profile-username">User name</p>
-        </div>
-
-        <div class="search-profile-feedback-div">
-
-            <textarea readonly class="search-profile-aboutme-text-area" rows=8 cols=80 style="resize: none"></textarea>
-
-            <div class="review-stars-div">
-                <form action="" class="review-rating-form">
-                    <label>Rating:</label>
-                    <br>
-                    <input type="radio" name="review-rating" id="search-profile-rating-id1" class="review-rating-id" value="rating">
-                    <label for="search-profile-rating-id1" class="rating-start-label">1 Star</label>
-
-                    <input type="radio" name="review-rating" id="search-profile-rating-id2" class="review-rating-id" value="rating">
-                    <label for="search-profile-rating-id2" class="rating-start-label">2 Stars</label>
-
-                    <input type="radio" name="review-rating" id="search-profile-rating-id3" class="review-rating-id" value="rating">
-                    <label for="search-profile-rating-id3" class="rating-start-label">3 Stars</label>
-
-                    <input type="radio" name="review-rating" id="search-profile-rating-id4" class="review-rating-id" value="rating">
-                    <label for="search-profile-rating-id4" class="rating-start-label">4 Stars</label>
-
-                    <input type="radio" name="review-rating" id="search-profile-rating-id5" class="review-rating-id" value="rating">
-                    <label for="search-profile-rating-id5" class="rating-start-label">5 Stars</label>
-                </form>
-            </div>
-        </div>
-        -->
-
-        <!-- buttons -->
-        <!--
-        <div class="seach-profile-button-div" action="">
-            <form class="search-profile-form">
-                <input type="button" id="search-profile-view-button" class="search-profile-button" value="View" onclick="goto('ViewOthersProfile.html');"/>
-
-                <input type="button" id="search-profile-message-button" class="search-profile-button" value="Message" onclick="goto('messages.html');"/>
-            </form>
-        </div>
-    </div>
-    -->
 </body>
 </html>
