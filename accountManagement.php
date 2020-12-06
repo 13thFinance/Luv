@@ -276,7 +276,7 @@ else
                         review_textarea.classList.add("review-text-area");
                         review_stars_div.classList.add("review-stars-flex-div");
                         
-                        review_textarea.row = "10";
+                        review_textarea.rows = "5";
                         review_textarea.cols = "105";
                         review_textarea.style.resize = "none";
                         review_textarea.innerHTML = content;
