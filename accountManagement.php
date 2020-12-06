@@ -7,7 +7,7 @@ $users_name = "";
 $personality = "";
 $about_me_text = "";
 $sex = "";
-$gender = 0;
+$gender = NULL;
 $age = 0;
 $looking_for = "";
 $job_title = "";
@@ -122,7 +122,7 @@ else
                     <div id = "sexGenderDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Sex </div>
-                            <input type = "text" id = "sexBoxInput" name="sexBoxInput" placeholder="Input Sex Preference"  value="<?php echo $sex ?>">
+                            <input type = "text" id = "sexBoxInput" name="sexBoxInput" placeholder="Input Sex Preference" value="<?php echo $sex ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
@@ -138,17 +138,17 @@ else
                     <div id = "ageLookingForDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Age </div>
-                            <input type = "text" id = "ageBoxInput" name="ageBoxInput" placeholder="Input Age"  value="<?php echo $age ?>">
+                            <input type = "text" id = "ageBoxInput" name="ageBoxInput" placeholder="Input Age" value="<?php echo $age ?>">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Looking For </div>
-                            <input type = "text" id = "lookingForBoxInput" name="lookingForBoxInput" placeholder="Looking for..."  value="<?php echo $looking_for ?>">
+                            <input type = "text" id = "lookingForBoxInput" name="lookingForBoxInput" placeholder="Looking for..." value="<?php echo $looking_for ?>">
                         </div>
                     </div>
                     <div id="jobTitleDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Job Title </div>
-                            <input type = "text" id = "jobTitleBoxInput" name="jobTitleBoxInput" placeholder="Input Job Title"  value="<?php echo $job_title ?>">
+                            <input type = "text" id = "jobTitleBoxInput" name="jobTitleBoxInput" placeholder="Input Job Title" value="<?php echo $job_title ?>">
                         </div>
                     </div>
                     <div id="locationDiv">
