@@ -1,10 +1,12 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
+require_once( "inc/new_match.inc.php"); 
 
 $member_id = "";
 $target_id = "";
 $messages = [];
+$match =[];
 
 if( is_logged_in() ) {
     $member_id = $_SESSION["member_id"];
