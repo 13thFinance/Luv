@@ -149,23 +149,11 @@ else
                     </form>
                 </div> <!--Left Profile Div -->
 
-                <script>
-                    var reviews_results = <?php echo json_encode($reviews); ?>;
-                    reviews_results.forEach( review => {
-
-                        // PLACEHOLDER CONSOLE OUTPUT
-
-                        var name = review.name;
-                        var picture = review.picture;
-                        var rating = review.rating;
-                        var content = review.content;
-                        console.log(review);
-                    });
-                </script>
 
                 <div class="vertical-line-div2"></div>
                 <div id = "reviews-account-management-right-readonly">
                     <div class="reviews-space-div"> </div>
+                    
                     <div id = "reviews-label-div-readonly">
                         <label id = "reviews-label-readonly">
                             Reviews
@@ -176,47 +164,84 @@ else
                         <input type="button" id="add-review-button" class="add-review-button-class" value="Add Review"/>   
                     </div>
                     
-                    <div class = "scrollable">
-                    
-                        <div class="review-parent-div">
-                            <div class="review-image-div">
-                                <img src="profilepic.png" class = "reviewProfilePic" alt="None">
-                                <label id="review-label-1" class="profile-review-name-label-class">
-                                Profile Name Here
-                                </label>
-                            </div>
-
-                            <div class="review-feedback-div">
-
-                                <textarea id="review-textarea-id1" readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
-
-                                <hr/>
-
-
-                                <div class="review-stars-div">
-                                    <form action="URL" id="form-review-1" class="review-rating-form">
-                                        <fieldset>
-                                            <input type="radio" name="review-rating" id="review-rating-id1-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id1-1-readonly" class="rating-start-label">1 Star</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id2-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id2-1-readonly" class="rating-start-label">2 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id3-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id3-1-readonly" class="rating-start-label">3 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id4-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id4-1-readonly" class="rating-start-label">4 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id5-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id5-1-readonly" class="rating-start-label">5 Stars</label>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                    <div id ="review-wrapper" class = "scrollable">
+                        
                         
                     </div>
+                    
+                    <script>
+                        var reviews_results = <?php echo json_encode($reviews); ?>;
+                        reviews_results.forEach( review => {
+
+                            // PLACEHOLDER CONSOLE OUTPUT
+
+                            var name = review.name;
+                            var picture = review.picture;
+                            var rating = review.rating;
+                            var content = review.content;
+                            
+                            var review_parent_div = document.createElement( "DIV" );
+                            var review_image_div = document.createElement( "DIV" );
+                            var image_div = document.createElement("DIV");
+                            var profile_image_source = document.createElement( "IMG" );
+                            var username_div = document.createElement("DIV");
+                            var username_p = document.createElement( "P" );
+                            var feedback_div = document.createElement( "DIV" );
+                            var review_textarea = document.createElement( "TEXTAREA" );
+                            var hline_hr = document.createElement("HR");
+                            var review_stars_div = document.createElement( "DIV" );
+
+                            review_parent_div.classList.add("review-parent-div");
+                            review_image_div.classList.add("review-image-div");
+                            profile_image_source.classList.add("reviewProfilePic");
+                            username_p.classList.add("review-profile-pic-name");
+                            feedback_div.classList.add("review-feedback-div");
+                            review_textarea.classList.add("review-text-area");
+                            review_stars_div.classList.add("review-stars-flex-div");
+
+                            review_textarea.rows = "5";
+                            review_textarea.cols = "105";
+                            review_textarea.style.resize = "none";
+                            review_textarea.innerHTML = content;
+                            profile_image_source.src = picture;
+                            profile_image_source.alt = "img/profile/default.png";
+                            username_p.innerHTML = name;
+
+
+                            // add more hearts per rating
+                            var i;
+                            for (i = 1; i <= rating; i++) {
+
+                                var stars_div = document.createElement( "DIV" );
+                                var stars_image = document.createElement( "IMG" );
+
+                                stars_div.classList.add("review-stars-div");
+                                stars_image.src = "img/profile/heart.png";
+                                stars_image.alt = "<3";
+                                stars_div.appendChild(stars_image);
+
+                                review_stars_div.appendChild(stars_div);
+                            }
+
+                            feedback_div.appendChild(review_textarea);
+                            feedback_div.appendChild(hline_hr);
+                            feedback_div.appendChild(review_stars_div);
+
+                            image_div.appendChild(profile_image_source);
+                            username_div.appendChild(username_p);
+
+                            review_image_div.appendChild(image_div);
+                            review_image_div.appendChild(username_div);
+
+                            review_parent_div.appendChild(review_image_div);
+                            review_parent_div.appendChild(feedback_div);
+
+                            document.getElementById( "review-wrapper" ).appendChild(review_parent_div);
+                            
+                        
+                        });
+                    </script>
+                        
                 </div> <!--Reviews Account Management Right -->
             </div> <!--Main Div -->
         <script type="text/javascript" src="form-event-handler.js"></script>
