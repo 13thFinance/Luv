@@ -101,9 +101,7 @@ else
                         <div id="about-me-div-readonly">
                             <div id = "about-me-body-readonly">
                                 <div id = "about-me-title-readonly"> About Me</div>
-                                <textarea id = "about-me-input-readonly" name = "aboutMeInfo" rows = "12" cols = "60" style="resize: none" disabled>
-                                    <?php echo "$about_me_text"; ?>
-                                </textarea>
+                                <textarea id = "about-me-input-readonly" name = "aboutMeInfo" rows = "12" cols = "60" style="resize: none" disabled><?php echo "$about_me_text"; ?></textarea>
                             </div>
                         </div>
                         <div id = "sex-gender-div-readonly">
