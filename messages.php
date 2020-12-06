@@ -257,15 +257,26 @@ landing page for luv dating site
                                 }
                                 else if( member_id == msg.target_id && msg.read == "0" ) {
                                     // This is the recipient, not actively in a conversation with the sender.
+                                    is_recipient = true;
                                     $.ajax({
                                         url: 'inc/conversations.inc.php',
                                         type: 'POST',
                                         data: {
-                                            member_id: msg.member_id,
-                                            target_id: msg.target_id
+                                            member_id: msg.target_id,
+                                            target_id: msg.member_id
                                         },
                                         success: function( data ) {
                                             add_conversation_head( data );
+                                            $.ajax({
+                                                url: 'inc/confirm_message_receipt.inc.php',
+                                                type: 'POST',
+                                                data: {
+                                                    member_id: msg.member_id,
+                                                    target_id: msg.target_id,
+                                                    timestamp: msg.timestamp,
+                                                    is_recipient: is_recipient
+                                                }  
+                                            });
                                         }
                                     });
                                 }
