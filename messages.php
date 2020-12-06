@@ -136,30 +136,7 @@ landing page for luv dating site
             <hr />
             
             
-            <?php
-            //match button php stuff
-
-            //fetch match button state
-            if(db.query()){}
-
-
-            //display corresponding button based on state
-            $state = "matchSent";
-            if(strcmp($state, "unmatched") == 0)
-            {
-                print "<button class='match-button''>MATCH</button>";
-            }
-            elseif (strcmp($state, "matched") == 0)
-            {
-                print "<button class='matched-button''>MATCHED</button>";
-            }
-            elseif (strcmp($state, "matchSent") == 0)
-            {
-                print "<button class='matching-button''>MATCHING</button>";
-            }
-
             
-            ?>
             
             
             <hr />
