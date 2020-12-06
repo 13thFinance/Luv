@@ -73,7 +73,7 @@ else
             $profile_html = 
                 "<div class='search-result-recommended-parent-div'>
                     <div class='search-profile-image-div'>
-                        <img src="profilepic.png" class = 'reviewProfilePic'>
+                        <img src='img/profile/default.png' class = 'reviewProfilePic'>
                         <p id='search-profile-user-name' class='profile-username'>$name</p>
                     </div>
 
