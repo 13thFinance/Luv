@@ -66,3 +66,5 @@ function login( $email, $pwd ) {
         header( "location: ../accountManagement.php" );
     }
 }
+
+?>
