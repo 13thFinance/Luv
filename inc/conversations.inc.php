@@ -20,10 +20,6 @@ function create_conversation( $member_id, $target_id ) {
         die( "Something went wrong" );
     }
 
-    LOG_DEBUG( print_r( $result ) );
-    LOG_DEBUG( print_r( $result[0] ));
-    LOG_DEBUG( $result[0]["count"] );
-
     if( $result[0]["count"] == "1" )
         $response += array("existed" => "true");
 
@@ -50,10 +46,10 @@ function create_conversation( $member_id, $target_id ) {
             $response += array($key => $value);	
         }
         $response += array("existed" => "false");
-
-        if( isset($_POST["member_id"]) and isset($_POST["target_id"]) )
-            echo json_encode( $response );
     }
+    
+    if( isset($_POST["member_id"]) and isset($_POST["target_id"]) )
+            echo json_encode( $response );
 }
 
 //==========================================================================
