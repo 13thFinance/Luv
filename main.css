@@ -249,7 +249,6 @@ body {
 
 .landing-page{
     background: url(resources/splash.jpg) no-repeat center center fixed;
-    background: ;
     background-size: cover;
 }
 
@@ -287,6 +286,11 @@ body {
     height: 185px;
     object-fit: cover;
     object-position: 20% 10%;
+}
+
+.admin-profile-pic:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 #aboutMeDiv, #about-me-div-readonly{
