@@ -301,6 +301,7 @@ landing page for luv dating site
 						var data = JSON.parse( response );
                                                 if( data.existed == "false" ) {
                                                     add_conversation_head( data );
+						}
 						console.log( "confirming message 'read' receipt" );
                                                 $.ajax({
                                                     url: 'inc/confirm_message_receipt.inc.php',
