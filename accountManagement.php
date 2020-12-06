@@ -227,9 +227,22 @@ else
                             <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
 
                             <hr/>
-
-                            <div class="review-stars-div">
-                               <img href="img/profile/heart.png" alt="<3">
+                            <div class="review-stars-flex-div">
+                                <div class="review-stars-div">
+                                   <img src="img/heart.png" alt="<3">
+                                </div>
+                                <div class="review-stars-div">
+                                   <img src="img/heart.png" alt="<3">
+                                </div>
+                                <div class="review-stars-div">
+                                   <img src="img/heart.png" alt="<3">
+                                </div>
+                                <div class="review-stars-div">
+                                   <img src="img/heart.png" alt="<3">
+                                </div>
+                                <div class="review-stars-div">
+                                   <img src="img/heart.png" alt="<3">
+                                </div>
                             </div>
                         </div>
                     </div>
