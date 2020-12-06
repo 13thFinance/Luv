@@ -1,6 +1,7 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/mysql.inc.php" );
+require_once( "inc/logging.inc.php" );
 
 $users_name = "";
 $personality = "";
@@ -13,7 +14,6 @@ $job_title = "";
 $location = "";
 $picture = "";
 if( is_logged_in() ) {
-    //$about_me_text = "YOU'RE SUPER LOGGED IN";
     $session_start;
     $member_id = $_SESSION["member_id"];
 
@@ -92,7 +92,7 @@ else
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Personality </div>
                                 <select id = "personality-selection" name="personalityBoxInput" value="<?php echo $personality ?>">
-                                    <option value=NULL selected disabled hidden> Select Personality</option>
+                                    <option value="" hidden> Select Personality</option>
                                     <option value="INFP"> INFP </option>
                                     <option value="ENFP"> ENFP </option>
                                     <option value="INFJ"> INFJ </option>
@@ -129,10 +129,10 @@ else
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
                             <select id = "genderSelectionMenu" name="genderSelectionMenu" value="<?php echo $gender ?>">
-                            <option value=NULL selected disabled hidden> Select Gender </option>
-                            <option value=1> Male </option>
-                            <option value=2> Female </option>
-                            <option value=3> Other </option>
+                            <option value="" hidden> Select Gender </option>
+                            <option value="male"> Male </option>
+                            <option value="female"> Female </option>
+                            <option value="other"> Other </option>
                             </select>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ else
                         }
                     }
                     selectDropDownOption("personality-selection", "<?php echo $personality ?>");
-                    selectDropDownOption("genderSelectionMenu", <?php echo $gender ?>);
+                    selectDropDownOption("genderSelectionMenu", "<?php echo $gender ?>");
                 </script>
             </div> 
             
