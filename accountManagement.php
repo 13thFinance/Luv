@@ -216,46 +216,7 @@ else
                         var picture = review.picture;
                         var rating = review.rating;
                         var content = review.content;
-                        console.log(review);
                         
-                        /*
-                        <div class="review-parent-div">
-
-                            <div class="review-image-div">
-                                <div>
-                                    <img src="img/profile/default.png" class = "reviewProfilePic" alt="ppic">
-                                </div>
-
-                                <div>
-                                    <p id="review-username" class="review-profile-pic-name">Username</p>
-                                </div>
-                            </div>
-
-                            <div class="review-feedback-div">
-
-                                <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
-
-                                <hr/>
-                                <div class="review-stars-flex-div">
-                                    <div class="review-stars-div">
-                                       <img src="img/profile/heart.png" alt="<3">
-                                    </div>
-                                    <div class="review-stars-div">
-                                       <img src="img/profile/heart.png" alt="<3">
-                                    </div>
-                                    <div class="review-stars-div">
-                                       <img src="img/profile/heart.png" alt="<3">
-                                    </div>
-                                    <div class="review-stars-div">
-                                       <img src="img/profile/heart.png" alt="<3">
-                                    </div>
-                                    <div class="review-stars-div">
-                                       <img src="img/profile/heart.png" alt="<3">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        */
                         
                         var review_parent_div = document.createElement( "DIV" );
                         var review_image_div = document.createElement( "DIV" );
@@ -319,6 +280,7 @@ else
                 </script>
                 
                 <!--end display-->
+                
                 
             </div> <!--Reviews Account Management Right -->
         </div> <!--Main Div -->

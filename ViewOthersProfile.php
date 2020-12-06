@@ -2,6 +2,7 @@
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/mysql.inc.php" );
 require_once( "inc/logging.inc.php" );
+require_once( "inc/reviews.inc.php" );
 
 $users_name = "";
 $personality = "";
@@ -45,6 +46,8 @@ if( is_logged_in() ) {
         $location = $query_result[0]["location"];
         $picture = $query_result[0]["picture"];
     }
+
+    $reviews = load_reviews($target_id);
 }
 else
     header( "location: /luv/createAccountBody.html" );
@@ -145,6 +148,21 @@ else
                         
                     </form>
                 </div> <!--Left Profile Div -->
+
+                <script>
+                    var reviews_results = <?php echo json_encode($reviews); ?>;
+                    reviews_results.forEach( review => {
+
+                        // PLACEHOLDER CONSOLE OUTPUT
+
+                        var name = review.name;
+                        var picture = review.picture;
+                        var rating = review.rating;
+                        var content = review.content;
+                        console.log(review);
+                    });
+                </script>
+
                 <div class="vertical-line-div2"></div>
                 <div id = "reviews-account-management-right-readonly">
                     <div class="reviews-space-div"> </div>
