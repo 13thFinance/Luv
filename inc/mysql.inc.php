@@ -56,7 +56,7 @@ function db_query( $query_string, $param_array=NULL, $result_type = MYSQLI_ASSOC
         $types = str_repeat( "s", count($param_array) );
         $stmt = mysqli_prepare( $cnx, $query_string );
         if( !$stmt ) {
-            LOG_ERROR( "Failed to build prepared statment while running mysqli query. Check for syntax errors in query string." );
+            LOG_ERROR( "Failed to build prepared statment while running mysqli query. Check for syntax errors in query string.\n'$query_string' ");
             die( "An error occurred. Please contact the site administrator if this problem persists." );
         }
         mysqli_stmt_bind_param( $stmt, $types, ...$param_array );

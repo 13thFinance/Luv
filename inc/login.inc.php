@@ -11,7 +11,7 @@ if( isset($_POST["login-email"]) and isset($_POST["login-password"]) ) {
 //==========================================================================
 function login( $email, $pwd ) {
     // retrieve member info from db
-    $query_string = "select email,member_id, password from members where email=?";
+    $query_string = "select email, is_admin, member_id, password from members where email=?";
     $query_params = [$email];
     $result = db_query( $query_string, $query_params );
 
@@ -40,9 +40,9 @@ function login( $email, $pwd ) {
     // set an auth_token for the member in the db
     $query_string = "update members set auth_token=? where member_id=?";
     $query_params = [$auth_token, $member_id];
-    $result = db_query( $query_string, $query_params );
+    $result_update = db_query( $query_string, $query_params );
 
-    if( $result === false ) {
+    if( $result_update === false ) {
         // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
         LOG_ERROR( "Login error -- failed to update auth_token, member_id='$member_id'" );
         die( "PLACEHOLDER: Something went wrong while logging in." );
@@ -58,6 +58,13 @@ function login( $email, $pwd ) {
     setcookie( "auth_token", $auth_token, $expiry_time, "/luv" );
     setcookie( "member_id", $member_id, $expiry_time, "/luv");
 
-    // redirect to user's profile
-    header( "location: ../accountManagement.php" );
+    // redirect to user's profile or admin page if admin
+    if( $result[0]["is_admin"] == "1" ){
+        header( "location: ../admin-page.php" );
+    }
+    else{
+        header( "location: ../accountManagement.php" );
+    }
 }
+
+?>
