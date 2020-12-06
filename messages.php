@@ -3,10 +3,12 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
 require_once( "inc/conversations.inc.php" );
 require_once( "inc/confirm_message_receipt.inc.php" );
+require_once("inc/new_match.inc.php");
 
 $member_id = "";
 $target_id = "";
 $messages = [];
+$match[];
 
 if( is_logged_in() ) {
     $member_id = $_SESSION["member_id"];
@@ -138,25 +140,25 @@ landing page for luv dating site
             
             <?php
             //match button php stuff
-
-            //fetch match button state
-            if(db.query()){}
-
-
+            
+            //has this user matched with other user
+            //if(db.query("select count(1) from matches where member_id = " + $member_id + " and target_id = " + $target_id))
+            //{}
+            
             //display corresponding button based on state
-            $state = "matchSent";
-            if(strcmp($state, "unmatched") == 0)
+            if(get_match($member_id, $target_id) == 0)
             {
                 print "<button class='match-button''>MATCH</button>";
             }
-            elseif (strcmp($state, "matched") == 0)
-            {
-                print "<button class='matched-button''>MATCHED</button>";
-            }
-            elseif (strcmp($state, "matchSent") == 0)
+            elseif (get_match($member_id, $target_id) == 1)
             {
                 print "<button class='matching-button''>MATCHING</button>";
             }
+            elseif (if_matched($member_id, $target_id) == true)
+            {
+                print "<button class='matched-button''>MATCHED</button>";
+            }
+            
 
             
             ?>
