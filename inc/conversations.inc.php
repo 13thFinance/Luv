@@ -19,16 +19,18 @@ function create_conversation( $member_id, $target_id ) {
         die( "Something went wrong" );
     }
 
-    $query_string = "select member_id as target_id,name,picture from members where member_id=?";
-    $query_params = [$target_id];
-    $result_response = db_query( $query_string, $query_params );
+    if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
+        $query_string = "select member_id as target_id,name,picture from members where member_id=?";
+        $query_params = [$target_id];
+        $result_response = db_query( $query_string, $query_params );
 
-    if( $result_response  === false ) {
-        // PLACEHOLDER
-        die( "Something went wrong" );
+        if( $result_response  === false ) {
+            // PLACEHOLDER
+            die( "Something went wrong" );
+        }
+
+        echo json_encode( $result_response[0] );
     }
-
-    echo json_encode( $result_response[0] );
 }
 
 //==========================================================================
