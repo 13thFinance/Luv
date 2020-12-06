@@ -111,7 +111,7 @@ else
                             </div>
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Gender </div>
-                                <input type = "text" name = "Gender" id = "gender-selection-menu-readonly" placeholder="gender" value="<?php echo $gender ?>" disabled>
+                                <input type = "text" name = "Gender" id = "gender-selection-menu-readonly" placeholder="gender" value="<?php echo ucfirst($gender) ?>" disabled>
                             </div>
                         </div>
                         <div id = "age-looking-for-div-readonly">
