@@ -57,20 +57,21 @@ else
             <button type="submit" id="recommended-button" name="recommended">Recommended</button>
         </form>
     </div>
-
+    
+    <div id="search-result-wrapper" class = "wrapper-div scrollable"></div>
 
     <script>
         var search_results = <?php echo json_encode($search_results); ?>;
         search_results.forEach( member => {
-            
+
             // PLACEHOLDER CONSOLE OUTPUT
-            
+
             var name = member.name;
             var aboutMe = member.about_me;
             var picture = member.picture;
             var rating = member.rating;
             var memberID = member.member_id;
-            
+
             var profile_html = 
                     "<div class='search-profile-image-div'> " +
                         "<img src='img/profile/default.png' class ='reviewProfilePic'> " +
@@ -93,13 +94,15 @@ else
                     "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " +
                     "    </form> " +
                     "</div>  ";
-            
+
             var parent_div = document.createElement("DIV");
             parent_div.classList.add("search-result-recommended-parent-div");
             parent_div.innerHTML = profile_html;
-            document.body.appendChild(parent_div);
+            document.getElementById("search-result-wrapper").appendChild(parent_div);
         });
     </script>
+    
+    
     
     <!--
     <div class="search-result-recommended-parent-div">
