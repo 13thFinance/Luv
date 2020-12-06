@@ -214,7 +214,7 @@ else
 
                         <div class="review-image-div">
                             <div>
-                                <img src="profilepic.png" class = "reviewProfilePic" alt="ppic">
+                                <img src="img/profile/default.png" class = "reviewProfilePic" alt="ppic">
                             </div>
 
                             <div>
