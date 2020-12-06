@@ -61,13 +61,31 @@ landing page for luv dating site
             <h1 class="users-label">Users</h1>
             <hr />
             
-            <div class="users-placeholder">
+            <div class="users-placeholder" id="conversation-head-wrapper">
+            </div>
             <script>
                 var conversations = <?php echo json_encode($conversations); ?>;
                 conversations.forEach( conv=> {
                     console.log( conv.name );
                     console.log( conv.picture );
                     console.log( conv.target_id );
+                    
+                    outer_div = document.createElement( "DIV" );
+                    outer_div.classList.add( "admin-profile-pic-div" );
+
+                    img_div = document.createElement( "IMG" );
+                    img_div.classList.add( "admin-profile-pic" );
+                    img_div.src = conv.picture;
+
+                    p_div = document.createElement( "P" );
+                    p_div.classList.add( "profile-username" );
+                    p_div.classList.add( "admin-reported-user-name" );
+                    p_div.innerHTML = conv.name;
+
+                    outer_div.appendChild( img_div );
+                    outer_div.appendChild( p_div );
+
+                    document.getElementById( "conversation-head-wrapper" ).appendChild( outer_div );
                 });
             </script>
 
@@ -83,9 +101,6 @@ landing page for luv dating site
             </div>
             -->
                 
-          
-            </div>
-            
         </div>
         
         <div class="users-messages-divider"></div>
