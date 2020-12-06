@@ -79,11 +79,11 @@ else
 
                     "<div class='search-profile-feedback-div'> " +
 
-                    "<textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none' value= '" + aboutMe + "'</textarea> " +
+                        "<textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none' value= '" + aboutMe + "'></textarea> " +
 
-                    "<div class='review-stars-div'> " +
-                    "    <input type='text' id='search-profile-rating-text' value ='" + rating + " >  " +
-                    "</div> " +
+                        "<div class='review-stars-div'> " +
+                        "    <input type='text' id='search-profile-rating-text' value ='" + rating + " >  " +
+                        "</div> " +
                     "</div> " +
 
                      " <!-- buttons -->  " +
