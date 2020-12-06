@@ -209,7 +209,7 @@ landing page for luv dating site
                             type: 'POST',
                             data: {
                                 member_id: message_data.member_id,
-                                target_id: message_data.targe_id,
+                                target_id: message_data.target_id,
                                 timestamp: message_data.timestamp,
                                 is_recipient: is_recipient
                             }  
