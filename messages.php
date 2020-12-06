@@ -276,7 +276,9 @@ landing page for luv dating site
                                                 target_id: msg.member_id
                                             },
                                             success: function( response ) {
-						                        var data = JSON.parse( response );
+                                                var data = JSON.parse( response );
+                                                console.log( "got a response from conversations.inc.php" )
+                                                console.log( data );
                                                 if( data.existed == "false" ) {
                                                     add_conversation_head( data );
                                                 }
