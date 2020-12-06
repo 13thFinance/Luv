@@ -20,9 +20,8 @@ function create_conversation( $member_id, $target_id ) {
         die( "Something went wrong" );
     }
 
-    if( $result[0]["count"] == "1" ) {
+    if( $result[0]["count"] == "1" )
         $response += array("existed" => "true");
-    }
 
     else {
         $query_string = "insert into conversations values (?,?) on duplicate key update member_id=member_id";
@@ -47,8 +46,8 @@ function create_conversation( $member_id, $target_id ) {
             $response += array($key => $value);	
         }
         $response += array("existed" => "false");
-        
-        if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
+
+        if( isset($_POST["member_id"]) and isset($_POST["target_id"]) )
             echo json_encode( $response );
     }
 }
