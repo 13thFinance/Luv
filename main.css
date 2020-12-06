@@ -288,6 +288,11 @@ body {
     object-position: 20% 10%;
 }
 
+.admin-profile-pic:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 #aboutMeDiv, #about-me-div-readonly{
     display: flex;
     padding: 1%;
