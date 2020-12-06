@@ -2,9 +2,9 @@
 require_once( "is_logged_in.inc.php" );
 require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
+require_once( "upload_image.inc.php" );
 
 if( is_logged_in() ) {
-    LOG_DEBUG("gender: " . $_POST["genderSelectionMenu"]);
     $session_start;
     $member_id = $_SESSION["member_id"];
     if( isset($_POST["nameBoxInput"]) and isset($_POST["personalityBoxInput"]) and isset($_POST["aboutMeInput"]) and
@@ -30,6 +30,10 @@ function upload_user_data( $users_name, $personality, $about_me_text, $sex,
         LOG_ERROR( "Send message error -- failed to update member data into db." .
             " member_id=$member_id" );
         header( "location: ../accountManagement.php" );
+    }
+
+    if( isset($_FILES["profile_pic"]) and $_FILES["profile_pic"]["error"] == 0 ) {
+        upload_image( $_FILES["profile_pic"], $member_id );
     }
 
     header( "location: ../accountManagement.php" );
