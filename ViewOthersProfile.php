@@ -90,6 +90,13 @@ else
                                 </div>
                             </div>
 
+                            <script>
+                                let doc = document.getElementById("nameBoxInput-read-only");
+                                doc.readOnly = False;
+                                doc.value = "<?php echo $users_name ?>";
+                                doc.readOnly = True;
+                            </script>
+
                             <div id="user-personality-read-only">
                                 <div class = "frameBodyAccountManagement">  
                                     <div class = "frameTitleAccountManagement"> Personality </div>
