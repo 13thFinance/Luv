@@ -70,7 +70,7 @@ else
             var aboutMe = member.about_me;
             var picture = member.picture;
             var rating = member.rating;
-            var memberID = member.member_id;
+            var member_id = member.member_id;
 
             var profile_html = 
                     "<div class='search-profile-image-div'> " +
@@ -88,9 +88,11 @@ else
 
                      " <!-- buttons -->  " +
                     "<div class='seach-profile-button-div'>  " +
-                    "    <form class='search-profile-form' action=''> " +
-                    "        <input type='button' id='search-profile-view-button' class='search-profile-button' value='View' onclick='goto(\'ViewOthersProfile.html\');\''/> " +
-
+                    "    <form class='search-profile-form' action='ViewOthersProfile.php'> " +
+                    "        <input type='button' id='search-profile-view-button' class='search-profile-button' value='View'/>" + 
+                            "<input type='hidden' name='target_id' value='" + member_id + "'/> "
+                    "</form> " + 
+                    "<form class='search-profile-form' action=''> " +
                     "        <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/> " +
                     "    </form> " +
                     "</div>  ";
