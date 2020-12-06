@@ -6,7 +6,8 @@ require_once( "mysql.inc.php" );
 // load_conversations
 //==========================================================================
 function load_conversations( $member_id ) {
-    $query_string = "select target_id from conversations where member_id=?";
+    $query_string = "select members.name,members.picture,conversations.target_id from members
+        left join conversations on members.member_id=conversations.target_id where conversations.member_id=?";
     $query_params = [$member_id];
     $result = db_query( $query_string, $query_params );
 
@@ -19,9 +20,9 @@ function load_conversations( $member_id ) {
 }
 
 //==========================================================================
-// load_conversations
+// create_conversation
 //==========================================================================
-function load_conversations( $member_id, $target_id ) {
+function create_conversation( $member_id, $target_id ) {
     $query_string = "insert into conversations values (?,?) on duplicate key update member_id=member_id";
     $query_params = [$member_id, $target_id];
     $result = db_query( $query_string, $query_params );
