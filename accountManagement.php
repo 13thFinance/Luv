@@ -270,7 +270,6 @@ else
                         var stars_div = document.createElement( "DIV" );
                         var stars_image = document.createElement( "IMG" );
                         
-                        
                         review_parent_div.classList.add("review-parent-div");
                         review_image_div.classList.add("review-image-div");
                         profile_image_source.classList.add("reviewProfilePic");
@@ -278,11 +277,8 @@ else
                         feedback_div.classList.add("review-feedback-div");
                         review_textarea.classList.add("review-text-area");
                         review_stars_div.classList.add("review-stars-flex-div");
-                        stars_div.classList.add("review-stars-div");
                         
-                        stars_image.src = "img/profile/heart.png";
-                        stars_image.alt = "<3";
-                        review_textarea.row = "5";
+                        review_textarea.row = "10";
                         review_textarea.cols = "105";
                         review_textarea.style.resize = "none";
                         review_textarea.innerHTML = content;
@@ -295,7 +291,15 @@ else
                         stars_div.appendChild(stars_image);
                         var i;
                         for (i = 1; i <= rating; i++) {
-                          review_stars_div.appendChild(stars_div);
+                            
+                            var stars_div = document.createElement( "DIV" );
+                            var stars_image = document.createElement( "IMG" );
+                            
+                            stars_div.classList.add("review-stars-div");
+                            stars_image.src = "img/profile/heart.png";
+                            stars_image.alt = "<3";
+                            
+                            review_stars_div.appendChild(stars_div);
                         }
                         
                         feedback_div.appendChild(review_textarea);
