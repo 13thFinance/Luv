@@ -125,7 +125,7 @@ else
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
-                            <select id = "genderSelectionMenu" name="genderSelectionMenu" value="<?php echo ucfirst($gender ?)>">
+                            <select id = "genderSelectionMenu" name="genderSelectionMenu" value="<?php echo $gender ?>">
                             <option value="" hidden> Select Gender </option>
                             <option value="male"> Male </option>
                             <option value="female"> Female </option>
