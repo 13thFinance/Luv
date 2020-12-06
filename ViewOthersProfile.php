@@ -111,12 +111,7 @@ else
                             </div>
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Gender </div>
-                                <select name = "Gender" id = "gender-selection-menu-readonly" value="<?php echo $gender ?>" disabled>
-                                <option> Select Gender </option>
-                                <option> Male </option>
-                                <option> Female </option>
-                                <option> Other </option>
-                            </select>
+                                <input type = "text" name = "Gender" id = "gender-selection-menu-readonly" placeholder="gender" value="<?php echo $gender ?>" disabled>
                             </div>
                         </div>
                         <div id = "age-looking-for-div-readonly">
