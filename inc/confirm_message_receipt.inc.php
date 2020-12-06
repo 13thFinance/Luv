@@ -13,11 +13,11 @@ function confirm_message_receipt( $member_id, $target_id, $timestamp, $is_recipi
 
     if( $is_recipient == "false" ) {
         $query_string = "update messages set delivered=? where member_id=? and target_id=? and timestamp=?";
-        $query_params = ["1", $member_id, $target_id, $timestamp];
+        $query_params = ["1", $target_id, $member_id, $timestamp];
     }
     elseif( $is_recipient == "true" ) {
         $query_string = "update messages set `read`=? where member_id=? and target_id=? and timestamp=?";
-        $query_params = ["1", $member_id, $target_id, $timestamp];
+        $query_params = ["1", $target_id, $member_id_id, $timestamp];
     }
     
     $result = db_query( $query_string, $query_params );
