@@ -185,6 +185,27 @@ else
                     selectDropDownOption("personality-selection", "<?php echo $personality ?>");
                     selectDropDownOption("genderSelectionMenu", "<?php echo $gender ?>");
                 </script>
+            </div> 
+            
+            <!--Left Profile Div -->
+            
+            
+            <div class="vertical-line-div2"></div>
+            
+
+            <div id = "reviewsAccountManagement-Right">
+                <div class="reviews-space-div"> </div>
+                <div id = "reviewsLabelDiv">
+                    <label id = "reviewsLabel">
+                        Reviews
+                    </label>    
+                </div>
+                
+                <div id ="review-wrapper" class="scrollable">
+                    
+                </div> <!-- end scrollable-->
+                
+                
                 <script>
                     var reviews_results = <?php echo json_encode($reviews); ?>;
                     reviews_results.forEach( review => {
@@ -195,77 +216,68 @@ else
                         var picture = review.picture;
                         var rating = review.rating;
                         var content = review.content;
-                        console.log(review);
+                        
+                        
+                        var review_parent_div = document.createElement( "DIV" );
+                        var review_image_div = document.createElement( "DIV" );
+                        var image_div = document.createElement("DIV");
+                        var profile_image_source = document.createElement( "IMG" );
+                        var username_div = document.createElement("DIV");
+                        var username_p = document.createElement( "P" );
+                        var feedback_div = document.createElement( "DIV" );
+                        var review_textarea = document.createElement( "TEXTAREA" );
+                        var hline_hr = document.createElement("HR");
+                        var review_stars_div = document.createElement( "DIV" );
+                        
+                        review_parent_div.classList.add("review-parent-div");
+                        review_image_div.classList.add("review-image-div");
+                        profile_image_source.classList.add("reviewProfilePic");
+                        username_p.classList.add("review-profile-pic-name");
+                        feedback_div.classList.add("review-feedback-div");
+                        review_textarea.classList.add("review-text-area");
+                        review_stars_div.classList.add("review-stars-flex-div");
+                        
+                        review_textarea.rows = "5";
+                        review_textarea.cols = "105";
+                        review_textarea.style.resize = "none";
+                        review_textarea.innerHTML = content;
+                        profile_image_source.src = picture;
+                        profile_image_source.alt = "img/profile/default.png";
+                        username_p.innerHTML = name;
+                        
+                        
+                        // add more hearts per rating
+                        var i;
+                        for (i = 1; i <= rating; i++) {
+                            
+                            var stars_div = document.createElement( "DIV" );
+                            var stars_image = document.createElement( "IMG" );
+                            
+                            stars_div.classList.add("review-stars-div");
+                            stars_image.src = "img/rating/rating.png";
+                            stars_image.alt = "<3";
+                            stars_div.appendChild(stars_image);
+                            
+                            review_stars_div.appendChild(stars_div);
+                        }
+                        
+                        feedback_div.appendChild(review_textarea);
+                        feedback_div.appendChild(hline_hr);
+                        feedback_div.appendChild(review_stars_div);
+                        
+                        image_div.appendChild(profile_image_source);
+                        username_div.appendChild(username_p);
+                        
+                        review_image_div.appendChild(image_div);
+                        review_image_div.appendChild(username_div);
+
+                        review_parent_div.appendChild(review_image_div);
+                        review_parent_div.appendChild(feedback_div);
+                        
+                        document.getElementById( "review-wrapper" ).appendChild(review_parent_div);
+                        
                     });
                 </script>
-            </div> 
-            
-            <!--Left Profile Div -->
-            
-            
-            
-            
-            
-            
-            <div class="vertical-line-div2"></div>
-            
-            
-            
-            
-            
-            
-            
-            <div id = "reviewsAccountManagement-Right">
-                <div class="reviews-space-div"> </div>
-                <div id = "reviewsLabelDiv">
-                    <label id = "reviewsLabel">
-                        Reviews
-                    </label>    
-                </div>
-                
-                <div class="scrollable">
-                    
-                    <!--would need a php comment request + loop display to work properly
-                    use bottom as base for the display loop-->
-
-                    <div class="review-parent-div">
-
-                        <div class="review-image-div">
-                            <div>
-                                <img src="img/profile/default.png" class = "reviewProfilePic" alt="ppic">
-                            </div>
-
-                            <div>
-                                <p id="review-username" class="review-profile-pic-name">Username</p>
-                            </div>
-                        </div>
-
-                        <div class="review-feedback-div">
-
-                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
-
-                            <hr/>
-                            
-                            <div class="review-stars-flex-div">
-                                <div class="review-stars-div">
-                                   <img src="img/rating/rating.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/rating/rating.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/rating/rating.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/rating/rating.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/rating/rating.png" alt="<3">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end scrollable-->
                 
                 <!--end display-->
                 
