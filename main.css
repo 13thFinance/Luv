@@ -281,7 +281,7 @@ body {
     padding: 2vw;
 }
 
-#profilePic, #profile-pic-div-readonly, #admin-profile-pic, #profile-pic-readonly{
+#profilePic, #profile-pic-div-readonly, .admin-profile-pic, #profile-pic-readonly{
     border-radius: 50%;
     width: 185px;
     height: 185px;
@@ -342,10 +342,10 @@ body {
 }
 
 
-#picCircle, {
+.picCircle {
     border-radius: 50%;
-    width: 148px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border: 1px solid #000;
     justify-content: center;
     align-items: center;
@@ -808,7 +808,7 @@ img {
     padding-right: 108px;
 }
 
-#admin-profile-pic-div{
+.admin-profile-pic-div{
     padding-left: 20px;   
 }
 

@@ -3,6 +3,8 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
 
 $member_id = "";
+$target_id = "";
+$messages = [];
 
 if( is_logged_in() ) {
     $member_id = $_SESSION["member_id"];
@@ -56,6 +58,26 @@ landing page for luv dating site
             </script>
         </div>
     </div>
+    <script>
+        var send_message = function() {
+            let message_div = document.getElementById( "send-message-text" )
+            if( message_div.value != "" ) {
+                $.ajax({
+                    url: 'inc/send_message.inc.php',
+                    type: 'POST',
+                    data: {
+                        sender_id: '<?php echo $member_id; ?>',
+                        target_id: '<?php echo $target_id; ?>',
+                        message: message_div.value
+                    },
+                    success: function( data ) {
+                        let message_div = document.getElementById( "send-message-text" );
+                        message_div.value = "";
+                    }                          
+                });
+            }
+        };
+    </script>
     <div class="messages-div">
         <div class="users">
             <h1 class="users-label">Users</h1>
@@ -73,33 +95,35 @@ landing page for luv dating site
                     outer_div = document.createElement( "DIV" );
                     outer_div.classList.add( "admin-profile-pic-div" );
 
-                    img_div = document.createElement( "IMG" );
+                    form_div = document.createElement( "FORM" );
+                    form_div.action = "messages.php";
+                    form_div.method = "post";
+
+                    
+                    img_div = document.createElement( "INPUT" );
                     img_div.classList.add( "admin-profile-pic" );
+                    img_div.classList.add( "picCircle" );
                     img_div.src = conv.picture;
+                    img_div.type = "image";
+
+                    hidden_div = document.createElement( "INPUT" );
+                    hidden_div.type = "hidden";
+                    hidden_div.name = "target_id";
+                    hidden_div.value = conv.target_id;
 
                     p_div = document.createElement( "P" );
                     p_div.classList.add( "profile-username" );
                     p_div.classList.add( "admin-reported-user-name" );
                     p_div.innerHTML = conv.name;
 
-                    outer_div.appendChild( img_div );
+                    form_div.appendChild( img_div );
+                    form_div.appendChild( hidden_div );
+                    outer_div.appendChild( form_div );
                     outer_div.appendChild( p_div );
 
                     document.getElementById( "conversation-head-wrapper" ).appendChild( outer_div );
                 });
             </script>
-
-            <!--
-            <div id = "admin-profile-pic-div">    
-                <img src="profilepic.png" id = "admin-profile-pic">
-                <p id="admin-reported-user-name" class="profile-username">User name1</p>
-            </div>
-            
-            <div id = "admin-profile-pic-div">    
-                <img src="profilepic.png" id = "admin-profile-pic">
-                <p id="admin-reported-user-name" class="profile-username">User name2</p>
-            </div>
-            -->
                 
         </div>
         
@@ -167,30 +191,23 @@ landing page for luv dating site
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
                     }
-                    var send_message = function() {
-                        let message_div = document.getElementById( "send-message-text" )
-                        if( message_div.value != "" ) {
-                            $.ajax({
-                                url: 'inc/send_message.inc.php',
-                                type: 'POST',
-                                data: {
-                                    sender_id: '<?php echo $member_id; ?>',
-                                    target_id: '<?php echo $target_id; ?>',
-                                    message: message_div.value
-                                },
-                                success: function( data ) {
-                                    let message_div = document.getElementById( "send-message-text" );
-                                    message_div.value = "";
-                                }                          
-                            });
-                        }
-                    };
                 </script>
                 
-                <div class="send-message-div">
-                    <input type="text" id="send-message-text" placeholder="Send Message"/>
-                    <button type="send-message" id="send-message-button" onclick="send_message()">Send</button>
-                </div>
+                <?php if( $target_id == "" ) {
+                    echo
+                    '<div class="send-message-div">
+                        <input type="text" id="send-message-text" placeholder="Send Message" disabled/>
+                        <button type="send-message" id="send-message-button" onclick="send_message()" disabled>Send</button>
+                    </div>';
+                }
+                else {
+                    echo
+                    '<div class="send-message-div">
+                        <input type="text" id="send-message-text" placeholder="Send Message" />
+                        <button type="send-message" id="send-message-button" onclick="send_message()" >Send</button>
+                    </div>';
+                }
+                ?>
 
                 <script>
                     // add event to send-message-text to push the send-message-button
