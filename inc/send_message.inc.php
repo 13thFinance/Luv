@@ -16,7 +16,7 @@ function send_message( $sender_id, $target_id, $message ) {
 
     // send message to db with timestamp of right now
     $now = date("Y-m-d H:i:s");
-    $query_string = "insert into messages values (?,?,?,?,0)";
+    $query_string = "insert into messages values (?,?,?,?,0,0)";
     $query_params = [$sender_id, $target_id, $now, $message];
     $result = db_query( $query_string, $query_params );
 

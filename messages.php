@@ -1,6 +1,7 @@
 <?php
 require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
+require_once( "inc/confirm_message_receipt.inc.php" );
 
 $member_id = "";
 $target_id = "";
@@ -22,7 +23,7 @@ if( is_logged_in() ) {
     }
 
     // load conversations
-    $conversations = load_conversations( $member_id );
+    $conversations =  load_conversations( $member_id );
 }
 else
     header( "location: /luv/createAccountBody.html" );
@@ -63,7 +64,7 @@ landing page for luv dating site
             let message_div = document.getElementById( "send-message-text" )
             if( message_div.value != "" ) {
                 $.ajax({
-                    url: 'inc/send_message.inc.php',
+                    url: 'inc/messaging.inc.php',
                     type: 'POST',
                     data: {
                         sender_id: '<?php echo $member_id; ?>',
@@ -88,10 +89,6 @@ landing page for luv dating site
             <script>
                 var conversations = <?php echo json_encode($conversations); ?>;
                 conversations.forEach( conv=> {
-                    console.log( conv.name );
-                    console.log( conv.picture );
-                    console.log( conv.target_id );
-                    
                     outer_div = document.createElement( "DIV" );
                     outer_div.classList.add( "admin-profile-pic-div" );
 
@@ -148,6 +145,11 @@ landing page for luv dating site
                                     $msg_color_class = "message-blue-div";
                                 }
 
+                                if( $msg["member_id"] == $target_id and $msg["read"] == "0" )
+                                    confirm_message_receipt( $msg["member_id"], $msg["target_id"], $msg["timestamp"], "true" );
+                                elseif( $msg["member_id"] == $member_id and $msg["delivered"] == "0" )
+                                    confirm_message_receipt( $msg["member_id"], $msg["target_id"], $msg["timestamp"], "false" );
+
                                 $content = $msg["content"];
                                 $timestamp = $msg["timestamp"];
 
@@ -157,6 +159,7 @@ landing page for luv dating site
                                         <div class='$msg_timestamp_class'>$timestamp</div>
                                     </div>";
                                 echo $message_html;
+
                             }
                             ?>
                     </div>
@@ -167,22 +170,22 @@ landing page for luv dating site
                 </script>
                     
                 <script>
-                    var show_sent_message = function( div_color, message_data ) {
+                    var show_sent_message = function( is_recipient, message_data ) {
                         var outer_div = document.createElement( "DIV" );
                         var p = document.createElement( "P" );
                         var inner_div = document.createElement( "DIV" );
 
-                        outer_div.classList.add( div_color );
+
+                        if( is_recipient ) {
+                            outer_div.classList.add( "message-blue-div" );
+                            inner_div.classList.add( "message-timestamp-left" );
+                        }
+                        else {
+                            outer_div.classList.add( "message-orange-div" );
+                            inner_div.classList.add( "message-timestamp-right" ); 
+                        }
                         p.classList.add( "message-content" );
-                        if(div_color == "message-blue-div"){
-                            inner_div.classList.add( "message-timestamp-left" );    
-                        }
-                        else{
-                            inner_div.classList.add( "message-timestamp-right" );    
-                        }
-                        
-
-
+                    
                         p.innerHTML = message_data.content;
                         inner_div.innerHTML = message_data.timestamp;
 
@@ -190,6 +193,17 @@ landing page for luv dating site
                         outer_div.appendChild( inner_div ); 
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
+
+                        $.ajax({
+                            url: 'inc/confirm_message_receipt.inc.php',
+                            type: 'POST',
+                            data: {
+                                member_id: message_data.member_id,
+                                target_id: message_data.target_id,
+                                timestamp: message_data.timestamp,
+                                is_recipient: is_recipient
+                            }  
+                        });
                     }
                 </script>
                 
@@ -224,11 +238,16 @@ landing page for luv dating site
                         event_source.onmessage = event => {
                             var msg = JSON.parse( event.data );
                             var member_id = "<?php echo $member_id; ?>";
+                            var target_id = "<?php echo $target_id; ?>";
 
-                            var div_color = "message-orange-div";
-                            if( member_id == msg.target_id )
-                                div_color = "message-blue-div";
-                            show_sent_message( div_color, msg );
+                            var is_recipient = false;
+                            if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
+                                show_sent_message( is_recipient, msg );
+                            }
+                            else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
+                                is_recipient = true;
+                                show_sent_message( is_recipient, msg );
+                            }
                         };
                     }
                 </script>
