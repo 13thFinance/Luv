@@ -17,7 +17,7 @@ function confirm_message_receipt( $member_id, $target_id, $timestamp, $is_recipi
     }
     elseif( $is_recipient == "true" ) {
         $query_string = "update messages set `read`=? where member_id=? and target_id=? and timestamp=?";
-        $query_params = ["1", $member_id, $taget_id, $timestamp];
+        $query_params = ["1", $member_id, $target_id, $timestamp];
     }
     
     $result = db_query( $query_string, $query_params );
