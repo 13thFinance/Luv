@@ -65,14 +65,12 @@ else
             
             // PLACEHOLDER CONSOLE OUTPUT
             
-            /*
             $name = member.name;
             $aboutMe = member.about_me;
             $picture = member.picture;
             $rating = member.rating;
-            */
             
-            
+
         });
     </script>
     
