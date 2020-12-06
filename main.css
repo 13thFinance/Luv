@@ -406,12 +406,16 @@ body {
     padding-top: 2%;
 }
 
-#genderSelectionMenu, #gender-selection-menu-readonly, #personality-selection
+#genderSelectionMenu, #personality-selection
 {
     padding-top: 5%;
     width: 100%;
 }
 
+#gender-selection-menu-readonly{
+    padding-top: 5%;
+    width: 96%;
+}
 
 #ageLookingForDiv, #age-looking-for-div-readonly{
     display: flex;
