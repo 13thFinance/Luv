@@ -9,7 +9,7 @@ require_once( "mysql.inc.php" );
 function load_reports() {
 
     $query_string = "select members.name, members.picture, reports.member_id, reports.target_id, reports.timestamp, reports.content
-        FROM members left join reports on reports.member_id=members.member_id;";
+        FROM reports left join members on reports.target_id=members.member_id;";
 
     $query_params = [];
     $result = db_query( $query_string, $query_params );
