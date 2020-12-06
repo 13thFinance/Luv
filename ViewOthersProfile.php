@@ -23,7 +23,7 @@ if( is_logged_in() ) {
     else {
         // PLACEHOLDER: Remove once search page view button posts target_id
         $member_id = $_SESSION["member_id"];
-        $target_id = "21";
+        $target_id = "41";
     }
 
     $query_string = "SELECT name, personality, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
@@ -89,13 +89,6 @@ else
                                     <input type = "text" id = "nameBoxInput-read-only" placeholder="Input Name" value="<?php echo $users_name ?>">
                                 </div>
                             </div>
-
-                            <script>
-                                let doc = document.getElementById("nameBoxInput-read-only");
-                                doc.readOnly = False;
-                                doc.value = "<?php echo $users_name ?>";
-                                doc.readOnly = True;
-                            </script>
 
                             <div id="user-personality-read-only">
                                 <div class = "frameBodyAccountManagement">  
