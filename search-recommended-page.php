@@ -62,40 +62,14 @@ else
     <script>
         var search_results = <?php echo json_encode($search_results); ?>;
         search_results.forEach( member => {
-            
             // PLACEHOLDER CONSOLE OUTPUT
-            
-            $name = member.name;
-            $aboutMe = member.about_me;
-            //$picture = member.picture;
-            $rating = member.rating;
-            
-            $profile_html = 
-                "<div class='search-result-recommended-parent-div'>
-                    <div class='search-profile-image-div'>
-                        <img src="profilepic.png" class = 'reviewProfilePic'>
-                        <p id='search-profile-user-name' class='profile-username'>$name</p>
-                    </div>
+            console.log( member.name );
+            console.log( member.about_me );
+            console.log( member.picture );
+            console.log( member.rating );
+            console.log( member );
 
-                    <div class='search-profile-feedback-div'>
-
-                    <textarea readonly class='search-profile-aboutme-text-area' rows=8 cols=80 style='resize: none'></textarea>
-
-            <div class='review-stars-div'>
-                <input type='text' id='search-profile-rating-text' value = > 
-            </div>
-        </div>
-
-        <!-- buttons -->
-        <div class='seach-profile-button-div" action=''>
-            <form class='search-profile-form'>
-                <input type='button' id='search-profile-view-button' class='search-profile-button' value='View' onclick='goto(\'ViewOthersProfile.html\');\''/>
-
-                <input type='button' id='search-profile-message-button' class='search-profile-button' value='Message' onclick='goto(\'messages.html\');'/>
-            </form>
-        </div>
-    </div>";
-            
+            // CREATE DIVS HERE AND APPEND THEM TO THE BODY ELEMENT
         });
     </script>
     
