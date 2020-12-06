@@ -148,6 +148,7 @@ else
                 <div class="vertical-line-div2"></div>
                 <div id = "reviews-account-management-right-readonly">
                     <div class="reviews-space-div"> </div>
+                    
                     <div id = "reviews-label-div-readonly">
                         <label id = "reviews-label-readonly">
                             Reviews
@@ -158,8 +159,9 @@ else
                         <input type="button" id="add-review-button" class="add-review-button-class" value="Add Review"/>   
                     </div>
                     
-                    <div class = "scrollable">
+                    <div id="profile-review-parent" class = "scrollable">
                     
+                        
                         <div class="review-parent-div">
                             <div class="review-image-div">
                                 <img src="profilepic.png" class = "reviewProfilePic" alt="None">
@@ -174,29 +176,15 @@ else
 
                                 <hr/>
 
-
                                 <div class="review-stars-div">
-                                    <form action="URL" id="form-review-1" class="review-rating-form">
-                                        <fieldset>
-                                            <input type="radio" name="review-rating" id="review-rating-id1-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id1-1-readonly" class="rating-start-label">1 Star</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id2-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id2-1-readonly" class="rating-start-label">2 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id3-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id3-1-readonly" class="rating-start-label">3 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id4-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id4-1-readonly" class="rating-start-label">4 Stars</label>
-
-                                            <input type="radio" name="review-rating" id="review-rating-id5-1-readonly" class="review-rating-id" value="rating">
-                                            <label for="review-rating-id5-1-readonly" class="rating-start-label">5 Stars</label>
-                                        </fieldset>
-                                    </form>
+                                    <label id="review-label-1" class="profile-review-name-label-class">Rating Here</label>
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                    
+                        
                         
                     </div>
                 </div> <!--Reviews Account Management Right -->
