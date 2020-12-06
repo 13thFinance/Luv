@@ -22,7 +22,8 @@ if( is_logged_in() ) {
     $query_result = db_query($query_string, $query_params);
 
     if( $query_result === false ){
-        // Error handling
+        // PLACEHOLDER
+        die( "Something went wrong" );
     }
     else{
         $users_name = $query_result[0]["name"];
@@ -67,19 +68,16 @@ else
         
         <div id = "mainDivAccountManagement">
             <div id="profileBodyDiv-Left">
-                <form id = "accountManagementForm" action="inc/upload_user_data.inc.php" method="post">
+                <form id = "accountManagementForm" action="inc/upload_user_data.inc.php" method="post" enctype="multipart/form-data">
                     <div class="image-upload">
                       <label for="file-input">
-                          <div id = "profilePicDiv">  
-                            <img src="profilepic.png" id = "profilePic" alt="ppic"/>
+                          <div id = "profilePicDiv">
+                            <img src="<?php echo $picture; ?>" id="profilePic" alt="ppic"/>
                           </div>
                       </label>
-
-                      <input id="file-input" type="file" />
+                      <input id="file-input" type="file" accept="image/*" name="profile_pic" />
                     </div>
-                    
-                      
-                    
+
                     <div id="name-personality-pair">
                          <div id="userName">
                             <div class = "frameBodyAccountManagement">  
