@@ -731,7 +731,7 @@ hr {
     padding-left: 4em;
 }
 
-#search-profile-view-button, #search-profile-message-button{
+.search-profile-view-button, .search-profile-message-button{
     margin: 0.5em;
     height: 2.6em;
     background-color: #4CAF50;
