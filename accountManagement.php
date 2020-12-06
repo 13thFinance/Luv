@@ -185,6 +185,27 @@ else
                     selectDropDownOption("personality-selection", "<?php echo $personality ?>");
                     selectDropDownOption("genderSelectionMenu", "<?php echo $gender ?>");
                 </script>
+            </div> 
+            
+            <!--Left Profile Div -->
+            
+            
+            <div class="vertical-line-div2"></div>
+            
+
+            <div id = "reviewsAccountManagement-Right">
+                <div class="reviews-space-div"> </div>
+                <div id = "reviewsLabelDiv">
+                    <label id = "reviewsLabel">
+                        Reviews
+                    </label>    
+                </div>
+                
+                <div id ="review-wrapper" class="scrollable">
+                    
+                </div> <!-- end scrollable-->
+                
+                
                 <script>
                     var reviews_results = <?php echo json_encode($reviews); ?>;
                     reviews_results.forEach( review => {
@@ -294,73 +315,6 @@ else
                         
                     });
                 </script>
-            </div> 
-            
-            <!--Left Profile Div -->
-            
-            
-            
-            
-            
-            
-            <div class="vertical-line-div2"></div>
-            
-            
-            
-            
-            
-            
-            
-            <div id = "reviewsAccountManagement-Right">
-                <div class="reviews-space-div"> </div>
-                <div id = "reviewsLabelDiv">
-                    <label id = "reviewsLabel">
-                        Reviews
-                    </label>    
-                </div>
-                
-                <div id ="review-wrapper" class="scrollable">
-                    
-                    <!--would need a php comment request + loop display to work properly
-                    use bottom as base for the display loop-->
-
-                    <div class="review-parent-div">
-
-                        <div class="review-image-div">
-                            <div>
-                                <img src="img/profile/default.png" class = "reviewProfilePic" alt="ppic">
-                            </div>
-
-                            <div>
-                                <p id="review-username" class="review-profile-pic-name">Username</p>
-                            </div>
-                        </div>
-
-                        <div class="review-feedback-div">
-
-                            <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
-
-                            <hr/>
-                            <div class="review-stars-flex-div">
-                                <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
-                                </div>
-                                <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end scrollable-->
                 
                 <!--end display-->
                 
