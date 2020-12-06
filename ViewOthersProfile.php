@@ -216,7 +216,7 @@ else
                                 var stars_image = document.createElement( "IMG" );
 
                                 stars_div.classList.add("review-stars-div");
-                                stars_image.src = "img/profile/heart.png";
+                                stars_image.src = "img/rating/rating.png";
                                 stars_image.alt = "<3";
                                 stars_div.appendChild(stars_image);
 
