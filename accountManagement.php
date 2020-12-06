@@ -245,21 +245,22 @@ else
                             <textarea readonly class="review-text-area" rows=5 cols=105 style="resize: none"></textarea>
 
                             <hr/>
+                            
                             <div class="review-stars-flex-div">
                                 <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
+                                   <img src="img/rating/rating.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
+                                   <img src="img/rating/rating.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
+                                   <img src="img/rating/rating.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
+                                   <img src="img/rating/rating.png" alt="<3">
                                 </div>
                                 <div class="review-stars-div">
-                                   <img src="img/profile/heart.png" alt="<3">
+                                   <img src="img/rating/rating.png" alt="<3">
                                 </div>
                             </div>
                         </div>
@@ -267,6 +268,7 @@ else
                 </div> <!-- end scrollable-->
                 
                 <!--end display-->
+                
                 
             </div> <!--Reviews Account Management Right -->
         </div> <!--Main Div -->
