@@ -1,3 +1,16 @@
+<?php
+require_once( "inc/is_logged_in.inc.php" );
+require_once( "inc/logging.inc.php" );
+require_once( "inc/reports.inc.php" );
+
+$reviews = [];
+if( is_logged_in() ) {
+    $reviews = load_reviews();
+}
+else
+    header( "location: /luv/createAccountBody.html" );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +38,21 @@
         </div>
     </div>
     
+    <script>
+        var report_results = <?php echo json_encode($reports); ?>;
+        report_results.forEach( report => {
+
+            // PLACEHOLDER CONSOLE OUTPUT
+
+            var name = review.name;
+            var picture = review.picture;
+            var rating = review.rating;
+            var content = review.content;
+            console.log(report);
+            
+        });
+    </script>
+
     <div class="scrollable">
         <div class="admin-reported-account-main-div">
             <div class="admin-reported-account-label-div">
