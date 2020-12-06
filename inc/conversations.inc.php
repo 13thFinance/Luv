@@ -20,6 +20,10 @@ function create_conversation( $member_id, $target_id ) {
         die( "Something went wrong" );
     }
 
+    LOG_DEBUG( print_r( $result ) );
+    LOG_DEBUG( print_r( $result[0] ));
+    LOG_DEBUG( $result[0]["count"] );
+
     if( $result[0]["count"] == "1" )
         $response += array("existed" => "true");
 
