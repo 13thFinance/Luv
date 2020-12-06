@@ -45,10 +45,10 @@ function create_conversation( $member_id, $target_id ) {
                 die( "Something went wrong" );
             }
 
-	    foreach( $result_response[0] as $key => $value ) {
-		$response += array($key => $value);	
-	    }
-	    $response += array("existed" => "false");
+            foreach( $result_response[0] as $key => $value ) {
+                $response += array($key => $value);	
+            }
+            $response += array("existed" => "false");
         }
         echo json_encode( $response );
     }

@@ -225,7 +225,7 @@ landing page for luv dating site
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
 
-			console.log( "confirming message receipt, is_recipient = " + is_recipient );
+			            console.log( "confirming message receipt, is_recipient = " + is_recipient );
                         $.ajax({
                             url: 'inc/confirm_message_receipt.inc.php',
                             type: 'POST',
@@ -277,19 +277,19 @@ landing page for luv dating site
                                     var is_recipient = false;
                                     if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
                                         // This is the sender. Show them their own message.
-					console.log( "calling show_sent_message, sender" );
+					                    console.log( "calling show_sent_message, sender" );
                                         show_sent_message( is_recipient, msg );
                                     }
                                     else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
                                         // This is the recipient. Show them the sender's message.
                                         is_recipient = true;
-					console.log( "calling show_sent_message, recipient, watching the conversation" );
+					                    console.log( "calling show_sent_message, recipient, watching the conversation" );
                                         show_sent_message( is_recipient, msg );
                                     }
                                     else if( member_id == msg.target_id && msg.read == "0" ) {
                                         // This is the recipient, not actively in a conversation with the sender.
                                         is_recipient = true;
-					console.log( "receiving sent message, not watching conversation" );
+					                    console.log( "receiving sent message, not watching conversation" );
                                         $.ajax({
                                             url: 'inc/conversations.inc.php',
                                             type: 'POST',
@@ -298,11 +298,11 @@ landing page for luv dating site
                                                 target_id: msg.member_id
                                             },
                                             success: function( response ) {
-						var data = JSON.parse( response );
+						                        var data = JSON.parse( response );
                                                 if( data.existed == "false" ) {
                                                     add_conversation_head( data );
-						}
-						console.log( "confirming message 'read' receipt" );
+                                                }
+                                                console.log( "confirming message 'read' receipt" );
                                                 $.ajax({
                                                     url: 'inc/confirm_message_receipt.inc.php',
                                                     type: 'POST',
