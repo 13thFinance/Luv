@@ -93,7 +93,7 @@ else
                             "<input type='hidden' name='target_id' value='" + member_id + "'/> " +
                         "</form> " + 
                     "   <form class='search-profile-form' action='message.php' method='post'> " +
-                    "        <input type='submit' class='search-profile-button search-profile-message-button' value='Message'/> " +
+                    "        <input type='submit' class='search-profile-button search-profile-view-button' value='Message'/> " +
                     "        <input type='hidden' name='target_id' value='" + member_id + "'/> " +
                         "</form> " +
                     "</div>  ";
