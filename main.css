@@ -728,6 +728,8 @@ hr {
 }
 
 .seach-profile-button-div {
+    display: flex;
+    flex-direction: row;
     padding-left: 4em;
 }
 
