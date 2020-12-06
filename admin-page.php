@@ -24,7 +24,7 @@ else
     <form id = "adminSignOutForm" action="inc/logout.inc.php" method="post">
         <!-- Sign out -->
         <div class="admin-sign-out-div">
-            <button type="submit" id="admin-sign-out-button" name="admin-signout">Sign Out</button>
+            <button type="submit" id="admin-sign-out-button" name="submit-signout">Sign Out</button>
         </div>
     </form>
     <h1 class="admin-reported-header">Reported Accounts</h1>
