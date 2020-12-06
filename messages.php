@@ -119,7 +119,7 @@ landing page for luv dating site
                     outer_div.appendChild( p_div );
 
                     document.getElementById( "conversation-head-wrapper" ).appendChild( outer_div );
-                }
+                };
                 var conversations = <?php echo json_encode($conversations); ?>;
                 conversations.forEach( conv => {
                     add_conversation_head( conv );
@@ -269,43 +269,48 @@ landing page for luv dating site
                         event_source.onmessage = event => {
                             if( event && event.data ) {
                                 var msg = JSON.parse( event.data );
-                                var member_id = "<?php echo $member_id; ?>";
-                                var target_id = "<?php echo $target_id; ?>";
+                                if( msg.member_id != undefined ) {
+                                    var member_id = "<?php echo $member_id; ?>";
+                                    var target_id = "<?php echo $target_id; ?>";
 
-                                var is_recipient = false;
-                                if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
-                                    // This is the sender. Show them their own message.
-                                    show_sent_message( is_recipient, msg );
-                                }
-                                else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
-                                    // This is the recipient. Show them the sender's message.
-                                    is_recipient = true;
-                                    show_sent_message( is_recipient, msg );
-                                }
-                                else if( member_id == msg.target_id && msg.read == "0" ) {
-                                    // This is the recipient, not actively in a conversation with the sender.
-                                    is_recipient = true;
-                                    $.ajax({
-                                        url: 'inc/conversations.inc.php',
-                                        type: 'POST',
-                                        data: {
-                                            member_id: msg.target_id,
-                                            target_id: msg.member_id
-                                        },
-                                        success: function( data ) {
-                                            add_conversation_head( data );
-                                            $.ajax({
-                                                url: 'inc/confirm_message_receipt.inc.php',
-                                                type: 'POST',
-                                                data: {
-                                                    member_id: msg.member_id,
-                                                    target_id: msg.target_id,
-                                                    timestamp: msg.timestamp,
-                                                    is_recipient: is_recipient
-                                                }  
-                                            });
-                                        }
-                                    });
+                                    var is_recipient = false;
+                                    if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
+                                        // This is the sender. Show them their own message.
+                                        show_sent_message( is_recipient, msg );
+                                    }
+                                    else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
+                                        // This is the recipient. Show them the sender's message.
+                                        is_recipient = true;
+                                        show_sent_message( is_recipient, msg );
+                                    }
+                                    else if( member_id == msg.target_id && msg.read == "0" ) {
+                                        // This is the recipient, not actively in a conversation with the sender.
+                                        is_recipient = true;
+                                        $.ajax({
+                                            url: 'inc/conversations.inc.php',
+                                            type: 'POST',
+                                            data: {
+                                                member_id: msg.target_id,
+                                                target_id: msg.member_id
+                                            },
+                                            success: function( data ) {
+                                                if( data.existed == "false" ) {
+                                                    add_conversation_head( data );
+                                                }
+                                                $.ajax({
+                                                    url: 'inc/confirm_message_receipt.inc.php',
+                                                    type: 'POST',
+                                                    data: {
+                                                        member_id: msg.target_id,
+                                                        target_id: msg.member_id,
+                                                        timestamp: msg.timestamp,
+                                                        is_recipient: is_recipient
+                                                    }
+                                                });
+                                            }
+                                        });
+                                        
+                                    }
                                 }
                             }
                         };
