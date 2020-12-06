@@ -74,7 +74,7 @@ else
 
             var profile_html = 
                     "<div class='search-profile-image-div'> " +
-                        "<img src='img/profile/default.png' class ='reviewProfilePic'> " +
+                        "<img src='" + picture  +"' alt='img/profile/default.png' class ='reviewProfilePic'> " +
                         "<p id='search-profile-user-name' class='profile-username'>" + name + "</p> " +
                     "</div> " +
 
