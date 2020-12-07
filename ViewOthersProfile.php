@@ -4,6 +4,7 @@ require_once( "inc/mysql.inc.php" );
 require_once( "inc/logging.inc.php" );
 require_once( "inc/reviews.inc.php" );
 require_once( "inc/reports.inc.php" );
+require_once( "inc/get_match_state.inc.php" );
 
 $users_name = "";
 $personality = "";
@@ -18,17 +19,30 @@ $picture = "";
 $member_id = "";
 $target_id = "";
 $report_params = "";
+$review_params = "";
 $disable_report_button = "true";
+$disable_review_button = "true";
 if( is_logged_in() ) {
     if( isset($_POST["target_id"]) ){
         $member_id = $_SESSION["member_id"];
         $target_id = $_POST["target_id"];
 
+        // Only show Add Review button if these users have matched and
+        // this user hasn't already left a review for the target user
+        $match_state = json_decode( get_match_state($member_id, $target_id), true );
+        if( $match_state["member_match"] == "true" and $match_state["target_match"] == "true" ) {
+            if( !has_reviewed($member_id, $target_id) ) {
+                $review_params ="'$member_id', '$target_id'";
+                $disable_review_button ="false";
+            }
+        }
+
+        // Only show Report User button if this user hasn't already
+        // reported the target user.
         if( !has_reported($member_id, $target_id) ) {
             $report_params = "'$member_id', '$target_id'";
             $disable_report_button = "false";
         }
-        
     }
 
     $query_string = "SELECT name, personality, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
@@ -151,9 +165,7 @@ else
                     </form>
                     <script>
                         var disabled = <?php echo $disable_report_button; ?>;
-                        console.log( disabled );
                         if( disabled == true ) {
-                            console.log( "trying to disable it" );
                             document.getElementById( "report-account-button" ).remove();
                         }
                     </script>
@@ -171,8 +183,15 @@ else
                     </div>
                     
                     <div class = "reviews-label-div-readonly">
-                        <input type="button" id="add-review-button" class="add-review-button-class" value="Add Review"/>   
+                        <input type="button" id="add-review-button" class="add-review-button-class" value="Add Review" onclick="fnReviewAction(<?php echo $review_params; ?>)"/>   
                     </div>
+
+                    <script>
+                        var disabled = <?php echo $disable_review_button; ?>;
+                        if( disabled == true ) {
+                            document.getElementById( "add-review-button" ).remove();
+                        }
+                    </script>
                     
                     <div id ="review-wrapper" class = "scrollable">
                         
@@ -182,9 +201,6 @@ else
                     <script>
                         var reviews_results = <?php echo json_encode($reviews); ?>;
                         reviews_results.forEach( review => {
-
-                            // PLACEHOLDER CONSOLE OUTPUT
-
                             var name = review.name;
                             var picture = review.picture;
                             var rating = review.rating;

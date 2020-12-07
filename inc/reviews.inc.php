@@ -2,12 +2,9 @@
 require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
 
-if( is_logged_in() ) {
-    $session_start;
-    $member_id = $_SESSION["member_id"];
-    if( isset($_POST["target_Id"]) and isset($_POST["review_rating"]) and isset($_POST["review_content"]) ) {
-        upload_review( $member_id, $_POST["target_Id"], $_POST["review_rating"], $_POST["review_content"] );
-    }
+if( isset($_POST["member_id"]) and isset($_POST["target_id"]) and 
+    isset($_POST["rating"]) and isset($_POST["content"]) ) {
+    upload_review( $_POST["member_id"], $_POST["target_id"], $_POST["rating"], $_POST["content"] );
 }
 
 //==========================================================================
@@ -35,18 +32,33 @@ function load_reviews( $member_id ) {
 //   Inserts a review to the db
 //==========================================================================
 function upload_review( $member_id, $target_id, $rating, $content ) {
-    
-    $query_string = "INSERT INTO reviews WHERE (?,?,?,?);";
-
+    LOG_DEBUG( "mid: $member_id, tid: $target_id, rating: $rating, content: $content" );
+    $query_string = "INSERT INTO reviews values (?,?,?,?)";
     $query_params = [$member_id, $target_id, $rating, $content];
+    $result = db_query( $query_string, $query_params );
+}
+
+//==========================================================================
+// has_reviewed
+//   Check if this member has reviewed the target member
+//==========================================================================
+function has_reviewed( $member_id, $target_id ) {
+
+    $query_string = "select count(1) as count from reviews where member_id=? and target_id=?";
+    $query_params = [$member_id, $target_id];
     $result = db_query( $query_string, $query_params );
 
     if( $result === false ) {
-        // PLACEHOLDER: error handling
-        die("Failed to upload review");
+        // PLACEHOLDER
+        die( "Something went wrong" );
     }
 
-    return $result;
+    $return = false;
+    if( $result[0]["count"] != "0" ) {
+        $return = true;
+    }
+
+    return $return;
 }
 
 ?>

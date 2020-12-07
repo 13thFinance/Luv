@@ -95,25 +95,25 @@ const ReviewPrompt = {
                     <div class="confirm__content">${options.message}</div>
                     
                     <div class="confirm__content">
-                        <textarea name="report-text" id="form-review-text-id" rows = "12" cols = "72"></textarea>
+                        <textarea name="review-text" id="form-review-text-id" rows = "12" cols = "72"></textarea>
                     </div>
 
                     <div class="form-review-stars-div">
                         <form action="" class="review-rating-form">
-                            <input type="radio" name="review-rating" id="form-review-rating-id1-readonly" class="review-rating-id" value="rating">
-                            <label for="form-review-rating-id1-readonly" class="rating-start-label">1 Star</label>
+                            <input type="radio" name="review-rating" id="form-review-rating-id1-readonly" class="review-rating-id" value="1">
+                            <label for="form-review-rating-id1-readonly" class="rating-start-label">1 Hearts</label>
 
-                            <input type="radio" name="review-rating" id="form-review-rating-id2-readonly" class="review-rating-id" value="rating">
-                            <label for="form-review-rating-id2-readonly" class="rating-start-label">2 Stars</label>
+                            <input type="radio" name="review-rating" id="form-review-rating-id2-readonly" class="review-rating-id" value="2">
+                            <label for="form-review-rating-id2-readonly" class="rating-start-label">2 Hearts</label>
 
-                            <input type="radio" name="review-rating" id="form-review-rating-id3-readonly" class="review-rating-id" value="rating">
-                            <label for="form-review-rating-id3-readonly" class="rating-start-label">3 Stars</label>
+                            <input type="radio" name="review-rating" id="form-review-rating-id3-readonly" class="review-rating-id" value="3">
+                            <label for="form-review-rating-id3-readonly" class="rating-start-label">3 Hearts</label>
 
-                            <input type="radio" name="review-rating" id="form-review-rating-id4-readonly" class="review-rating-id" value="rating">
-                            <label for="form-review-rating-id4-readonly" class="rating-start-label">4 Stars</label>
+                            <input type="radio" name="review-rating" id="form-review-rating-id4-readonly" class="review-rating-id" value="4">
+                            <label for="form-review-rating-id4-readonly" class="rating-start-label">4 Hearts</label>
 
-                            <input type="radio" name="review-rating" id="form-review-rating-id5-readonly" class="review-rating-id" value="rating">
-                            <label for="form-review-rating-id5-readonly" class="rating-start-label">5 Stars</label>
+                            <input type="radio" name="review-rating" id="form-review-rating-id5-readonly" class="review-rating-id" value="5">
+                            <label for="form-review-rating-id5-readonly" class="rating-start-label">5 Hearts</label>
                         </form>
                     </div>
                     
