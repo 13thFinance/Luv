@@ -57,4 +57,27 @@ function ignoreAccount( $member_id, $target_id, $timestamp ) {
     }
 }
 
+//==========================================================================
+// has_reported
+//   Check if this member has reported the target member
+//==========================================================================
+function has_reported( $member_id, $target_id ) {
+
+    $query_string = "select count(1) as count from reports where member_id=? and target_id=?";
+    $query_params = [$member_id, $target_id];
+    $result = db_query( $query_string, $query_params );
+
+    if( $result === false ) {
+        // PLACEHOLDER
+        die( "Something went wrong" );
+    }
+
+    $return = false;
+    if( $result[0]["count"] != "0" ) {
+        $return = true;
+    }
+
+    return $return;
+}
+
 ?>

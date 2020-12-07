@@ -8,6 +8,8 @@ function fnReportAction( member_id, target_id ){
       okText: 'Submit',
       onok: () => {
         var report_content = document.getElementById( "form-report-text-id" ).value;
+        if( report_content == "" )
+          return;
         $.ajax({
           url: 'inc/report_acc.inc.php',
           type: 'POST',
@@ -17,7 +19,7 @@ function fnReportAction( member_id, target_id ){
               content: report_content
           },
           success: function( response ) {
-
+            document.getElementById( "report-account-button" ).remove();
           }
         });
       }

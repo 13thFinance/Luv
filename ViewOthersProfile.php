@@ -3,6 +3,7 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/mysql.inc.php" );
 require_once( "inc/logging.inc.php" );
 require_once( "inc/reviews.inc.php" );
+require_once( "inc/reports.inc.php" );
 
 $users_name = "";
 $personality = "";
@@ -16,12 +17,18 @@ $location = "";
 $picture = "";
 $member_id = "";
 $target_id = "";
+$report_params = "";
+$disable_report_button = "true";
 if( is_logged_in() ) {
     if( isset($_POST["target_id"]) ){
         $member_id = $_SESSION["member_id"];
         $target_id = $_POST["target_id"];
 
-        $report_params = "'$member_id', '$target_id'";
+        if( !has_reported($member_id, $target_id) ) {
+            $report_params = "'$member_id', '$target_id'";
+            $disable_report_button = "false";
+        }
+        
     }
 
     $query_string = "SELECT name, personality, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
@@ -141,9 +148,15 @@ else
                         <div class="report-account-button-div">
                             <input type="button" id="report-account-button" value="Report Account" onclick="fnReportAction(<?php echo $report_params; ?>)"/>
                         </div>
-                        
-                        
                     </form>
+                    <script>
+                        var disabled = <?php echo $disable_report_button; ?>;
+                        console.log( disabled );
+                        if( disabled == true ) {
+                            console.log( "trying to disable it" );
+                            document.getElementById( "report-account-button" ).remove();
+                        }
+                    </script>
                 </div> <!--Left Profile Div -->
 
 
