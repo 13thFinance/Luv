@@ -13,7 +13,7 @@ function search_users( $search_val ) {
         from members left join reviews on members.member_id=reviews.target_id 
         where (name like ? or sex like ? or gender like ? or age like ? or location like ?
         or job_title like ? or personality like ? or looking_for like ? or about_me like ?) 
-        group by members.member_id limit 10;";
+        and is_admin=0 group by members.member_id limit 10;";
     $query_params = [];
     for( $i = 0; $i < 9; $i++)
         array_push( $query_params, "%$search_val%" );
