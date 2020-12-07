@@ -178,13 +178,32 @@ landing page for luv dating site
             <script>
                 var format_match_button = (match_data) => {
                     // member_match and target_match are strings, "true" or "false"
-                    console.log( match_data.member_match ); //delete these console outputs
-                    console.log( match_data.target_match );                    
+                    console.log( "member_id: " + match_data.member_match ); //delete these console outputs
+                    console.log( "target_id: " + match_data.target_match );    
+                    
+                    console.log(match_data.member_match == "true");//validate type match, should be true
 
                     var btn = document.getElementById( "match_button" );
                     btn.disabled = false;
-                    // I guess disable it if member_match == "true"
-                    // and target_match == "false"?
+                    
+                    if(match_data.member_match == "true"  && match_data.target_match == "false")
+                    {
+                        console.log("Button matching");
+                        btn.classList.add("matching-button");
+                        btn.innerHTML = "Match Sent!";
+                        btn.disabled = true;
+                    }
+                    else if(match_data.member_match == "true" && match_data.target_match == "false")
+                    {
+                        console.log("Button matched");
+                        btn.classList.add("matched-button");
+                        btn.innerHTML = "It's a date!";
+                        btn.disabled = true;
+                    }
+                    else{
+                        console.log("Button match");
+                        btn.classList.add("match-button");
+                    }
 
                     // Crazy formatting if you're matched?!
                     // Do we need a realtime event for when two people match?
