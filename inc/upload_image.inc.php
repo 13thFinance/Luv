@@ -14,7 +14,7 @@ function upload_image( $image, $member_id ) {
     $filesize = $_FILES["profile_pic"]["size"];
 
     // verify file extension
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    $ext = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
     if( !array_key_exists($ext, $allowed) ) {
         // PLACEHOLDER: return to account page, throw an error about unallowed file type
         die( "Please select a valid file format." );
