@@ -3,7 +3,7 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
 require_once( "inc/conversations.inc.php" );
 require_once( "inc/confirm_message_receipt.inc.php" );
-require_once("inc/new_match.inc.php");
+//require_once("inc/new_match.inc.php");
 
 $member_id = "";
 $target_id = "";
@@ -61,6 +61,7 @@ landing page for luv dating site
             </script>
         </div>
     </div>
+    
     <script>
         var send_message = function() {
             let message_div = document.getElementById( "send-message-text" )
@@ -81,6 +82,7 @@ landing page for luv dating site
             }
         };
     </script>
+    
     <div class="messages-div">
         <div class="users">
             <h1 class="users-label">Users</h1>
@@ -148,20 +150,36 @@ landing page for luv dating site
             /*
             if(get_match($member_id, $target_id) == 0)
             {
-                print "<button class='match-button''>MATCH</button>";
+                print "<button  id='match-button' class='match-button''>MATCH</button>";
             }
             elseif (get_match($member_id, $target_id) == 1)
             {
-                print "<button class='matching-button''>MATCHING</button>";
+                print "<button  id='match-button' class='matching-button''>MATCHING</button>";
             }
             elseif (if_matched($member_id, $target_id) == true)
             {
-                print "<button class='matched-button''>MATCHED</button>";
-            }*/
-            
-                
-            
+                print "<button id='match-button' class='matched-button''>MATCHED</button>";
+            }    
+            */
+
             ?>
+            
+            <script>
+                var send_match = function() {
+                        $.ajax({
+                            url: 'inc/new_match.inc.php',
+                            type: 'POST',
+                            data: {
+                                sender_id: '<?php echo $member_id; ?>',
+                                target_id: '<?php echo $target_id; ?>',
+                            },
+                            success: function( data ) {
+                                let message_div = document.getElementById( "match-button" );
+                                message_div.value = "";
+                            }                          
+                        });
+                };
+            </script>
             
             
             <hr />
