@@ -49,4 +49,14 @@ function upload_review( $member_id, $target_id, $rating, $content ) {
     return $result;
 }
 
+
+//  Call this function when data changes
+function refresh(){
+    if (upload_review() === true){
+        header( "location: ../accountManagement.php" );
+        header("location: ../ViewOthersProfile.php");
+    }
+    else die("Something went Wrong");
+}
+
 ?>
