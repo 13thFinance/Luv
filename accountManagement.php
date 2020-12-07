@@ -259,7 +259,7 @@ else
                             stars_div.appendChild(stars_image);
                             
                             review_stars_div.appendChild(stars_div);
-                            }
+                        }
                         
                         feedback_div.appendChild(review_textarea);
                         feedback_div.appendChild(hline_hr);

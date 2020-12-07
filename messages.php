@@ -65,6 +65,7 @@ landing page for luv dating site
             </script>
         </div>
     </div>
+    
     <script>
         var send_message = function() {
             let message_div = document.getElementById( "send-message-text" )
@@ -85,6 +86,7 @@ landing page for luv dating site
             }
         };
     </script>
+    
     <div class="messages-div">
         <div class="users">
             <h1 class="users-label">Users</h1>
@@ -238,14 +240,15 @@ landing page for luv dating site
                         var p = document.createElement( "P" );
                         var inner_div = document.createElement( "DIV" );
 
+
                         if( is_recipient ) {
                             outer_div.classList.add( "message-blue-div" );
+                            inner_div.classList.add( "message-timestamp-left" );
                         }
                         else {
-                            outer_div.classList.add( "message-orange-div" ); 
+                            outer_div.classList.add( "message-orange-div" );
+                            inner_div.classList.add( "message-timestamp-right" ); 
                         }
-
-                        inner_div.classList.add( "message-timestamp-right" );
                         p.classList.add( "message-content" );
                     
                         p.innerHTML = message_data.content;
@@ -332,8 +335,8 @@ landing page for luv dating site
                                                     url: 'inc/confirm_message_receipt.inc.php',
                                                     type: 'POST',
                                                     data: {
-                                                        member_id: msg.member_id,
-                                                        target_id: msg.target_id,
+                                                        member_id: msg.target_id,
+                                                        target_id: msg.member_id,
                                                         timestamp: msg.timestamp,
                                                         is_recipient: is_recipient
                                                     }
