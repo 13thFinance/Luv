@@ -11,4 +11,3 @@ function new_report($member_id, $target_id, $content){
     $query_params = [$member_id, $target_id, $now, $content];
     $result = db_query( $query_string, $query_params );
 }
-
