@@ -18,7 +18,7 @@ $query_string = "select * from messages where delivered=? or `read`=? order by t
 $query_params = ["0","0"];
 $results = db_query( $query_string, $query_params );
 
-if( $results  ) {
+if( $results and array_key_exists( "member_id", $results[0] ) ) {
     foreach( $results as $msg ) {
         // deliver each message as server-side event
         echo "data: ".json_encode($msg)."\n";
