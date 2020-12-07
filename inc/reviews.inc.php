@@ -32,7 +32,6 @@ function load_reviews( $member_id ) {
 //   Inserts a review to the db
 //==========================================================================
 function upload_review( $member_id, $target_id, $rating, $content ) {
-    LOG_DEBUG( "mid: $member_id, tid: $target_id, rating: $rating, content: $content" );
     $query_string = "INSERT INTO reviews values (?,?,?,?)";
     $query_params = [$member_id, $target_id, $rating, $content];
     $result = db_query( $query_string, $query_params );
