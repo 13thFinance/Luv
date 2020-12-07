@@ -20,11 +20,8 @@ if( is_logged_in() ) {
     if( isset($_POST["target_id"]) ){
         $member_id = $_SESSION["member_id"];
         $target_id = $_POST["target_id"];
-    }
-    else {
-        // PLACEHOLDER: Remove once search page view button posts target_id
-        $member_id = $_SESSION["member_id"];
-        $target_id = "41";
+
+        $report_params = "'$member_id', '$target_id'";
     }
 
     $query_string = "SELECT name, personality, about_me, sex, gender, age, looking_for, job_title, location, picture FROM members WHERE member_id=?";
@@ -142,7 +139,7 @@ else
                         
                         
                         <div class="report-account-button-div">
-                            <input type="button" id="report-account-button" value="Report Account"/>
+                            <input type="button" id="report-account-button" value="Report Account" onclick="fnReportAction(<?php echo $report_params; ?>)"/>
                         </div>
                         
                         

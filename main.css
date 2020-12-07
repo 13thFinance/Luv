@@ -286,6 +286,7 @@ body {
     height: 185px;
     object-fit: cover;
     object-position: 20% 10%;
+    cursor: pointer;
 }
 
 .admin-profile-pic:focus {
@@ -876,7 +877,7 @@ img {
     justify-content: space-around;
 }
 
-#admin-delete-button, #admin-ignore-button, #admin-sign-out-button{
+.admin-delete-button, .admin-ignore-button, #admin-sign-out-button{
     height: 3.5em;
     width: 10em;
     background-color: rgb(15,25,25);
@@ -887,6 +888,7 @@ img {
     padding: 10px 20px;
     text-align: center;
     margin-top: 1.5em;
+    margin-right: 0.2em;
 }
 
 .admin-sign-out-div{

@@ -1,13 +1,25 @@
 
 
-function fnReportAction(){
+function fnReportAction( member_id, target_id ){
   
     ReportPrompt.open({
       title: 'Report User',
       message: 'Please provide description of the user\'s action.',
       okText: 'Submit',
       onok: () => {
-        alert("Report Submitted.");
+        var report_content = document.getElementById( "form-report-text-id" ).value;
+        $.ajax({
+          url: 'inc/report_acc.inc.php',
+          type: 'POST',
+          data: {
+              member_id: member_id,
+              target_id: target_id,
+              content: report_content
+          },
+          success: function( response ) {
+
+          }
+        });
       }
     });
 }
@@ -24,8 +36,5 @@ function fnReviewAction(){
     });
 }
 
-
-
-document.getElementById('report-account-button').addEventListener('click',fnReportAction, false);
 
 document.getElementById('add-review-button').addEventListener('click',fnReviewAction, false);
