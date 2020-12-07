@@ -89,10 +89,12 @@ landing page for luv dating site
     
     <div class="messages-div">
         <div class="users">
-            <h1 class="users-label">Users</h1>
+            <div>
+                <h1 class="users-label">Users</h1>
+            </div>
             <hr />
             
-            <div class="users-placeholder" id="conversation-head-wrapper">
+            <div class="users-placeholder scrollable-message" id="conversation-head-wrapper">
             </div>
             <script>
                 var add_conversation_head = conv => {
@@ -138,9 +140,10 @@ landing page for luv dating site
         <div class="users-messages-divider"></div>
         
         <div class="message-history">
-            <h1 class="message-history-label">Message History</h1>
+            <div>
+                <h1 class="message-history-label">Message History</h1>
+            </div>
             
-            <hr />
             <script>
                 var match_button_clicked = () => {
                     var member_id = "<?php echo $member_id; ?>";
@@ -173,8 +176,14 @@ landing page for luv dating site
                 };
             </script>
             
-            <button id="match_button" class="match-button" onclick="match_button_clicked()">MATCH</button>
-
+            <hr />
+            
+            <div>
+                <button id="match_button" class="match-button" onclick="match_button_clicked()">MATCH</button>
+            </div>
+            
+            <hr />
+            
             <script>
                 var format_match_button = (match_data) => {
                     // member_match and target_match are strings, "true" or "false"
@@ -193,7 +202,7 @@ landing page for luv dating site
                         btn.innerHTML = "Match Sent!";
                         btn.disabled = true;
                     }
-                    else if(match_data.member_match == "true" && match_data.target_match == "false")
+                    else if(match_data.member_match == "true" && match_data.target_match == "true")
                     {
                         console.log("Button matched");
                         btn.classList.add("matched-button");
@@ -217,7 +226,7 @@ landing page for luv dating site
                 }
             </script>
             
-            
+            <div>
                 <div class="message-history-placeholder">
                     <div id="message-container-div" class="message-container-div scrollable-message">
                             <?php
@@ -368,9 +377,9 @@ landing page for luv dating site
                             }
                         };
                     }
-                </script>
-            
-            </div>
+                    </script>
+                </div>
+            </div> <!-- classless container-->
         </div>
     </div>
     

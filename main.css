@@ -543,6 +543,9 @@ body {
 }
 
 .messages-div{
+    max-height: 55em;
+    height: 55em;
+    
     padding-top: 5%;
     display: flex;
     text-align: center;
@@ -554,13 +557,20 @@ body {
 .users {
     width: 300px;
     flex-grow: 1;
+    
+    height: 50em;
+    max-height: 50em;
 }
 
 .message-history{
+    height: 55em;
+    max-height: 55em; 
+    
     flex-grow: 3;
     
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .users-label{
@@ -576,6 +586,8 @@ body {
 
 .message-history-label{
     margin: auto;
+    max-height: 50px;
+    height: 50px;
     
     border-radius: 8px;
     border: solid #000;
@@ -595,15 +607,21 @@ body {
     padding-left: 1%;
 }
 
+
+
 .users-placeholder{
     display: flex;
     flex-direction: column;
     word-break: break-all;
+    
+    height: inherit;
+    max-height: inherit;
 }
 
 .match-button{
     width: auto;
     height: 50px;
+    max-height: 50px;
     
     text-align: center;
     margin: auto;
@@ -622,6 +640,7 @@ body {
 .matched-button{
     width: auto;
     height: 50px;
+    max-height: 50px;
     
     text-align: center;
     margin: auto;
@@ -637,6 +656,7 @@ body {
 .matching-button{
     width: auto;
     height: 50px;
+    max-height: 50px;
     
     text-align: center;
     margin: auto;
@@ -847,6 +867,8 @@ img {
 
 .admin-profile-pic-div{
     padding-left: 20px;   
+    max-height: inherit;
+    height: inherit;
 }
 
 .admin-buttons-div{
@@ -876,10 +898,17 @@ img {
     Messages page ******************************************/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
+.message-history-placeholder{
+    height: 30em;
+    max-height: 30em;
+}
+
 .message-container-div {
     padding: 20px;
     margin-left: 8vw;
     margin-right: 8vw;
+    height: inherit;
+    max-height: inherit;
 }
 
 .message-blue-div {
@@ -1175,7 +1204,8 @@ img {
 {
     display: flex;
     flex-direction: column;
-    max-height: 70em;
+    height: inherit;
+    max-height: inherit;
     overflow-y: scroll;
 }
 
