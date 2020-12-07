@@ -139,48 +139,6 @@ landing page for luv dating site
             <hr />
             
             
-            <?php
-            //match button php stuff
-            
-            //has this user matched with other user
-            //if(db.query("select count(1) from matches where member_id = " + $member_id + " and target_id = " + $target_id))
-            //{}
-            
-            //display corresponding button based on state
-            /*
-            if(get_match($member_id, $target_id) == 0)
-            {
-                print "<button  id='match-button' class='match-button''>MATCH</button>";
-            }
-            elseif (get_match($member_id, $target_id) == 1)
-            {
-                print "<button  id='match-button' class='matching-button''>MATCHING</button>";
-            }
-            elseif (if_matched($member_id, $target_id) == true)
-            {
-                print "<button id='match-button' class='matched-button''>MATCHED</button>";
-            }    
-            */
-
-            ?>
-            
-            <script>
-                var send_match = function() {
-                        $.ajax({
-                            url: 'inc/new_match.inc.php',
-                            type: 'POST',
-                            data: {
-                                sender_id: '<?php echo $member_id; ?>',
-                                target_id: '<?php echo $target_id; ?>',
-                            },
-                            success: function( data ) {
-                                let message_div = document.getElementById( "match-button" );
-                                message_div.value = "";
-                            }                          
-                        });
-                };
-            </script>
-            
             
             <hr />
             
