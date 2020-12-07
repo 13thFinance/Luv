@@ -183,15 +183,14 @@ landing page for luv dating site
                         var p = document.createElement( "P" );
                         var inner_div = document.createElement( "DIV" );
 
-
                         if( is_recipient ) {
                             outer_div.classList.add( "message-blue-div" );
-                            inner_div.classList.add( "message-timestamp-left" );
                         }
                         else {
-                            outer_div.classList.add( "message-orange-div" );
-                            inner_div.classList.add( "message-timestamp-right" ); 
+                            outer_div.classList.add( "message-orange-div" ); 
                         }
+
+                        inner_div.classList.add( "message-timestamp-right" );
                         p.classList.add( "message-content" );
                     
                         p.innerHTML = message_data.content;
