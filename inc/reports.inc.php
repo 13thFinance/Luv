@@ -31,15 +31,12 @@ function load_reports() {
 
 //==========================================================================
 // deleteAccount
-//   Removed all reports associate with the member_id, deletes their account
-//   information, reviews, matches and conversations.
+//   Deletes reported user from db (removing all associated data through a
+//   delete cascade in db)
 //==========================================================================
 function deleteAccount( $member_id ) {
 
-    $query_string = "DELETE FROM reports INNER JOIN members ON reports.target_id = members.member_id
-        INNER JOIN reviews ON reports.target_id = reviews.member_id AND reports.target_id = reviews.targer_id
-        INNER JOIN matches ON reports.target_id = matches.member_id AND reports.target_id = matches.target_id
-        WHERE reports.target_id=?;";
+    $query_string = "DELETE FROM members where member_id=?;";
     $query_params = [$member_id];
     $result = db_query( $query_string, $query_params );
 
