@@ -127,7 +127,8 @@ landing page for luv dating site
                     outer_div.appendChild( form_div );
                     outer_div.appendChild( p_div );
 
-                    document.getElementById( "conversation-head-wrapper" ).appendChild( outer_div );
+                    parent_node = document.getElementById( "conversation-head-wrapper" );
+                    parent_node.insertBefore( outer_div, parent_node.firstChild );
                 };
                 var conversations = <?php echo json_encode($conversations); ?>;
                 conversations.forEach( conv => {
@@ -187,30 +188,23 @@ landing page for luv dating site
             <script>
                 var format_match_button = (match_data) => {
                     // member_match and target_match are strings, "true" or "false"
-                    console.log( "member_id: " + match_data.member_match ); //delete these console outputs
-                    console.log( "target_id: " + match_data.target_match );    
-                    
-                    console.log(match_data.member_match == "true");//validate type match, should be true
-
                     var btn = document.getElementById( "match_button" );
                     btn.disabled = false;
                     
                     if(match_data.member_match == "true"  && match_data.target_match == "false")
                     {
-                        console.log("Button matching");
                         btn.classList.add("matching-button");
                         btn.innerHTML = "Match Sent!";
                         btn.disabled = true;
                     }
                     else if(match_data.member_match == "true" && match_data.target_match == "true")
                     {
-                        console.log("Button matched");
+                        btn.classList.remove("matching-button");
                         btn.classList.add("matched-button");
                         btn.innerHTML = "It's a date!";
                         btn.disabled = true;
                     }
                     else{
-                        console.log("Button match");
                         btn.classList.add("match-button");
                     }
 
@@ -271,12 +265,13 @@ landing page for luv dating site
 
                         if( is_recipient ) {
                             outer_div.classList.add( "message-blue-div" );
-                            inner_div.classList.add( "message-timestamp-left" );
+                            
                         }
                         else {
                             outer_div.classList.add( "message-orange-div" );
-                            inner_div.classList.add( "message-timestamp-right" ); 
                         }
+
+                        inner_div.classList.add( "message-timestamp-right" );
                         p.classList.add( "message-content" );
                     
                         p.innerHTML = message_data.content;
@@ -327,55 +322,77 @@ landing page for luv dating site
 
                     if( typeof(EventSource) !== "undefined" ) {
                         var event_source = new EventSource( "inc/inform_messaging.inc.php" );
-                        event_source.onmessage = event => {
-                            if( event && event.data ) {
-                                var msg = JSON.parse( event.data );
-                                if( msg.member_id != undefined ) {
-                                    var member_id = "<?php echo $member_id; ?>";
-                                    var target_id = "<?php echo $target_id; ?>";
+                        event_source.addEventListener( "match", function(event) {
+                            var match = JSON.parse( event.data );
+                            var member_id = "<?php echo $member_id; ?>";
+                            var target_id = "<?php echo $target_id; ?>";
 
-                                    var is_recipient = false;
-                                    if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
-                                        // This is the sender. Show them their own message.
-                                        show_sent_message( is_recipient, msg );
+                            if( match.target_id == member_id ) {
+                                // tell db match is delivered
+                                $.ajax({
+                                    url: 'inc/confirm_match_receipt.inc.php',
+                                    type: 'POST',
+                                    data: {
+                                        member_id: match.member_id,
+                                        target_id: match.target_id
+                                    },
+                                    success: function() {
+                                        // update match button live
+                                        var match_data = {
+                                            member_match: "true",
+                                            target_match: "true"
+                                        };
+
+                                        format_match_button( match_data );
                                     }
-                                    else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
-                                        // This is the recipient. Show them the sender's message.
-                                        is_recipient = true;
-                                        show_sent_message( is_recipient, msg );
-                                    }
-                                    else if( member_id == msg.target_id && msg.read == "0" ) {
-                                        // This is the recipient, not actively in a conversation with the sender.
-                                        is_recipient = true;
+                                });
+                            }
+                        });
+                        event_source.addEventListener( "message", function(event) {
+                            var msg = JSON.parse( event.data );
+                            var member_id = "<?php echo $member_id; ?>";
+                            var target_id = "<?php echo $target_id; ?>";
+
+                            var is_recipient = false;
+                            if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
+                                // This is the sender. Show them their own message.
+                                show_sent_message( is_recipient, msg );
+                            }
+                            else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
+                                // This is the recipient. Show them the sender's message.
+                                is_recipient = true;
+                                show_sent_message( is_recipient, msg );
+                            }
+                            else if( member_id == msg.target_id && msg.read == "0" ) {
+                                // This is the recipient, not actively in a conversation with the sender.
+                                is_recipient = true;
+                                $.ajax({
+                                    url: 'inc/conversations.inc.php',
+                                    type: 'POST',
+                                    data: {
+                                        member_id: msg.target_id,
+                                        target_id: msg.member_id
+                                    },
+                                    success: function( response ) {
+                                        var data = JSON.parse( response );
+                                        if( data.existed == "false" ) {
+                                            add_conversation_head( data );
+                                        }
                                         $.ajax({
-                                            url: 'inc/conversations.inc.php',
+                                            url: 'inc/confirm_message_receipt.inc.php',
                                             type: 'POST',
                                             data: {
-                                                member_id: msg.target_id,
-                                                target_id: msg.member_id
-                                            },
-                                            success: function( response ) {
-                                                var data = JSON.parse( response );
-                                                if( data.existed == "false" ) {
-                                                    add_conversation_head( data );
-                                                }
-                                                $.ajax({
-                                                    url: 'inc/confirm_message_receipt.inc.php',
-                                                    type: 'POST',
-                                                    data: {
-                                                        member_id: msg.target_id,
-                                                        target_id: msg.member_id,
-                                                        timestamp: msg.timestamp,
-                                                        is_recipient: is_recipient
-                                                    }
-                                                });
+                                                member_id: msg.member_id,
+                                                target_id: msg.target_id,
+                                                timestamp: msg.timestamp,
+                                                is_recipient: is_recipient
                                             }
                                         });
-                                        
                                     }
-                                }
+                                });
+                                
                             }
-                        };
+                        });
                     }
                     </script>
                 </div>

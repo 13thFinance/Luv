@@ -7,7 +7,7 @@ if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
 }
 
 function new_match($member_id, $target_id){
-    $query_string = "insert into matches values (?,?)";
+    $query_string = "insert into matches values (?,?,0)";
     $query_params = [$member_id, $target_id];
     $result = db_query($query_string, $query_params);
 }
