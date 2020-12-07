@@ -16,7 +16,6 @@ landing page for luv dating site
     <meta charset="utf-8">
     <title>LUV</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
     
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -28,7 +27,6 @@ landing page for luv dating site
         <div class="navbar">
             <div id="nav-placeholder"></div>
 
-            <!-- fix this up later, move to main.js -->
             <script>
                 $(function(){
                   $("#nav-placeholder").load("modules/nav.html");
@@ -39,7 +37,6 @@ landing page for luv dating site
         <div class="create-login">
             <div id="create-login-placeholder"></div>
 
-            <!-- fix this up later, move to main.js -->
             <script>
                 $(function(){
                   $("#create-login-placeholder").load("modules/createlogin.html");

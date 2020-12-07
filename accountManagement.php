@@ -61,8 +61,6 @@ else
     <body class="landing-page">
         <div class="navbar">
             <div id="nav-placeholder"></div>
-
-            <!-- fix this up later, move to main.js -->
             <script>
                 $(function(){
                   $("#nav-placeholder").load("modules/nav.html");

@@ -5,14 +5,12 @@
     <meta charset="utf-8">
     <title>LUV Create Account</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body class="landing-page">
     <div class="navbar">
             <div id="nav-placeholder"></div>
 
-            <!-- fix this up later, move to main.js -->
             <script>
                 $(function(){
                   $("#nav-placeholder").load("modules/nav.html");

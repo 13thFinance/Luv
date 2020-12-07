@@ -47,7 +47,6 @@ landing page for luv dating site
     <meta charset="utf-8">
     <title>LUV</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
     
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -57,7 +56,6 @@ landing page for luv dating site
         <div class="navbar">
             <div id="nav-placeholder"></div>
 
-            <!-- fix this up later, move to main.js -->
             <script>
                 $(function(){
                   $("#nav-placeholder").load("modules/nav.html");

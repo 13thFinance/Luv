@@ -18,7 +18,6 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
 </head>
 <body class="landing-page">
     <form id = "adminSignOutForm" action="inc/logout.inc.php" method="post">
