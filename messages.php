@@ -288,8 +288,8 @@ landing page for luv dating site
                                                     url: 'inc/confirm_message_receipt.inc.php',
                                                     type: 'POST',
                                                     data: {
-                                                        member_id: msg.target_id,
-                                                        target_id: msg.member_id,
+                                                        member_id: msg.member_id,
+                                                        target_id: msg.target_id,
                                                         timestamp: msg.timestamp,
                                                         is_recipient: is_recipient
                                                     }
