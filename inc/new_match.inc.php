@@ -1,48 +1,14 @@
 <?php
-require_once("inc/mysql.inc.php");
-require_once("inc/logging.inc.php");
+require_once("logging.inc.php");
+require_once("mysql.inc.php");
 
-//==================================================================================
-// new_method - to add the match in the database
-// get_match - to see what match the user has got.
-// if_matched - to know if both the members clicked match on each other
-//===================================================================================
+if( isset($_POST["member_id"]) and isset($_POST["target_id"]) ) {
+    new_match( $_POST["member_id"], $_POST["target_id"] );
+}
 
 function new_match($member_id, $target_id){
-    $query_string="insert into matches(member_id , target_id) values (?,?)"
-    $query_params=[$member_id, $target_id];
+    $query_string = "insert into matches values (?,?)";
+    $query_params = [$member_id, $target_id];
     $result = db_query($query_string, $query_params);
-
-if( $result === false)
-    die("something went wrong");
-}
-
-function get_match($member_id, $target_id){
-    //returns an int, number of matches made from member_id to target_id
-    
-    $query_string="select * from matches where (member_id= ? AND target_id=?)"
-    $query_params=[member_id, $target_id];
-    $result = db_query($query_string, $query_params);
-
-    if($result === false){
-        LOG_ERROR("Error quering matches from users")
-        die("No matches were found")
-    }
-    
-    return $result; // here i got my match (target_id)
-}
-
-function if_matched($member_id, $target_id){
-    //returns true if both members matched
-    $query_string = "select count(1) from matches where (member_id=? AND target_id=?) OR (member_id=? AND target_id=?)";
-    $query_params = [$member_id, $target_id, $target_id, $member_id];
-    $result = db_query( $query_string, $query_params );
-
-    if($result === false){
-        LOG_ERROR("Error quering matches from users")
-        die("No matches were found")
-    }
-    
-    return $result[0] == "2"; 
 }
 ?>

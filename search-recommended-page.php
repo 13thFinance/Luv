@@ -17,7 +17,6 @@ if( is_logged_in() ) {
     }
     elseif ( isset($_POST["search"]) ) {
         if ( isset($_POST["searchtext"]) ) {
-            LOG_DEBUG( "about to run a search" );
             $search_results = search_users( $_POST["searchtext"] );
         }
     }

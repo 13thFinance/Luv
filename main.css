@@ -614,6 +614,9 @@ body {
     
     background-color: #c83349;
     color: white;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
 }
 
 .matched-button{
