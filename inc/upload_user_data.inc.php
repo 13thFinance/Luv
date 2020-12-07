@@ -29,6 +29,15 @@ function upload_user_data( $users_name, $personality, $about_me_text, $sex,
         // PLACEHOLDER -- Need to inform the user
         LOG_ERROR( "Send message error -- failed to update member data into db." .
             " member_id=$member_id" );
+        LOG_ERROR( $users_name );
+        LOG_ERROR( $personality );
+        LOG_ERROR( $about_me_text );
+        LOG_ERROR( $sex );
+        LOG_ERROR( $gender );
+        LOG_ERROR( $age );
+        LOG_ERROR( $looking_for );
+        LOG_ERROR( $job_title );
+        LOG_ERROR( $location );
         header( "location: ../accountManagement.php" );
     }
 
