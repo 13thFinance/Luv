@@ -22,7 +22,7 @@ if( $results and array_key_exists( "member_id", $results[0] ) ) {
     foreach( $results as $msg ) {
         // deliver each message as server-side event
         echo "data: ".json_encode($msg)."\n";
-        echo "retry: 3000\n\n";
+        echo "retry: 1000\n\n";
         ob_flush();
         flush();
     }
