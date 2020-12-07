@@ -29,8 +29,10 @@ function login( $email, $pwd ) {
 
     // inform user of invalid credentials one way or the other
     if( $invalid_login ) {
-        // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
-        die( "PLACEHOLDER: Invalid email/password." );
+        session_start();
+        $_SESSION["invalid_login_error"] = true;
+        header( "location: /luv/createAccountBody.php" );
+        return;
     }
 
     // calculate auth_token and get member_id

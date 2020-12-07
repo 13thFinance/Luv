@@ -46,6 +46,13 @@
                     <div class="button-div">
                         <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Create Account</button>
                     </div>
+                    <?php 
+                    session_start();
+                    if( isset($_SESSION["account_exists_error"]) and $_SESSION["account_exists_error"] == true ) {
+                        echo "<p class='frontend-error-message'>Account already exists.</p>";
+                        unset( $_SESSION["account_exists_error"] );
+                    }
+                    ?>
                 </div>
             </form>
         </div>
@@ -68,6 +75,13 @@
                     <div class="button-div">
                         <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Login</button>
                     </div>
+                    <?php 
+                    session_start();
+                    if( isset($_SESSION["invalid_login_error"]) and $_SESSION["invalid_login_error"] == true ) {
+                        echo "<p class='frontend-error-message'>Invalid email/password.</p>";
+                        unset( $_SESSION["invalid_login_error"] );
+                    }
+                    ?>
                 </div>
             </form>
         </div>

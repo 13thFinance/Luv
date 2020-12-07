@@ -20,8 +20,12 @@ function create_account( $name, $email, $pwd ) {
     $result_email = db_query( $query_string, $query_params );
 
     if( $result_email ) {
+        LOG_DEBUG( "we know it exists" );
         // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
-        die( "PLACEHOLDER: That email address is already associated with a Luv account." );
+        session_start();
+        $_SESSION["account_exists_error"] = true;
+        header( "location: /luv/createAccountBody.php" );
+        return;
     }
 
     // insert new member info into db
@@ -29,11 +33,6 @@ function create_account( $name, $email, $pwd ) {
     $query_string = "insert into members (is_admin, email, password, name, picture) values ('0',?,?,?,?)";
     $query_params = [$email, $pwd_hash, $name, $img];
     $result_insert = db_query( $query_string, $query_params );
-
-    if( $result_insert === false ) {
-        // JOSH TODO: Change this to redirect back to the create/login page with a similar error.
-        die( "PLACEHOLDER: An error occurred while creating your account." );
-    }
 
     // create successful
     // log in user and send them to their profile page

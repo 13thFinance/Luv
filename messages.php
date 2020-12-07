@@ -32,7 +32,7 @@ if( is_logged_in() ) {
     $conversations =  load_conversations( $member_id );
 }
 else
-    header( "location: /luv/createAccountBody.html" );
+    header( "location: /luv/createAccountBody.php" );
 ?>
 
 <!DOCTYPE html>

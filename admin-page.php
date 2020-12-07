@@ -8,7 +8,7 @@ if( is_logged_in() ) {
     $reports = load_reports();
 }
 else
-    header( "location: /luv/createAccountBody.html" );
+    header( "location: /luv/createAccountBody.php" );
 ?>
 
 <!DOCTYPE html>

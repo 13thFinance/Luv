@@ -234,6 +234,10 @@ body {
     margin-right: 5vw;
 }
 
+.frontend-error-message {
+    color: darkred;
+}
+
 /*************************************************************/
 
 .form-header{
