@@ -49,8 +49,8 @@ landing page for luv dating site
     </div>
     
     <div class="splash-text">
-            <h1 class="title-card">It's Personal</h1>
-            <p class="splash-bottom">The Luv Dating Website</p>
+            <h1 class="title-card noselect">It's Personal</h1>
+            <p class="splash-bottom noselect">The Luv Dating Website</p>
     </div>
     
 </body>
