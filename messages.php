@@ -3,16 +3,10 @@ require_once( "inc/is_logged_in.inc.php" );
 require_once( "inc/messaging.inc.php" );
 require_once( "inc/conversations.inc.php" );
 require_once( "inc/confirm_message_receipt.inc.php" );
-require_once("inc/new_match.inc.php");
 
 $member_id = "";
 $target_id = "";
 $messages = [];
-<<<<<<< HEAD
-$match =[];
-=======
-$match[];
->>>>>>> ea2d7760f779ef82110aee61f472209509307636
 
 if( is_logged_in() ) {
     $member_id = $_SESSION["member_id"];
@@ -142,30 +136,7 @@ landing page for luv dating site
             <hr />
             
             
-            <?php
-            //match button php stuff
             
-            //has this user matched with other user
-            //if(db.query("select count(1) from matches where member_id = " + $member_id + " and target_id = " + $target_id))
-            //{}
-            
-            //display corresponding button based on state
-            if(get_match($member_id, $target_id) == 0)
-            {
-                print "<button class='match-button''>MATCH</button>";
-            }
-            elseif (get_match($member_id, $target_id) == 1)
-            {
-                print "<button class='matching-button''>MATCHING</button>";
-            }
-            elseif (if_matched($member_id, $target_id) == true)
-            {
-                print "<button class='matched-button''>MATCHED</button>";
-            }
-            
-
-            
-            ?>
             
             
             <hr />
@@ -212,15 +183,14 @@ landing page for luv dating site
                         var p = document.createElement( "P" );
                         var inner_div = document.createElement( "DIV" );
 
-
                         if( is_recipient ) {
                             outer_div.classList.add( "message-blue-div" );
-                            inner_div.classList.add( "message-timestamp-left" );
                         }
                         else {
-                            outer_div.classList.add( "message-orange-div" );
-                            inner_div.classList.add( "message-timestamp-right" ); 
+                            outer_div.classList.add( "message-orange-div" ); 
                         }
+
+                        inner_div.classList.add( "message-timestamp-right" );
                         p.classList.add( "message-content" );
                     
                         p.innerHTML = message_data.content;
@@ -231,10 +201,8 @@ landing page for luv dating site
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
 
-<<<<<<< HEAD
-			console.log( "confirming message receipt, is_recipient = " + is_recipient );
-=======
->>>>>>> dev-ria
+                        console.log( "confirming message receipt, is_recipient = " + is_recipient );
+                        console.log( message_data.member_id+", "+message_data.target_id+", "+message_data.timestamp );
                         $.ajax({
                             url: 'inc/confirm_message_receipt.inc.php',
                             type: 'POST',
@@ -286,28 +254,19 @@ landing page for luv dating site
                                     var is_recipient = false;
                                     if( member_id == msg.member_id && target_id == msg.target_id && msg.delivered == "0" ) {
                                         // This is the sender. Show them their own message.
-<<<<<<< HEAD
-					console.log( "calling show_sent_message, sender" );
-=======
->>>>>>> dev-ria
+					                    console.log( "calling show_sent_message, sender" );
                                         show_sent_message( is_recipient, msg );
                                     }
                                     else if( member_id == msg.target_id && target_id == msg.member_id && msg.read == "0" ) {
                                         // This is the recipient. Show them the sender's message.
                                         is_recipient = true;
-<<<<<<< HEAD
-					console.log( "calling show_sent_message, recipient, watching the conversation" );
-=======
->>>>>>> dev-ria
+					                    console.log( "calling show_sent_message, recipient, watching the conversation" );
                                         show_sent_message( is_recipient, msg );
                                     }
                                     else if( member_id == msg.target_id && msg.read == "0" ) {
                                         // This is the recipient, not actively in a conversation with the sender.
                                         is_recipient = true;
-<<<<<<< HEAD
-					console.log( "receiving sent message, not watching conversation" );
-=======
->>>>>>> dev-ria
+                                        console.log( "receiving sent message, not watching conversation" );
                                         $.ajax({
                                             url: 'inc/conversations.inc.php',
                                             type: 'POST',
@@ -315,25 +274,21 @@ landing page for luv dating site
                                                 member_id: msg.target_id,
                                                 target_id: msg.member_id
                                             },
-<<<<<<< HEAD
                                             success: function( response ) {
-						var data = JSON.parse( response );
-                                                if( data.existed == "false" ) {
-                                                    add_conversation_head( data );
-						}
-						console.log( "confirming message 'read' receipt" );
-=======
-                                            success: function( data ) {
+                                                console.log( response );
+                                                var data = JSON.parse( response );
+                                                console.log( "got a response from conversations.inc.php" )
+                                                console.log( data );
                                                 if( data.existed == "false" ) {
                                                     add_conversation_head( data );
                                                 }
->>>>>>> dev-ria
+                                                console.log( "confirming message 'read' receipt" );
                                                 $.ajax({
                                                     url: 'inc/confirm_message_receipt.inc.php',
                                                     type: 'POST',
                                                     data: {
-                                                        member_id: msg.target_id,
-                                                        target_id: msg.member_id,
+                                                        member_id: msg.member_id,
+                                                        target_id: msg.target_id,
                                                         timestamp: msg.timestamp,
                                                         is_recipient: is_recipient
                                                     }
