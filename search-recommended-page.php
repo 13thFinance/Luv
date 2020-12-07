@@ -17,7 +17,7 @@ if( is_logged_in() ) {
     }
     elseif ( isset($_POST["search"]) ) {
         if ( isset($_POST["searchtext"]) ) {
-            $search_results = search_users( $_POST["searchtext"] );
+            $search_results = search_users( $member_id, $_POST["searchtext"] );
         }
     }
 }

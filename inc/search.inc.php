@@ -7,16 +7,17 @@ require_once( "mysql.inc.php" );
 //   Search for members in the db who match the search val in ANY of
 //   their public facing information fields, but limit to 10 hits.
 //==========================================================================
-function search_users( $search_val ) {
+function search_users( $member_id, $search_val ) {
 
     $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
         from members left join reviews on members.member_id=reviews.target_id 
         where (name like ? or sex like ? or gender like ? or age like ? or location like ?
         or job_title like ? or personality like ? or looking_for like ? or about_me like ?) 
-        and is_admin=0 group by members.member_id limit 10;";
+        and members.is_admin=0 and members.member_id<>? group by members.member_id limit 10;";
     $query_params = [];
     for( $i = 0; $i < 9; $i++)
         array_push( $query_params, "%$search_val%" );
+    array_push( $query_params, $member_id );
     $result = db_query( $query_string, $query_params );
 
     if( $result === false ) {
@@ -61,7 +62,8 @@ function search_recommended_users( $member_id ) {
 
             $query_string = "select members.member_id,name,about_me,picture,avg(rating) as rating 
                 from members left join reviews on members.member_id=reviews.target_id 
-                where personality in ($query_filter) and members.member_id<>? group by members.member_id limit 10;";
+                where personality in ($query_filter) and members.member_id<>? and is_admin=0 
+                group by members.member_id limit 10;";
 
             $result_recommendations = db_query( $query_string, $query_params );
 
