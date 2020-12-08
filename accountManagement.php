@@ -224,20 +224,20 @@ else
                         var username_p = document.createElement( "P" );
                         var feedback_div = document.createElement( "DIV" );
                         var review_textarea = document.createElement( "TEXTAREA" );
-                        var hline_hr = document.createElement("HR");
                         var review_stars_div = document.createElement( "DIV" );
                         
                         review_parent_div.classList.add("review-parent-div");
                         review_image_div.classList.add("review-image-div");
                         profile_image_source.classList.add("reviewProfilePic");
-                        username_p.classList.add("review-profile-pic-name");
+                        username_p.classList.add("profile-username");
                         feedback_div.classList.add("review-feedback-div");
                         review_textarea.classList.add("review-text-area-readonly");
                         review_stars_div.classList.add("review-stars-flex-div");
                         
-                        review_textarea.rows = "5";
+                        review_textarea.rows = "8";
                         review_textarea.cols = "105";
                         review_textarea.style.resize = "none";
+                        review_textarea.readOnly = true;
                         review_textarea.innerHTML = content;
                         profile_image_source.src = picture;
                         profile_image_source.alt = "Profile Picture";
@@ -271,7 +271,6 @@ else
                         }
                         
                         feedback_div.appendChild(review_textarea);
-                        feedback_div.appendChild(hline_hr);
                         feedback_div.appendChild(review_stars_div);
                         
                         image_div.appendChild(profile_image_source);

@@ -42,7 +42,7 @@
                     </div>
                     <hr/>
                     <div class="button-div">
-                        <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Create Account</button>
+                        <button type="submit" id="submitCreateProfile" class="create-account-submit" name="submit">Create Account</button>
                     </div>
                     <?php 
                     session_start();
@@ -71,7 +71,7 @@
                     </div>
                     <hr/>
                     <div class="button-div">
-                        <button type="submit" id="submitProfile" class="create-account-submit" name="submit">Login</button>
+                        <button type="submit" id="submitLogin" class="create-account-submit" name="submit">Login</button>
                     </div>
                     <?php 
                     session_start();
