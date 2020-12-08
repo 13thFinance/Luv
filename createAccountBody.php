@@ -26,16 +26,16 @@
                 </div>
                 <div class="create-account-form-class">
                     <div>
-                        <input type="text" id ="full-name" class ="account-field" name="name" placeholder="Full Name" maxlength="100"/>
+                        <input type="text" id ="full-name" class ="account-field" name="name" placeholder="Full Name" maxlength="100" autocomplete="off"/>
                     </div>
                     <!--<div>
                         <input type="text" id ="last-name" class ="account-field" placeholder="Last Name"/>
                     </div>-->
                     <div>
-                        <input type="email" id ="create-email" class ="account-field" name="email" placeholder="Email" maxlength="320"/>
+                        <input type="email" id ="create-email" class ="account-field" name="email" placeholder="Email" maxlength="320" autocomplete="off"/>
                     </div>
                     <div>
-                        <input type="password" id ="create-password" class ="account-field" name="password" placeholder="Password"/>
+                        <input type="password" id ="create-password" class ="account-field" name="password" placeholder="Password" />
                     </div>
                     <div>
                         <input type="password" id="create-confirm-password" class ="account-field" placeholder="Confirm Password"/>

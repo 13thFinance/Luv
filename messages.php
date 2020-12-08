@@ -52,16 +52,14 @@ landing page for luv dating site
 </head>
     
 <body class="landing-page">
-    <div class="top-bar">
-        <div class="navbar">
-            <div id="nav-placeholder"></div>
+    <div class="navbar">
+        <div id="nav-placeholder"></div>
 
-            <script>
-                $(function(){
-                  $("#nav-placeholder").load("modules/nav.html");
-                });
-            </script>
-        </div>
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("modules/nav.html");
+            });
+        </script>
     </div>
     
     <script>
@@ -308,7 +306,7 @@ landing page for luv dating site
                 else {
                     echo
                     '<div class="send-message-div">
-                        <input type="text" id="send-message-text" placeholder="Send Message" />
+                        <input type="text" id="send-message-text" placeholder="Send Message" autocomplete="off"/>
                         <button type="send-message" id="send-message-button" onclick="send_message()" >Send</button>
                     </div>';
                 }

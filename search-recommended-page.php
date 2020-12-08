@@ -34,7 +34,7 @@ else
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
 </head>
-<body class="landing-page">
+<body class="landing-page search-page">
     
     <div class="navbar">
         <div id="nav-placeholder"></div>
@@ -71,7 +71,7 @@ else
 
             var profile_html = 
                     "<div class='search-profile-image-div'> " +
-                        "<img src='" + picture  +"' alt='img/profile/default.png' class ='reviewProfilePic'> " +
+                        "<img src='" + picture  +"' alt='Profile Picture' class ='reviewProfilePic'> " +
                         "<p id='search-profile-user-name' class='profile-username'>" + name + "</p> " +
                     "</div> " +
 
@@ -87,6 +87,13 @@ else
                     profile_html += 
                         "<div class='review-stars-div'> " +
                         "    <img src='img/rating/rating.png' />  " +
+                        "</div> ";
+                }
+
+                for( ; i < 5; i++ ) {
+                    profile_html += 
+                        "<div class='review-stars-div'> " +
+                        "    <img src='img/rating/rating_greyscale.png' />  " +
                         "</div> ";
                 }
             

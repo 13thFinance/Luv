@@ -104,16 +104,16 @@ else
                         
                         <div id="name-personality-pair-read-only">
                              <div id="user-name-read-only">
-                                <div class = "frameBodyAccountManagement">  
-                                    <div class = "frameTitleAccountManagement"> Name </div>
+                                <div class = "frameBodyViewOtherProfile">  
+                                    <div class = "frameTitleViewOtherProfile"> Name </div>
                                     <input type = "text" id = "nameBoxInput-read-only" placeholder="Input Name" value="<?php echo $users_name ?>">
                                 </div>
                             </div>
 
                             <div id="user-personality-read-only">
-                                <div class = "frameBodyAccountManagement">  
-                                    <div class = "frameTitleAccountManagement"> Personality </div>
-                                    <input type = "text" id = "personalityBoxInput-read-only" placeholder="Input Personality" value="<?php echo $personality ?>">
+                                <div class = "frameBodyViewOtherProfile">  
+                                    <div class = "frameTitleViewOtherProfile"> Personality </div>
+                                    <input type = "text" id = "personalityBoxInput-read-only" value="<?php echo $personality ?>">
                                 </div>
                             </div>
                         </div>
@@ -121,39 +121,39 @@ else
                         <div id="about-me-div-readonly">
                             <div id = "about-me-body-readonly">
                                 <div id = "about-me-title-readonly"> About Me</div>
-                                <textarea id = "about-me-input-readonly" name = "aboutMeInfo" rows = "12" cols = "60" style="resize: none" disabled><?php echo "$about_me_text"; ?></textarea>
+                                <textarea id = "about-me-input-readonly" name = "aboutMeInfo" rows = "12" cols = "60" style="resize: none" readonly><?php echo "$about_me_text"; ?></textarea>
                             </div>
                         </div>
                         <div id = "sex-gender-div-readonly">
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Sex </div>
-                                <input type = "text" name = "sexPreferenceInput" id = "sex-box-input-readonly" placeholder="Input Sex Preference" value="<?php echo $sex ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Sex </div>
+                                <input type = "text" name = "sexPreferenceInput" id = "sex-box-input-readonly" value="<?php echo $sex ?>" readonly>
                             </div>
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Gender </div>
-                                <input type = "text" name = "Gender" id = "gender-selection-menu-readonly" placeholder="gender" value="<?php echo ucfirst($gender) ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Gender </div>
+                                <input type = "text" name = "Gender" id = "gender-selection-menu-readonly" value="<?php echo ucfirst($gender) ?>" readonly>
                             </div>
                         </div>
                         <div id = "age-looking-for-div-readonly">
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Age </div>
-                                <input type = "text" name = "ageInput" id = "age-box-input-readonly" placeholder="Input Age" value="<?php echo $age ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Age </div>
+                                <input type = "text" name = "ageInput" id = "age-box-input-readonly" value="<?php echo $age ?>" readonly>
                             </div>
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Looking For </div>
-                                <input type = "text" name = "lookingForInput" id = "looking-for-box-input-readonly" placeholder="Looking for..." value="<?php echo $looking_for ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Looking For </div>
+                                <input type = "text" name = "lookingForInput" id = "looking-for-box-input-readonly" value="<?php echo $looking_for ?>" readonly>
                             </div>
                         </div>
                         <div id="job-title-div-readonly">
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Job Title </div>
-                                <input type = "text" name = "jobTitleInput" id = "job-title-box-input-readonly" placeholder="Input Job Title" value="<?php echo $job_title ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Job Title </div>
+                                <input type = "text" name = "jobTitleInput" id = "job-title-box-input-readonly" value="<?php echo $job_title ?>" readonly>
                             </div>
                         </div>
                         <div id="location-div-readonly">
-                            <div class = "frameBodyAccountManagement">  
-                                <div class = "frameTitleAccountManagement"> Location </div>
-                                <input type = "text" name = "locationInput" id = "location-box-input-readonly" placeholder="Where are you from?" value="<?php echo $location ?>" disabled>
+                            <div class = "frameBodyViewOtherProfile">  
+                                <div class = "frameTitleViewOtherProfile"> Location </div>
+                                <input type = "text" name = "locationInput" id = "location-box-input-readonly" value="<?php echo $location ?>" readonly>
                             </div>
                         </div>
                         
@@ -213,20 +213,20 @@ else
                             var username_p = document.createElement( "P" );
                             var feedback_div = document.createElement( "DIV" );
                             var review_textarea = document.createElement( "TEXTAREA" );
-                            var hline_hr = document.createElement("HR");
                             var review_stars_div = document.createElement( "DIV" );
 
                             review_parent_div.classList.add("review-parent-div");
                             review_image_div.classList.add("review-image-div");
                             profile_image_source.classList.add("reviewProfilePic");
-                            username_p.classList.add("review-profile-pic-name");
+                            username_p.classList.add("profile-username");
                             feedback_div.classList.add("review-feedback-div");
-                            review_textarea.classList.add("review-text-area");
+                            review_textarea.classList.add("review-text-area-readonly");
                             review_stars_div.classList.add("review-stars-flex-div");
 
-                            review_textarea.rows = "5";
+                            review_textarea.rows = "8";
                             review_textarea.cols = "105";
                             review_textarea.style.resize = "none";
+                            review_textarea.readOnly = true;
                             review_textarea.innerHTML = content;
                             profile_image_source.src = picture;
                             profile_image_source.alt = "img/profile/default.png";
@@ -235,7 +235,7 @@ else
 
                             // add more hearts per rating
                             var i;
-                            for (i = 1; i <= rating; i++) {
+                            for (i = 0; i < rating; i++) {
 
                                 var stars_div = document.createElement( "DIV" );
                                 var stars_image = document.createElement( "IMG" );
@@ -248,8 +248,18 @@ else
                                 review_stars_div.appendChild(stars_div);
                             }
 
+                            for( ; i < 5; i++ ) {
+                                var stars_div = document.createElement( "DIV" );
+                                var stars_image = document.createElement( "IMG" );
+
+                                stars_div.classList.add("review-stars-div");
+                                stars_image.src = "img/rating/rating_greyscale.png";
+                                stars_div.appendChild(stars_image);
+
+                                review_stars_div.appendChild(stars_div);
+                            }
+
                             feedback_div.appendChild(review_textarea);
-                            feedback_div.appendChild(hline_hr);
                             feedback_div.appendChild(review_stars_div);
 
                             image_div.appendChild(profile_image_source);

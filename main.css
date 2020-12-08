@@ -278,15 +278,14 @@ body {
 #mainDivAccountManagement, #main-div-view-other{
     position: absolute;
     display: flex;
-    
+    max-width: 100%;
     justify-content: center;
 }
 
 #profileBodyDiv-Left, #profile-body-div-left-readonly{
     background: rgba(255,255,255,50%);
     border-radius: 10px;
-    
-    padding: 6vw;
+    padding: 5.5vw;
     
 }
 #reviewsAccountManagement-Right, #reviews-account-management-right-readonly{
@@ -339,6 +338,19 @@ body {
     padding-top: 2%;
 }
 
+#about-me-input-readonly, #sex-box-input-readonly, #gender-selection-menu-readonly,
+#age-box-input-readonly, #looking-for-box-input-readonly, #job-title-box-input-readonly,
+#location-box-input-readonly, .review-text-area-readonly {
+    background: rgba(255,255,255,60%);
+    pointer-events: none;
+}
+
+.review-text-area-readonly {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 8px;
+}
+
 .frameBodyAccountManagement {
     align-items: center;
     height: 30px;
@@ -359,6 +371,27 @@ body {
     text-align: center;
     border-radius: 8px;
     
+}
+
+.frameBodyViewOtherProfile {
+    align-items: center;
+    height: 30px;
+    width: 200px;
+    border: 1px solid grey;
+    position: relative;
+    flex-grow: 1;
+    margin: 6px;
+}
+
+.frameTitleViewOtherProfile {
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    height: 20px;
+    width: 80px;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
 }
 
 
@@ -384,45 +417,43 @@ body {
     justify-content: space-between;
 }
 
-#sexBoxInput, #sex-box-input-readonly, #nameBoxInput, #personalityBoxInput{
+#sexBoxInput, #ageBoxInput, #lookingForBoxInput, #nameBoxInput, #personalityBoxInput {
     width: 96%;
     padding-top: 5%;
 }
 
-#ageBoxInput, #age-box-input-readonly{
-    width: 96%;
+#sex-box-input-readonly, #gender-selection-menu-readonly {
+    width: 98%;
+    height: 64%;
     padding-top: 5%;
+    border: hidden;
 }
 
-#lookingForBoxInput, #looking-for-box-input-readonly{
-    width: 96%;
+#age-box-input-readonly, #looking-for-box-input-readonly {
+    width: 98%;
+    height: 60%;
     padding-top: 5%;
+    border: hidden;
 }
-
-
-
-
-
-
-
-
-
-
 
 #nameBoxInput-read-only, #personalityBoxInput-read-only{
-    background: rgba(255,255,255,50%);
-    width: 96%;
+    background: rgba(255,255,255,60%);
+    width: 98%;
+    height: 65%;
     padding-top: 5%;
     pointer-events: none;
+    border: hidden;
 }
 
-#jobTitleBoxInput, #job-title-box-input-readonly{
+#jobTitleBoxInput, #locationBoxInput {
     width: 98%;
     padding-top: 2%;
 }
 
-#locationBoxInput, #location-box-input-readonly{
-    width: 98%;
+#job-title-box-input-readonly, #location-box-input-readonly {
+    border: hidden;
+    width: 99%;
+    height: 66%;
     padding-top: 2%;
 }
 
@@ -430,11 +461,6 @@ body {
 {
     padding-top: 5%;
     width: 100%;
-}
-
-#gender-selection-menu-readonly{
-    padding-top: 5%;
-    width: 96%;
 }
 
 #ageLookingForDiv, #age-looking-for-div-readonly{
@@ -522,7 +548,8 @@ body {
     display: flex;
     border: 1px;
     border-style: solid;
-    height: 150px;
+    border-radius: 8px;
+    height: 200px;
     padding: 1vw;
     margin-top: 2vw;
     width: 970px;
@@ -733,6 +760,10 @@ hr {
     text-align: center;
 }
 
+.review-feedback-div {
+    margin-right: 1em;
+}
+
 .review-image-div{
     display: flex;
     flex-direction: column;
@@ -795,15 +826,26 @@ hr {
     display: flex;
     margin: 2em;
     padding: 2em;
+    width: 90em;
     justify-content: center;
     background: rgba(255,255,255, 50%);
     border-radius: 10px;
 }
 
+#search-result-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    max-height: 56.5em;
+    text-align: center;
+}
+
+
 .review-stars-flex-div
 {
     display: flex;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
 
 img {
@@ -826,6 +868,15 @@ img {
     display: flex;
     flex-direction: row;
     padding-left: 4em;
+}
+
+.search-profile-image-div, .review-image-div {
+    width: 200px;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 3em;
+    text-align: center;
 }
 
 .search-profile-view-button, .search-profile-message-button{
@@ -851,6 +902,9 @@ img {
 .search-profile-aboutme-text-area{
     margin-top: 1em;
     margin-bottom: 0.8em;
+    background: rgba(255,255,255,60%);
+    pointer-events: none;
+    border-radius: 8px;
 }
 
 /**************************************************************

@@ -84,7 +84,7 @@ else
                          <div id="userName">
                             <div class = "frameBodyAccountManagement">  
                                 <div class = "frameTitleAccountManagement"> Name </div>
-                                <input type = "text" id = "nameBoxInput" name="nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>">
+                                <input type = "text" id = "nameBoxInput" name="nameBoxInput" placeholder="Input Name" value="<?php echo $users_name ?>" autocomplete="off">
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@ else
                     <div id = "sexGenderDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Sex </div>
-                            <input type = "text" id = "sexBoxInput" name="sexBoxInput" placeholder="Input Sex Preference" value="<?php echo $sex ?>">
+                            <input type = "text" id = "sexBoxInput" name="sexBoxInput" placeholder="Input Sex Preference" value="<?php echo $sex ?>" autocomplete="off">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Gender </div>
@@ -140,23 +140,23 @@ else
                     <div id = "ageLookingForDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Age </div>
-                            <input type = "text" id = "ageBoxInput" name="ageBoxInput" placeholder="Input Age" value="<?php echo $age ?>">
+                            <input type = "text" id = "ageBoxInput" name="ageBoxInput" placeholder="Input Age" value="<?php echo $age ?>" autocomplete="off">
                         </div>
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Looking For </div>
-                            <input type = "text" id = "lookingForBoxInput" name="lookingForBoxInput" placeholder="Looking for..." value="<?php echo $looking_for ?>">
+                            <input type = "text" id = "lookingForBoxInput" name="lookingForBoxInput" placeholder="Looking for..." value="<?php echo $looking_for ?>" autocomplete="off">
                         </div>
                     </div>
                     <div id="jobTitleDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Job Title </div>
-                            <input type = "text" id = "jobTitleBoxInput" name="jobTitleBoxInput" placeholder="Input Job Title" value="<?php echo $job_title ?>">
+                            <input type = "text" id = "jobTitleBoxInput" name="jobTitleBoxInput" placeholder="Input Job Title" value="<?php echo $job_title ?>" autocomplete="off">
                         </div>
                     </div>
                     <div id="locationDiv">
                         <div class = "frameBodyAccountManagement">  
                             <div class = "frameTitleAccountManagement"> Location </div>
-                            <input type = "text" id = "locationBoxInput" name="locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>">
+                            <input type = "text" id = "locationBoxInput" name="locationBoxInput" placeholder="Where are you from?" value="<?php echo $location ?>" autocomplete="off">
                         </div>
                     </div>
                     <div id="saveChangesDiv">
