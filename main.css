@@ -522,12 +522,12 @@ body {
 
 #reviewsLabelDiv, #reviews-label-div-readonly{
     text-align: center;
-    background-color: rgb(220,220,220);
+    background-color: rgb(220,220,220, 70%);
     font-size: 40px;
     height: 50px;
     padding: 3px;
     width: 1040px;
-    
+    border-radius: 8px;
 }
 
 .reviews-space-div{
