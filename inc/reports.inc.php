@@ -2,8 +2,8 @@
 require_once( "logging.inc.php" );
 require_once( "mysql.inc.php" );
 
-if( isset($_POST["submit_delete"]) and isset($_POST["member_id"]) ){
-    deleteAccount( $_POST["member_id"] );
+if( isset($_POST["submit_delete"]) and isset($_POST["target_id"]) ){
+    deleteAccount( $_POST["target_id"] );
 }
 else if( isset($_POST["submit_ignore"]) and isset($_POST["member_id"]) and 
         isset($_POST["target_id"]) and isset($_POST["timestamp"]) ) {
