@@ -188,7 +188,8 @@ else
                     <script>
                         var disabled = <?php echo $disable_review_button; ?>;
                         if( disabled == true ) {
-                            document.getElementById( "add-review-button" ).remove();
+                            review_btn_div = document.getElementById( "add-review-button" ).parentNode;
+                            review_btn_div.remove();
                         }
                     </script>
                     
