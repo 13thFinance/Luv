@@ -44,7 +44,7 @@ if( is_logged_in() ) {
     $reviews = load_reviews($member_id);
 }
 else
-    header( "location: /luv/createAccountBody.php" );
+    header( "location: /luv" );
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +55,7 @@ else
         <meta charset = "utf-8"/>
         <link rel = "stylesheet" href = "main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="img/rating/rating.png">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         
     </head>

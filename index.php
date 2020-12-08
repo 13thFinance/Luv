@@ -16,7 +16,7 @@ landing page for luv dating site
     <meta charset="utf-8">
     <title>LUV</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    
+    <link rel="shortcut icon" href="img/rating/rating.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>

@@ -32,7 +32,7 @@ if( is_logged_in() ) {
     $conversations =  load_conversations( $member_id );
 }
 else
-    header( "location: /luv/createAccountBody.php" );
+    header( "location: /luv" );
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +47,7 @@ landing page for luv dating site
     <meta charset="utf-8">
     <title>LUV</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    
+    <link rel="shortcut icon" href="img/rating/rating.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
     

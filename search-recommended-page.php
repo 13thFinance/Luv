@@ -32,6 +32,7 @@ else
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Search Recommended</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="shortcut icon" href="img/rating/rating.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
 </head>
 <body class="landing-page search-page">
