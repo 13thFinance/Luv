@@ -256,6 +256,7 @@ landing page for luv dating site
                     
                 <script>
                     var show_sent_message = function( is_recipient, message_data ) {
+                        var msg_sfx_url = "";
                         var outer_div = document.createElement( "DIV" );
                         var p = document.createElement( "P" );
                         var inner_div = document.createElement( "DIV" );
@@ -263,10 +264,11 @@ landing page for luv dating site
 
                         if( is_recipient ) {
                             outer_div.classList.add( "message-blue-div" );
-                            
+                            msg_sfx_url = "resources/sfx/msg_received.wav";
                         }
                         else {
                             outer_div.classList.add( "message-orange-div" );
+                            msg_sfx_url = "resources/sfx/msg_sent.wav";
                         }
 
                         inner_div.classList.add( "message-timestamp-right" );
@@ -279,6 +281,7 @@ landing page for luv dating site
                         outer_div.appendChild( inner_div ); 
                         document.getElementById( "message-container-div" ).appendChild( outer_div );
                         outer_div.scrollIntoView();
+                        
                         $.ajax({
                             url: 'inc/confirm_message_receipt.inc.php',
                             type: 'POST',
@@ -287,7 +290,10 @@ landing page for luv dating site
                                 target_id: message_data.target_id,
                                 timestamp: message_data.timestamp,
                                 is_recipient: is_recipient
-                            }  
+                            },
+                            success: function() {
+                                new Audio( msg_sfx_url ).play();
+                            }
                         });
                     }
                 </script>
