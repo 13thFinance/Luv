@@ -7,7 +7,7 @@ if( isset($_POST["submit_delete"]) and isset($_POST["target_id"]) ){
 }
 else if( isset($_POST["submit_ignore"]) and isset($_POST["member_id"]) and 
         isset($_POST["target_id"]) and isset($_POST["timestamp"]) ) {
-    ignoreAccount( $_POST["member_id"], $_POST["target_id"], $_POST["timestamp"] );
+    ignoreReport( $_POST["member_id"], $_POST["target_id"], $_POST["timestamp"] );
 }
 
 //==========================================================================
@@ -42,10 +42,10 @@ function deleteAccount( $member_id ) {
 }
 
 //==========================================================================
-// ignoreAccount
+// ignoreReport
 //   Removed the report from the db and nothing else
 //==========================================================================
-function ignoreAccount( $member_id, $target_id, $timestamp ) {
+function ignoreReport( $member_id, $target_id, $timestamp ) {
 
     $query_string = "DELETE FROM reports WHERE member_id=? and target_id=? and timestamp=?;";
     $query_params = [$member_id, $target_id, $timestamp];
