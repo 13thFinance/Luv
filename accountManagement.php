@@ -232,7 +232,7 @@ else
                         profile_image_source.classList.add("reviewProfilePic");
                         username_p.classList.add("review-profile-pic-name");
                         feedback_div.classList.add("review-feedback-div");
-                        review_textarea.classList.add("review-text-area");
+                        review_textarea.classList.add("review-text-area-readonly");
                         review_stars_div.classList.add("review-stars-flex-div");
                         
                         review_textarea.rows = "5";
@@ -240,13 +240,13 @@ else
                         review_textarea.style.resize = "none";
                         review_textarea.innerHTML = content;
                         profile_image_source.src = picture;
-                        profile_image_source.alt = "img/profile/default.png";
+                        profile_image_source.alt = "Profile Picture";
                         username_p.innerHTML = name;
                         
                         
                         // add more hearts per rating
                         var i;
-                        for (i = 1; i <= rating; i++) {
+                        for (i = 0; i < rating; i++) {
                             
                             var stars_div = document.createElement( "DIV" );
                             var stars_image = document.createElement( "IMG" );
@@ -254,6 +254,17 @@ else
                             stars_div.classList.add("review-stars-div");
                             stars_image.src = "img/rating/rating.png";
                             stars_image.alt = "<3";
+                            stars_div.appendChild(stars_image);
+                            
+                            review_stars_div.appendChild(stars_div);
+                        }
+
+                        for( ; i < 5; i++ ) {
+                            var stars_div = document.createElement( "DIV" );
+                            var stars_image = document.createElement( "IMG" );
+                            
+                            stars_div.classList.add("review-stars-div");
+                            stars_image.src = "img/rating/rating_greyscale.png";
                             stars_div.appendChild(stars_image);
                             
                             review_stars_div.appendChild(stars_div);

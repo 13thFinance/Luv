@@ -229,7 +229,7 @@ else
                             review_textarea.readOnly = true;
                             review_textarea.innerHTML = content;
                             profile_image_source.src = picture;
-                            profile_image_source.alt = "img/profile/default.png";
+                            profile_image_source.alt = "Profile Picture";
                             username_p.innerHTML = name;
 
 
