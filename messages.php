@@ -344,7 +344,7 @@ landing page for luv dating site
                                             member_match: "true",
                                             target_match: "true"
                                         };
-
+                                        new Audio( "resources/sfx/matched.wav" ).play();
                                         format_match_button( match_data );
                                     }
                                 });
