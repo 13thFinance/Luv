@@ -338,11 +338,15 @@ body {
     padding-top: 2%;
 }
 
-#about-me-input-readonly, #sex-box-input-readonly, #gender-selection-menu-readonly,
+#sex-box-input-readonly, #gender-selection-menu-readonly,
 #age-box-input-readonly, #looking-for-box-input-readonly, #job-title-box-input-readonly,
 #location-box-input-readonly, .review-text-area-readonly {
     background: rgba(255,255,255,60%);
     pointer-events: none;
+}
+
+#about-me-input-readonly {
+    background: rgba(255,255,255,60%);
 }
 
 .review-text-area-readonly {
@@ -903,7 +907,6 @@ img {
     margin-top: 1em;
     margin-bottom: 0.8em;
     background: rgba(255,255,255,60%);
-    pointer-events: none;
     border-radius: 8px;
 }
 
