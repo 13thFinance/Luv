@@ -58,7 +58,6 @@ function fnReviewAction( member_id, target_id ){
               content: review_content
           },
           success: function( response ) {
-            alert("Review submitted.");
             location.reload();
           }
         });
